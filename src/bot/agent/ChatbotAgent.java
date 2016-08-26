@@ -2,6 +2,7 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
+import bot.agent.search.ChatbotGreedySearch;
 import bot.knowledge.graph.Graph;
 import bot.readers.GraphReader;
 import bot.readers.RulesReader;
@@ -12,6 +13,7 @@ import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgent;
+import frsf.cidisi.faia.solver.search.Search;
 
 import java.util.Vector;
 
@@ -22,11 +24,12 @@ import java.util.Vector;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ChatbotAgent extends SearchBasedAgent{
-
     /**
      * The graph with all the knowledge of the agent
      */
     private Graph glossaryGraph;
+
+
 
     /**
      * Default constructor of the class.
@@ -52,6 +55,9 @@ public class ChatbotAgent extends SearchBasedAgent{
 
         // Create the problem
         this.setProblem( new Problem(new ChatbotGoal(), state, operators) );
+
+        // Prepare the solver with greedy search
+        this.setSolver( new Search(new ChatbotGreedySearch()) );
     }
 
 

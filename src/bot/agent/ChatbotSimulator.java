@@ -60,6 +60,8 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
          */
         chatbot.see(aPerception);
         MoveToWordAction selectedAction = chatbot.selectAction();
+
+        System.out.println("\tSelected action: " + selectedAction);
     }
 
 

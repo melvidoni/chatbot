@@ -1,5 +1,6 @@
 package bot.agent;
 
+import bot.knowledge.record.Record;
 import frsf.cidisi.faia.state.EnvironmentState;
 
 /**
@@ -10,7 +11,6 @@ public class ChatbotEnvironmentState extends EnvironmentState {
      * The statement written by the user
      */
     private String questionAsked;
-
 
     /**
      * Default constructor of the class.
@@ -28,6 +28,7 @@ public class ChatbotEnvironmentState extends EnvironmentState {
     public void initState() {
         // Set a new empty question
         questionAsked = "";
+        Record.getInstance();
     }
 
 
@@ -57,4 +58,5 @@ public class ChatbotEnvironmentState extends EnvironmentState {
     public void setQuestionAsked(String qa) {
         questionAsked = qa;
     }
+
 }
