@@ -29,8 +29,6 @@ public class ChatbotPerception extends Perception {
     }
 
 
-
-
     /**
      * Default constructor that initializes the perception with the agent
      * and the environments.

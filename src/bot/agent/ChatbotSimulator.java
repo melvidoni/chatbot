@@ -1,6 +1,7 @@
 package bot.agent;
 
 
+import bot.agent.operators.MoveToWordAction;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Agent;
 import frsf.cidisi.faia.environment.Environment;
@@ -39,8 +40,26 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
      */
     @Override
     public void start() {
-        // TODO START AGENT
-        System.out.println("ON SIMULATOR START");
+        System.out.println("\n\nON SIMULATOR START");
+
+        // First, the environment changes to get a question
+        ((ChatbotEnvironmentState) environment.getEnvironmentState()).setQuestionAsked(readStatement);
+
+        System.out.println("\tRead statement: " + readStatement);
+
+        // Get the chatbot and cast it, we can have multiple of them
+        ChatbotAgent chatbot = (ChatbotAgent) agents.firstElement();
+
+        // The chatbot must perceive what it is happening
+        ChatbotPerception aPerception = new ChatbotPerception();
+        aPerception.setQuestionSentence(readStatement);
+
+        /*
+        Now, the chatbot must see the perception and understand it
+        by normalizing it under their rules
+         */
+        chatbot.see(aPerception);
+        MoveToWordAction selectedAction = chatbot.selectAction();
     }
 
 

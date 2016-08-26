@@ -1,7 +1,9 @@
 package bot.agent;
 
 
+import bot.agent.operators.rules.OperatorRulesMap;
 import bot.agent.operators.rules.Rule;
+import bot.readers.auxialiary.WordNormalizer;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 
@@ -45,9 +47,51 @@ public class ChatbotAgentState extends SearchBasedAgentState {
 
 
 
+
+
     @Override
     public void updateState(Perception p) {
-        // TODO UPDATE AGENT STATE
+        try {
+            /*
+            Since when the state is updated the agent just got a new perception,
+            then we need to clear everything and start again.
+             */
+
+            // No word has been analyzed, so clear them
+            notAnalyzedWords.clear();
+            notAnalyzedWords = WordNormalizer.normalizeSentence( ((ChatbotPerception) p).getQuestionSentence().split(" ") );
+
+            // TODO REMOVE PRINT LINES
+            System.out.println("\tThe agent saw: " + notAnalyzedWords);
+
+            // Because nothing is analyzed, the agent takes the first word
+            currentWord = notAnalyzedWords.removeFirst();
+
+            // Now it also needs to update what it is analyzing
+            analyzedWords.clear();
+            analyzedWords.addFirst(currentWord);
+
+            // Renews the words that it found on the graph
+            foundWords.clear();
+            foundWords.add(currentWord);
+
+            // And get possible rules for this word
+            foundRules.clear();
+            foundRules.addAll(OperatorRulesMap.getInstance().getRulesOperators(currentWord));
+
+            System.out.println("\tAnd so far it found: " + foundRules);
+        }
+        catch(Exception e) {
+            // TODO CORRECT THIS THING
+            e.printStackTrace();
+
+            System.out.println("TRAP STATE WARNING");
+        }
+
+
+
+
+
     }
 
 

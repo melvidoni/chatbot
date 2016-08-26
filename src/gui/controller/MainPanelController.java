@@ -62,6 +62,8 @@ public class MainPanelController {
         // The simulator reads the question
         simulator.setReadStatement(askTextField.getText());
 
+        // Start the simulator
+        simulator.start();
     }
 
 }

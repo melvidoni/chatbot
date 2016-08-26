@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * Singleton class that keeps track of the leaf words on the graph, their rules
- * and the actions that the agent can take about them.
+ * and the actions that the agent can take about
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class OperatorRulesMap {
@@ -165,5 +165,18 @@ public class OperatorRulesMap {
         return actionsList;
     }
 
+
+
+    /**
+     * Method that obtains the rules related to a MoveToWordAction, were the
+     * destination word is the same as the parameter. This method is used to
+     * find the rules related to the first word of the statement.
+     * @param word Must match the destination word of the operator.
+     * @return The list of rules for the operator.
+     */
+    public LinkedList<Rule> getRulesOperators(String word) {
+        return rulesRelatedToOperatorMap.get(word).getRelatedRules();
+
+    }
 
 }
