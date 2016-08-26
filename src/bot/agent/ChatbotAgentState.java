@@ -13,9 +13,11 @@ import java.util.LinkedList;
  */
 public class ChatbotAgentState extends SearchBasedAgentState {
 
-    private LinkedList<String> analyzedQuestion;
-    private LinkedList<String> notAnalyzedQuestion;
+    private LinkedList<String> analyzedWords;
+    private LinkedList<String> notAnalyzedWords;
+    // TODO CHANGE TO RULES
     private LinkedList<String> foundRules;
+    private LinkedList<String> foundWords;
     private String currentWord;
 
 
@@ -33,9 +35,10 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      */
     @Override
     public void initState() {
-        analyzedQuestion = new LinkedList<>();
-        notAnalyzedQuestion = new LinkedList<>();
+        analyzedWords = new LinkedList<>();
+        notAnalyzedWords = new LinkedList<>();
         foundRules = new LinkedList<>();
+        foundWords = new LinkedList<>();
         currentWord = "";
     }
 
@@ -60,9 +63,10 @@ public class ChatbotAgentState extends SearchBasedAgentState {
         ChatbotAgentState clonedState = new ChatbotAgentState();
 
         // Clone all the components
-        clonedState.setAnalyzedQuestion( (LinkedList<String>) analyzedQuestion.clone() );
-        clone().setNotAnalyzedQuestion( (LinkedList<String>) notAnalyzedQuestion.clone() );
+        clonedState.setAnalyzedWords( (LinkedList<String>) analyzedWords.clone() );
+        clone().setNotAnalyzedWords( (LinkedList<String>) notAnalyzedWords.clone() );
         clonedState.setFoundRules( (LinkedList<String>) foundRules.clone() );
+        clonedState.setFoundWords( (LinkedList<String>) foundWords.clone() );
         clonedState.setCurrentWord( currentWord );
 
         // Return the new state
@@ -89,10 +93,11 @@ public class ChatbotAgentState extends SearchBasedAgentState {
         ChatbotAgentState otherState = (ChatbotAgentState) obj;
 
         // Otherwise, compare element by element
-        if( !analyzedQuestion.equals(otherState.getAnalyzedQuestion())
-                || !notAnalyzedQuestion.equals(otherState.getNotAnalyzedQuestion())
+        if( !analyzedWords.equals(otherState.getAnalyzedWords())
+                || !notAnalyzedWords.equals(otherState.getNotAnalyzedWords())
                 || !currentWord.equals(otherState.getCurrentWord())
-                || !foundRules.equals(otherState.getFoundRules()) ) {
+                || !foundRules.equals(otherState.getFoundRules())
+                || !foundWords.equals(otherState.getFoundWords()) ) {
             // If something is not equal, then return false
             return false;
         }
@@ -110,9 +115,10 @@ public class ChatbotAgentState extends SearchBasedAgentState {
     @Override
     public String toString() {
         // Prepare the new string
-        return "CURRENT STATE" + "\n\tAnalyzed question: " + analyzedQuestion
-                        + "\n\tNot analyzed question: " + notAnalyzedQuestion
+        return "CURRENT STATE" + "\n\tAnalyzed question: " + analyzedWords
+                        + "\n\tNot analyzed question: " + notAnalyzedWords
                         + "\n\tCurrent word: " + currentWord
+                        + "\n\tFound words: " + foundWords
                         + "\n\tFound rules: " + foundRules;
     }
 
@@ -121,8 +127,8 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * Getter to obtain the current analyzed question.
      * @return The new question under analysis.
      */
-    public LinkedList<String> getAnalyzedQuestion() {
-        return analyzedQuestion;
+    public LinkedList<String> getAnalyzedWords() {
+        return analyzedWords;
     }
 
 
@@ -131,8 +137,8 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * It replaces the previous one.
      * @param aq New question to be analyzed.
      */
-    public void setAnalyzedQuestion(LinkedList<String> aq) {
-        analyzedQuestion = aq;
+    public void setAnalyzedWords(LinkedList<String> aq) {
+        analyzedWords = aq;
     }
 
 
@@ -140,8 +146,8 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * Getter to obtain the current not analyzed question.
      * @return The new not analyzed question.
      */
-    public LinkedList<String> getNotAnalyzedQuestion() {
-        return notAnalyzedQuestion;
+    public LinkedList<String> getNotAnalyzedWords() {
+        return notAnalyzedWords;
     }
 
 
@@ -150,8 +156,8 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * a new not analyzed question
      * @param naq The new question to replace the previous one.
      */
-    public void setNotAnalyzedQuestion(LinkedList<String> naq) {
-        notAnalyzedQuestion = naq;
+    public void setNotAnalyzedWords(LinkedList<String> naq) {
+        notAnalyzedWords = naq;
     }
 
 
@@ -189,5 +195,25 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      */
     public void setCurrentWord(String cw) {
         currentWord = cw;
+    }
+
+
+    /**
+     * Getter to obtain the list of words that were found in the
+     * parth the agent followed through the graph.
+     * @return The list of words on the path.
+     */
+    public LinkedList<String> getFoundWords() {
+        return foundWords;
+    }
+
+
+    /**
+     * Setter to change the words of the path into a new different
+     * list of words. It replaces the previous ones.
+     * @param fw New list of words.
+     */
+    public void setFoundWords(LinkedList<String> fw) {
+        foundWords = fw;
     }
 }
