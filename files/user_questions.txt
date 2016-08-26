@@ -1,0 +1,183 @@
+¡Hola! ¿Cómo andás?
+Hola, ¿Cómo estás?
+¿Hola!
+¿Qué estás haciendo?
+Hola, ¿Qué estás haciendo?
+Chau
+Chau ¡Nos vemos!
+¡Hasta luego!
+Hasta mañana.
+Gracias. Nos vemos.
+Muchas gracias. Nos vemos.
+¡Gracias!
+¿Muchas gracias!
+¿Cómo te llamás?
+¿Cuál es tu nombre?
+¿Sos un agente?
+¿Sos un agente inteligente?
+¿Cuál es tu tema para la clase pública favorito?
+¿Qué tema para clase pública es tu favorito?
+¿A qué facultad vas?
+¿Cuál es tu facultad?
+¿Qué carrera estudiás?
+¿Qué carrera estudiás en la UTN?
+¿Qué estudiás en la UTN?
+¿Qué estudiás?
+¿Cuándo es tu cumpleaños?
+¿Cuándo cumplís años?
+¿Sos hombre?
+¿Sos varón?
+¿Sos nene?
+¿Sos mujer?
+¿Sos nena?
+¿Cuándo fue la primera entrega del trabajo práctico?
+¿Cuándo fue la primera entrega del TP?
+¿Cuándo fue la 1era entrega del trabajo práctico?
+¿Cuándo fue la 1era entrega del TP?
+¿Cuándo es la primera entrega del trabajo práctico?
+¿Cuándo es la primera entrega del TP?
+¿Cuándo es la 1era entrega del trabajo práctico?
+¿Cuándo es la 1era entrega del TP?
+¿Cuándo va a ser la primera entrega del trabajo práctico?
+¿Cuándo va a ser la primera entrega del TP?
+¿Cuándo va a ser la 1era entrega del trabajo práctico?
+¿Cuándo va a ser la 1era entrega del TP?
+¿Empezaste con el trabajo práctico?
+¿Empezaste con el TP?
+¿Empezaste con el desarrollo del trabajo?
+¿Empezaste con el desarrollo del trabajo práctico?
+¿Empezaste con el desarrollo del TP?
+¿Qué lenguaje usaron para el TP?
+¿Qué lenguaje usaron para el trabajo práctico?
+¿Qué lenguaje usaron?
+¿Qué lenguaje usaron para el el desarrollo del TP?
+¿Qué lenguaje usaron para el el desarrollo del trabajo práctico?
+¿Qué lenguaje van a usar para el TP?
+¿Qué lenguaje van a usar para el trabajo práctico?
+¿Qué lenguaje van a usar?
+¿Qué lenguaje van a usar para el el desarrollo del TP?
+¿Qué lenguaje van a usar para el el desarrollo del trabajo práctico?
+¿Entregaste en fecha el TP?
+¿Entregaste en fecha el trabajo práctico?
+¿Cuándo fue la segunda entrega del trabajo práctico?
+¿Cuándo fue la segunda entrega del TP?
+¿Cuándo fue la 2da entrega del trabajo práctico?
+¿Cuándo fue la 2da entrega del TP?
+¿Cuándo es la segunda entrega del trabajo práctico?
+¿Cuándo es la segunda entrega del TP?
+¿Cuándo es la 2da entrega del trabajo práctico?
+¿Cuándo es la 2da entrega del TP?
+¿Cuándo va a ser la segunda entrega del trabajo práctico?
+¿Cuándo va a ser la segunda entrega del TP?
+¿Cuándo va a ser la 2da entrega del trabajo práctico?
+¿Cuándo va a ser la 2da entrega del TP?
+¿Qué van a hacer con el desafío del TP?
+¿Qué van a hacer con el desafío del Trabajo práctico?
+¿Qué estrategia de búsqueda usaron para el TP?
+¿Qué estrategia de búsqueda usaron para el trabajo práctico?
+¿Qué estrategia de búsqueda usaron?
+¿Qué estrategia de búsqueda usaron para el desarrollo del TP?
+¿Qué estrategia de búsqueda usaron para el desarrollo del trabajo práctico?
+¿Qué estrategia de búsqueda van a usar para el TP?
+¿Qué estrategia de búsqueda van a usar para el trabajo práctico?
+¿Qué estrategia de búsqueda van a usar?
+¿Qué estrategia de búsqueda van a usar para el desarrollo del TP?
+¿Qué estrategia de búsqueda van a usar para el desarrollo del trabajo práctico?
+¿Cómo van con el TP?
+¿Cómo van con el trabajo práctico?
+¿Qué herramientas usaron para el TP?
+¿Qué herramientas usaron para el trabajo práctico?
+¿Qué herramientas usaron?
+¿Qué herramientas usaron para el desarrollo del TP?
+¿Qué herramientas usaron para el desarrollo del trabajo práctico?
+¿Qué herramientas van a usar para el TP?
+¿Qué herramientas van a usar para el trabajo práctico?
+¿Qué herramientas van a usar?
+¿Qué herramientas van a usar para el el desarrollo del TP?
+¿Qué herramientas van a usar para el el desarrollo del trabajo práctico?
+¿Cuándo fue el coloquio del trabajo práctico?
+¿Cuándo fue el coloquio del TP?
+¿Cuándo es el coloquio del trabajo práctico?
+¿Cuándo es el coloquio del TP?
+¿Cuándo es el coloquio?
+¿Cuándo fue el coloquio?
+¿Cuándo va a ser el coloquio?
+¿Cuándo va a ser el coloquio del TP?
+¿Cuándo va a ser el coloquio del trabajo práctico?
+¿Cuántos integrantes puede tener el grupo?
+¿Cuántos integrantes puede tener el grupo para el TP?
+¿Cuántos integrantes puede tener el grupo para el trabajo práctico?
+¿Cuándo es el parcial?
+¿Cuándo fue el parcial?
+¿Cuándo va a ser el parcial?
+¿Cuándo es el examen?
+¿Cuándo fue el examen?
+¿Cuándo va a ser el examen?
+¿Qué temas entran en el parcial?
+¿Qué temas entran para el parcial?
+¿Cuáles son los temas del parcial?
+¿Cuáles son los temas para el parcial?
+¿Cuáles son los temas que entran en el parcial?
+¿Cuáles son los temas que entran para el parcial?
+¿Qué temas entran en el examen?
+¿Qué temas entran para el examen?
+¿Cuáles son los temas del examen?
+¿Cuáles son los temas para el examen?
+¿Cuáles son los temas que entran en el examen?
+¿Cuáles son los temas que entran para el examen?
+¿Dónde es el parcial?
+¿Dónde se rinde el parcial?
+¿Cómo te fue en el examen?
+¿Cómo te fue en el parcial?
+¿Cómo te fue en el recuperatorio?
+¿Cuándo es el recuperatorio?
+¿Cuándo fue el recuperatorio?
+¿Cuándo va a ser el recuperatorio?
+¿Qué temas entran en el recuperatorio?
+¿Qué temas entran para el recuperatorio?
+¿Cuáles son los temas del recuperatorio?
+¿Cuáles son los temas para el recuperatorio?
+¿Cuáles son los temas que entran en el recuperatorio?
+¿Cuáles son los temas que entran para el recuperatorio?
+¿Fuiste a clases?
+¿Cuándo fuiste por última vez a clases?
+¿Qué días se cursa?
+¿Qué días se cursa IA?
+¿Qué días se cursa Inteligencia Artificial?
+¿Qué días se cursa la materia?
+¿Qué día se cursa?
+¿Qué día se cursa IA?
+¿Qué día se cursa Inteligencia Artificial?
+¿Qué día se cursa la materia?
+¿Qué día se cursa la teoría?
+¿Qué día se cursa la teoría de IA?
+¿Qué día se cursa la teoría de Inteligencia Artificial?
+¿Qué día se cursa la teoría de la materia?
+¿Qué día se cursa la práctica?
+¿Qué día se cursa la práctica de IA?
+¿Qué día se cursa la práctica Inteligencia Artificial?
+¿Qué día se cursa la práctica de la materia?
+¿Cómo se llama la profesora de teoría?
+¿Cómo se llama la profesora de teoría de IA?
+¿Cómo se llama la profesora de teoría de Inteligencia Artificial?
+¿Cómo se llama la profesora de teoría de la materia?
+¿Cómo se llama la profesora?
+¿Cómo se llama la profesora de IA?
+¿Cómo se llama la profesora de Inteligencia Artificial?
+¿Cómo se llama la profesora de la materia?
+¿Cómo se llama el profesor de práctica?
+¿Cómo se llama el profesor de práctica de IA?
+¿Cómo se llama el profesor de práctica de Inteligencia Artificial?
+¿Cómo se llama el profesor de práctica de la materia?
+¿Cómo se llama el profesor?
+¿Cómo se llama el profesor de IA?
+¿Cómo se llama el profesor de Inteligencia Artificial?
+¿Cómo se llama el profesor de la materia?
+¿Cómo se regulariza IA?
+¿Cómo se regulariza Inteligencia Artificial?
+¿Cómo se regulariza la materia?
+¿Cómo se regulariza?
+¿Cómo se promociona IA?
+¿Cómo se promociona Inteligencia Artificial?
+¿Cómo se promociona la materia?
+¿Cómo se promociona?
