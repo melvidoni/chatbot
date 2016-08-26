@@ -1,5 +1,7 @@
-package bot.readers;
+package bot.readers.auxialiary;
 
+
+import bot.readers.UnimportantWords;
 
 import java.text.Normalizer;
 import java.util.LinkedList;
@@ -60,6 +62,9 @@ public class WordNormalizer{
         // Now return the new list
         return normalizedSentence;
     }
+
+
+
 
 
 }

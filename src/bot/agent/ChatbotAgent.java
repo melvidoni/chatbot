@@ -3,12 +3,16 @@ package bot.agent;
 
 import bot.knowledge.graph.Graph;
 import bot.readers.GraphReader;
+import bot.readers.RulesReader;
 import bot.readers.UnimportantWords;
 import bot.readers.synonyms.SynonymsList;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Perception;
+import frsf.cidisi.faia.agent.search.Problem;
+import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgent;
 
+import java.util.Vector;
 
 
 /**
@@ -23,7 +27,6 @@ public class ChatbotAgent extends SearchBasedAgent{
      */
     private Graph glossaryGraph;
 
-
     /**
      * Default constructor of the class.
      */
@@ -31,15 +34,23 @@ public class ChatbotAgent extends SearchBasedAgent{
         // Call super
         super();
 
-        // Create a new state
-        state = new ChatbotAgentState();
-
         // Read secondary words
         UnimportantWords.getInstance().loadWords();
         SynonymsList.getInstance().loadSynonyms();
 
         // Read the graph
         GraphReader.loadGraph();
+
+        // Now read the operators
+        Vector<SearchAction> operators = new Vector<>();
+        operators.addAll( RulesReader.loadActionsList() );
+
+        // Create a new state
+        ChatbotAgentState state = new ChatbotAgentState();
+        this.setAgentState(state);
+
+        // Create the problem
+        this.setProblem( new Problem(new ChatbotGoal(), state, operators) );
     }
 
 

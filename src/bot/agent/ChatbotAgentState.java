@@ -1,6 +1,7 @@
 package bot.agent;
 
 
+import bot.agent.operators.rules.Rule;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 
@@ -15,8 +16,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
 
     private LinkedList<String> analyzedWords;
     private LinkedList<String> notAnalyzedWords;
-    // TODO CHANGE TO RULES
-    private LinkedList<String> foundRules;
+    private LinkedList<Rule> foundRules;
     private LinkedList<String> foundWords;
     private String currentWord;
 
@@ -65,7 +65,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
         // Clone all the components
         clonedState.setAnalyzedWords( (LinkedList<String>) analyzedWords.clone() );
         clone().setNotAnalyzedWords( (LinkedList<String>) notAnalyzedWords.clone() );
-        clonedState.setFoundRules( (LinkedList<String>) foundRules.clone() );
+        clonedState.setFoundRules( (LinkedList<Rule>) foundRules.clone() );
         clonedState.setFoundWords( (LinkedList<String>) foundWords.clone() );
         clonedState.setCurrentWord( currentWord );
 
@@ -165,7 +165,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * Getter to obtain the current rules of the state.
      * @return Current rules of the state;
      */
-    public LinkedList<String> getFoundRules() {
+    public LinkedList<Rule> getFoundRules() {
         return foundRules;
     }
 
@@ -174,7 +174,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * Setter to replace all of the existent rules, with new ones.
      * @param fr New rules to replace previous ones.
      */
-    public void setFoundRules(LinkedList<String> fr) {
+    public void setFoundRules(LinkedList<Rule> fr) {
         foundRules = fr;
     }
 

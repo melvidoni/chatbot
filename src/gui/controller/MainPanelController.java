@@ -33,7 +33,7 @@ public class MainPanelController {
     /**
      * A reference to the simulator of the agent.
      */
-    //private Simulator simulator;
+    private ChatbotSimulator simulator;
 
 
     /**
@@ -51,13 +51,16 @@ public class MainPanelController {
         ChatbotAgent agent = new ChatbotAgent();
 
         // Initialize the simulator
-        ChatbotSimulator simulator = new ChatbotSimulator(environment, agent);
+        simulator = new ChatbotSimulator(environment, agent);
     }
 
 
     @FXML
     public void askQuestion() {
         System.out.println("APRETAMOS EL BOTON");
+
+        // The simulator reads the question
+        simulator.setReadStatement(askTextField.getText());
 
     }
 
