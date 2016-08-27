@@ -62,6 +62,7 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
         MoveToWordAction selectedAction = chatbot.selectAction();
 
         System.out.println("\tSelected action: " + selectedAction);
+
     }
 
 

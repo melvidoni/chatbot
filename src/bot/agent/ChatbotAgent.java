@@ -2,20 +2,19 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.agent.search.ChatbotGreedySearch;
+import bot.agent.search.ChatbotDepthFirstSearch;
 import bot.knowledge.graph.Graph;
 import bot.readers.GraphReader;
 import bot.readers.RulesReader;
 import bot.readers.UnimportantWords;
 import bot.readers.synonyms.SynonymsList;
-import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgent;
 import frsf.cidisi.faia.solver.search.Search;
-
 import java.util.Vector;
+
 
 
 /**
@@ -28,6 +27,8 @@ public class ChatbotAgent extends SearchBasedAgent{
      * The graph with all the knowledge of the agent
      */
     private Graph glossaryGraph;
+
+    private Search searchSolver;
 
 
 
@@ -56,16 +57,38 @@ public class ChatbotAgent extends SearchBasedAgent{
         // Create the problem
         this.setProblem( new Problem(new ChatbotGoal(), state, operators) );
 
-        // Prepare the solver with greedy search
-        this.setSolver( new Search(new ChatbotGreedySearch()) );
     }
 
 
 
 
+    /**
+     * This is a method executed by the simulator to ask the agent for an
+     * action.
+     * @return The action chosen by the agent.
+     */
     @Override
     public MoveToWordAction selectAction() {
-        return null;
+        // Get the search strategy
+        ChatbotDepthFirstSearch searchStrategy = new ChatbotDepthFirstSearch();
+        searchSolver = new Search(searchStrategy);
+
+        // Do not show the search tree
+        searchSolver.setVisibleTree(Search.WHITHOUT_TREE);
+        this.setSolver(searchSolver);
+
+        // Now run the action selection process
+        MoveToWordAction selectedAction = null;
+        try {
+            selectedAction = (MoveToWordAction) this.getSolver().solve( new Object[] {this.getProblem()} );
+        }
+        catch (Exception e) {
+            // TODO REMOVE THIS EXCEPTION
+            e.printStackTrace();
+        }
+
+        // And return the selected action
+        return selectedAction;
     }
 
 

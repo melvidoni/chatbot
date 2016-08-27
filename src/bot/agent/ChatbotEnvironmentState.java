@@ -1,5 +1,6 @@
 package bot.agent;
 
+import bot.agent.operators.rules.Rule;
 import bot.knowledge.record.Record;
 import frsf.cidisi.faia.state.EnvironmentState;
 
@@ -11,6 +12,7 @@ public class ChatbotEnvironmentState extends EnvironmentState {
      * The statement written by the user
      */
     private String questionAsked;
+
 
     /**
      * Default constructor of the class.
@@ -57,6 +59,18 @@ public class ChatbotEnvironmentState extends EnvironmentState {
      */
     public void setQuestionAsked(String qa) {
         questionAsked = qa;
+    }
+
+
+
+    /**
+     * Method that adds a new node to the record, when the answer is already defined.
+     * @param rule The rule used to answer.
+     * @param criteria Criteria used to obtain the rule.
+     */
+    public void addNodeToRecord(Rule rule, String criteria) {
+        // Add the current question to the node, with the info about the answer
+        Record.getInstance().addNode(questionAsked, rule.getRuleID(), rule.getAnswer(), criteria);
     }
 
 }

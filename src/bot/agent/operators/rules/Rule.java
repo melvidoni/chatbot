@@ -95,25 +95,34 @@ public class Rule {
     }
 
 
+
     /**
-     * Calculates the specificity level of the background question. This is actually
-     * given by the amount of words from the question asked that are contained
-     * in the filtered question that identifies the rule's background.
-     * @param questionAsked Question asked by the user after the filtering process.
-     * @return Specificity level of this rule for the question.
+     * Obtains the specificity of the rule for a given question. There are three
+     * possibilities:
+     *  - If the question asked is the same of the rule, the rate is 100%.
+     *  - If the question asked is a subset of the question of rule, then the rate
+     *      is the percentage of words of the question asked found on the question
+     *      of the rule, rounded up.
+     *  - Otherwise, it is zero.
+     * @param questionAsked The question asked to be compared.
+     * @return The specificity level of the rule for the question asked.
      */
     public int getSpecificityLevel(LinkedList<String> questionAsked) {
-        // Get a counter at zero
-        int quantity = 0;
+        // If they are equals, then max priority
+        if( normalizedQuestion.equals(questionAsked) ) {
+            return 100;
+        }
+        // If questionAsked is a subset
+        if(isSubset(questionAsked)) {
+            // Get the rate
+            Double rate = ( (double) questionAsked.size()) / normalizedQuestion.size();
 
-        // Now for each word
-        // TODO THIS SPEC IS WRONG, THE NUMBER DEPENDS ON THE WORDS, IT SHOULD BE EVEN TO 100%
-        for(String word: questionAsked)
-            // If the word exists, then increase the count
-            if(normalizedQuestion.contains(word)) quantity++;
+            // Return the ceil of the rate*100
+            return (int) Math.ceil(rate*100);
 
-        // Return the value
-        return quantity;
+        }
+        // Otherwise, it is smaller, and we return 0
+        else return 0;
     }
 
 
@@ -133,7 +142,8 @@ public class Rule {
         if(normalizedQuestion.equals(questionAsked))
             return 100;
         // If it is an ordered subset
-        else if(subList(questionAsked))
+        // TODO I'M NOT SURE IF THIS IS WORKING
+        else if(isSubset(questionAsked))
             return 50;
             // Otherwise
         else
@@ -141,37 +151,67 @@ public class Rule {
     }
 
 
+
     /**
-     * Evaluates if the asked question is a subset of the filtered question
-     * that composes the background of the rule.
-     * @param questionAsked The question under study.
+     * Evaluates if the question received as a parameter is a subset of
+     * the normalized question on this rule.
+     * @param questionAsked The question to compare.
      * @return true if it is a subset, false otherwise.
      */
-    private boolean subList(LinkedList<String> questionAsked) {
-        // If this is a substring
-        if(normalizedQuestion.size() < questionAsked.size())
-            // Return false
-            return false;
-            // Otherwise...
-        else {
-            // For each word
-            for(int i = 0; i< normalizedQuestion.size() && i+questionAsked.size() <= normalizedQuestion.size(); i++) {
-                // If both first elements match
-                if(this.normalizedQuestion.get(i).equals( questionAsked.getFirst()) ) {
-                    // Get the subset
-                    LinkedList<String> subset = new LinkedList(normalizedQuestion.subList(i, i + questionAsked.size()));
+    public boolean isSubset(LinkedList<String> questionAsked) {
+        // If the normalized question is bigger
+        if(normalizedQuestion.size() >= questionAsked.size()) {
+            // Get an index for the normalized question
+            int nqIndex = 0;
 
-                    // If both subsets are equal
-                    if(subset.equals(questionAsked))
-                        // Return true
-                        return true;
+            // While this index is smaller than the size
+            while( nqIndex < normalizedQuestion.size() ) {
+
+                // If both first words are the same
+                if( normalizedQuestion.get(nqIndex).equals(questionAsked.getFirst()) ) {
+                    // Get index for both sentences
+                    int copyIndex = nqIndex;
+                    int qaIndex = 0;
+
+                    // Get a flag to know if they are still equal
+                    boolean equalsFlag = true;
+
+                    // While both indexes are less than the size, and the words are equal
+                    while(copyIndex<normalizedQuestion.size() && qaIndex<questionAsked.size() && equalsFlag) {
+                        // If they are not equals
+                        if( !normalizedQuestion.get(copyIndex).equals(questionAsked.get(qaIndex)) ) {
+                            // Change the flag
+                            equalsFlag = false;
+                        }
+
+                        // Increase the indexes
+                        copyIndex++;
+                        qaIndex++;
+                    }
+
+                    // If we got here, and the flag is true, return true!
+                    if(equalsFlag) return true;
+
+                    // Otherwise, keep checking!
+
+                }
+                // If they are not...
+                else {
+                    // Increase the index
+                    nqIndex++;
                 }
             }
+
         }
 
-        // Otherwise, return false
+        /*
+        Otherwise, the normalized question is smaller, and the asked cannot be a subset.
+        On this case, return false.
+         */
         return false;
     }
+
+
 
 
 }

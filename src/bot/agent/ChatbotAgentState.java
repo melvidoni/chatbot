@@ -21,6 +21,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
     private LinkedList<Rule> foundRules;
     private LinkedList<String> foundWords;
     private String currentWord;
+    private boolean unknownState;
 
 
     /**
@@ -42,6 +43,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
         foundRules = new LinkedList<>();
         foundWords = new LinkedList<>();
         currentWord = "";
+        unknownState = false;
     }
 
 
@@ -60,6 +62,9 @@ public class ChatbotAgentState extends SearchBasedAgentState {
             // No word has been analyzed, so clear them
             notAnalyzedWords.clear();
             notAnalyzedWords = WordNormalizer.normalizeSentence( ((ChatbotPerception) p).getQuestionSentence().split(" ") );
+
+            // So far, it is not unknown
+            unknownState = false;
 
             // TODO REMOVE PRINT LINES
             System.out.println("\tThe agent saw: " + notAnalyzedWords);
@@ -85,7 +90,9 @@ public class ChatbotAgentState extends SearchBasedAgentState {
             // TODO CORRECT THIS THING
             e.printStackTrace();
 
-            System.out.println("TRAP STATE WARNING");
+            unknownState = true;
+
+            System.out.println("UNKNOWN STATE WARNING");
         }
 
 
@@ -112,6 +119,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
         clonedState.setFoundRules( (LinkedList<Rule>) foundRules.clone() );
         clonedState.setFoundWords( (LinkedList<String>) foundWords.clone() );
         clonedState.setCurrentWord( currentWord );
+        clonedState.setUnknownState( unknownState );
 
         // Return the new state
         return clonedState;
@@ -141,7 +149,8 @@ public class ChatbotAgentState extends SearchBasedAgentState {
                 || !notAnalyzedWords.equals(otherState.getNotAnalyzedWords())
                 || !currentWord.equals(otherState.getCurrentWord())
                 || !foundRules.equals(otherState.getFoundRules())
-                || !foundWords.equals(otherState.getFoundWords()) ) {
+                || !foundWords.equals(otherState.getFoundWords())
+                || unknownState != otherState.isUnknownState() ) {
             // If something is not equal, then return false
             return false;
         }
@@ -163,7 +172,8 @@ public class ChatbotAgentState extends SearchBasedAgentState {
                         + "\n\tNot analyzed question: " + notAnalyzedWords
                         + "\n\tCurrent word: " + currentWord
                         + "\n\tFound words: " + foundWords
-                        + "\n\tFound rules: " + foundRules;
+                        + "\n\tFound rules: " + foundRules
+                        + "\n\tUnknown state: " + unknownState;
     }
 
 
@@ -259,5 +269,33 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      */
     public void setFoundWords(LinkedList<String> fw) {
         foundWords = fw;
+    }
+
+
+    /**
+     * Getter to obtain if this is an unknown state.
+     * @return true if this is unknown, false otherwise.
+     */
+    public boolean isUnknownState() {
+        return unknownState;
+    }
+
+
+    /**
+     * Setter to change the value of the unknown state.
+     * @param us New value to be set.
+     */
+    public void setUnknownState(boolean us) {
+        unknownState = us;
+    }
+
+
+    /**
+     * Method to add a new found word to the current list of words.
+     * it does not replace the existent words.
+     * @param word Word to be added.
+     */
+    public void addFoundWord(String word) {
+        foundWords.addLast(word);
     }
 }

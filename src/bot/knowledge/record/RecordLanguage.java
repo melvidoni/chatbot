@@ -9,7 +9,7 @@ public enum RecordLanguage {
     QUESTION("Question", "Pregunta"),
     ANSWER("Answer", "Respuesta"),
     RULE("Rule", "Regla"),
-    CRITERIA("Applied Criteria", "Criterios Aplicados");
+    FILTERS("Applied Filters", "Filtros Aplicados");
 
     private String englishWord;
     private String spanishWord;
@@ -42,8 +42,8 @@ public enum RecordLanguage {
             return ANSWER;
         else if(RULE.getEnglishWord().equals(e) || RULE.getSpanishWord().equals(s))
             return RULE;
-        else if(CRITERIA.getEnglishWord().equals(e) || CRITERIA.getSpanishWord().equals(s))
-            return CRITERIA;
+        else if(FILTERS.getEnglishWord().equals(e) || FILTERS.getSpanishWord().equals(s))
+            return FILTERS;
         return null;
     }
 

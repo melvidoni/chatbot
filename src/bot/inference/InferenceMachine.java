@@ -6,6 +6,7 @@ import bot.knowledge.record.Record;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.logging.Filter;
 
 /**
  * Class that selects the rule used to answer the received question.
@@ -56,19 +57,122 @@ public class InferenceMachine {
     }
 
 
-
-
-
+    /**
+     * Method that selects an answer by applying different filters available to the machine. In
+     * order, it applies specificity first, if failed or multiple answers applies priority, if failed
+     * or multiple answers applies no duplication. If no duplication fails, applies random over priority,
+     * but if no duplication succeeds with multiple answers, applies random over no duplication.
+     * @param foundRules The list of currently available rules.
+     * @param notAnalyzedWords The list of normalized words not yet analyzed.
+     */
     public void selectAnswer(LinkedList<Rule> foundRules, LinkedList<String> notAnalyzedWords) {
         // Initialize everything
         usedFilters = new LinkedList<>();
         givenAnswer = "";
         successfulRule = null;
 
+        /*
+        Start with the specificity filter, in order to see what it has. Send the found rules, and
+        the words not yet analyzed.
+         */
+        LinkedList<Rule> rulesFilteredBySpecificity = this.specificityFilter(foundRules, notAnalyzedWords);
+        // TODO CHANGE LANGUAGE?
+        usedFilters.addLast(FiltersLanguages.SPECIFICITY.getEnglishWord());
 
-        // TODO COMPLETE THIS THING HERE
+        // If the selected rules are empty
+        if( rulesFilteredBySpecificity.isEmpty() ) {
+            // The chatbot did understood, but cannot answer
+            // TODO CHANGE LANGUAGE IN HERE
+            successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
 
+            // Set this as the given answer
+            givenAnswer = successfulRule.getAnswer();
+        }
+        // If there is only one rule
+        else if( rulesFilteredBySpecificity.size() == 1 ) {
+            // Then send this rule
+            successfulRule = rulesFilteredBySpecificity.getFirst();
+            givenAnswer = successfulRule.getAnswer();
+        }
+        // But if there is more than one, we need to operate this
+        else {
+            /*
+            Since we have several rules, we now need to apply another filter. The first filter
+            to be used will be priority, since we have a lot of rules here (at least 2).
+             */
+            LinkedList<Rule> rulesFilteredByPriority = this.priorityFilter(rulesFilteredBySpecificity, notAnalyzedWords);
+            // TODO CHANGE LANGUAGE
+            usedFilters.addLast(FiltersLanguages.PRIORITY.getEnglishWord());
+
+            // If no rules are available
+            if( rulesFilteredByPriority.isEmpty() ) {
+                // The chatbot did not understood, but it cannot answer
+                // TODO CHANGE LANGUAGE IN HERE
+                successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
+
+                // Set this as the given answer
+                givenAnswer = successfulRule.getAnswer();
+            }
+            // If only one rule remains
+            if( rulesFilteredByPriority.size() == 1 ) {
+                // Store this rule
+                successfulRule = rulesFilteredByPriority.getFirst();
+                givenAnswer = successfulRule.getAnswer();
+            }
+            // Otherwise, there are more than one rule
+            else {
+                /*
+                Because we still have several answers, let's get the chatbot to use an answer that
+                was not previously used to answer before.
+                 */
+                LinkedList<Rule> rulesFilteredByNoDuplication = this.noDuplicatesFilter(rulesFilteredByPriority);
+
+                // Like before, if no rule is availble
+                if( rulesFilteredByNoDuplication.isEmpty() ) {
+                    /*
+                    On this case, this means that all answer were used before, so the chatbot will be
+                    sassy and say that it already answered, by altering one of the existent rules.
+                    */
+                    // TODO CHANGE LANGUAGE
+                    usedFilters.addLast(FiltersLanguages.NO_DUPLICATES_FAILED.getEnglishWord());
+
+                    // Randomly select a rule among the used rules
+                    Rule randomRule = this.randomFilter(rulesFilteredByPriority);
+                    usedFilters.addLast(FiltersLanguages.RANDOM_USED.getEnglishWord());
+
+                    // Change the answer and store it
+                    givenAnswer = "Creo que ya te respondí... " + randomRule.getAnswer();
+                    successfulRule = new Rule(randomRule.getNormalizedQuestion(), givenAnswer, randomRule.getRuleID()+"\'");
+                }
+                // Otherwise, we have rules
+                else {
+                    // And the filter was successful
+                    // TODO CHANGE LANGUAGE
+                    usedFilters.addLast(FiltersLanguages.NO_DUPLICATES_SUCCESSFUL.getEnglishWord());
+
+                    // If we have only one rule
+                    if( rulesFilteredByNoDuplication.size() == 1 ) {
+                        // Store this rule
+                        successfulRule = rulesFilteredByNoDuplication.getFirst();
+                        givenAnswer = successfulRule.getAnswer();
+                    }
+                    // Otherwise, we have at least two, and we need to pick one
+                    else {
+                        // Select a random rule among the unused rules
+                        successfulRule = this.randomFilter(rulesFilteredByNoDuplication);
+                        givenAnswer = successfulRule.getAnswer();
+
+                        // Add the filter
+                        // TODO CHANGE LANGUAGE
+                        usedFilters.addLast(FiltersLanguages.RANDOM_UNUSED.getEnglishWord());
+                    }
+                } // No duplicates else
+            } // Priority else
+        } // Specificity else
     }
+
+
+
 
 
 

@@ -54,10 +54,11 @@ public class Record {
      * already performed nodes.
      * @param question The question asked by the user.
      * @param ruleId The ID of the answer given by the bot.
+     * @param filter the filters used for this node.
      */
-    public void addNode(String question, String ruleId, String answer, String criteria) {
-        RecordNode nuevoNodo = new RecordNode(question, ruleId, answer, criteria);
-        list.addLast(nuevoNodo);
+    public void addNode(String question, String ruleId, String answer, String filter) {
+        RecordNode newNode = new RecordNode(question, ruleId, answer, filter);
+        list.addLast(newNode);
     }
 
 
@@ -68,12 +69,13 @@ public class Record {
      * @param ruleId the ID to be checked.
      * @return true if it was already used, or false in the other hand.
      */
-    public boolean repeatedAnswer(String ruleId) {
+    public boolean isRuleUsed(String ruleId) {
         // Prepare a flag
         boolean used = false;
 
         // If it is RE
-        if(ruleId.equals("Re") || ruleId.equals("Rr")) {
+        // TODO THIS IDS SHOULD BE ON AN ENUM
+        if(ruleId.equals("RE") || ruleId.equals("RR")) {
             // Then return false
             return false;
         }
@@ -95,50 +97,6 @@ public class Record {
         return used;
     }
 
-
-
-    /**
-     * Method that prints the chat log in a string, to be then
-     * stored in a given file.
-     * @return String with the content of each node in the log on one line.
-     */
-    private String printRecord(){
-        // Create the variable that will store the log
-        String log = "";
-
-        // Go through the list
-        for(RecordNode rn: list) {
-            // Add the node printing to the main log
-            log = log + rn.print() + "\r\n\r\n";
-        }
-
-        // Return the completed log
-        return log;
-    }
-
-
-
-    /**
-     * Method that effectively writes the log as a text file, stored in
-     * a default location.
-     * @param logName Name, including the directory, where the log is going to
-     *                be stored.
-     * @throws IOException for errors when writing the file.
-     */
-    public void generateLog(String logName) throws IOException {
-        // Create the new file
-        File logFile = new File(logName);
-
-        // Open file to be written
-        PrintWriter writer = new PrintWriter(new FileWriter(logFile));
-
-        // Write the file
-        writer.write(this.printRecord());
-
-        // Close the file
-        writer.close();
-
-    }
 
 
 

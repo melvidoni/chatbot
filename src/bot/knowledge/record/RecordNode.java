@@ -25,9 +25,9 @@ public class RecordNode {
     private String answer;
 
     /**
-     * The criteria used to answer.
+     * The filtersUsed used to answer.
      */
-    private String criteria;
+    private String filtersUsed;
 
 
     /**
@@ -37,7 +37,7 @@ public class RecordNode {
         question = "";
         ruleID = "";
         answer = "";
-        criteria = "";
+        filtersUsed = "";
     }
 
 
@@ -53,7 +53,7 @@ public class RecordNode {
         question = q;
         ruleID = id;
         answer = a;
-        criteria = c;
+        filtersUsed = c;
     }
 
 
@@ -70,7 +70,7 @@ public class RecordNode {
         nodeToPrint = RecordLanguage.QUESTION.getEnglishWord() + ": " + question + "\r\n";
         nodeToPrint = nodeToPrint + RecordLanguage.RULE.getEnglishWord() + ": " + ruleID + "\r\n";
         nodeToPrint = nodeToPrint + RecordLanguage.ANSWER.getEnglishWord() + ": " + getAnswer() + "\r\n";
-        nodeToPrint = nodeToPrint + RecordLanguage.CRITERIA.getEnglishWord() + ": " + criteria;
+        nodeToPrint = nodeToPrint + RecordLanguage.FILTERS.getEnglishWord() + ": " + filtersUsed;
 
         // Devuelvo el string
         return nodeToPrint;
@@ -128,20 +128,20 @@ public class RecordNode {
     }
 
     /**
-     * Setter to replace the current criteria on the node, for a new one
+     * Setter to replace the current filtersUsed on the node, for a new one
      * that matches the value passed as a parameter.
-     * @param c New criteria to be stored on the node.
+     * @param c New filtersUsed to be stored on the node.
      */
-    public void setCriteria(String c) {
-        criteria = c;
+    public void setFiltersUsed(String c) {
+        filtersUsed = c;
     }
 
     /**
-     * Getter to obtain the current criteria stored on the node.
-     * @return The criteria of the node.
+     * Getter to obtain the current filtersUsed stored on the node.
+     * @return The filtersUsed of the node.
      */
-    public String getCriteria() {
-        return criteria;
+    public String getFiltersUsed() {
+        return filtersUsed;
     }
 
 
