@@ -53,8 +53,8 @@ public class WordNormalizer{
             // Normalize the word
             String normalizedWord = normalizeWord(word);
 
-            // If the word is important
-            if(!unimportantWordsList.contains(normalizedWord)) {
+            // If the word is important and it is not an empty space
+            if(!unimportantWordsList.contains(normalizedWord) && !normalizedWord.isEmpty()) {
                 // add it to the list
                 reducedSentence.addLast(normalizedWord);
             }
