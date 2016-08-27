@@ -3,6 +3,7 @@ package gui.controller;
 
 import bot.agent.ChatbotAgent;
 import bot.agent.ChatbotEnvironment;
+import bot.agent.ChatbotEnvironmentState;
 import bot.agent.ChatbotSimulator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -55,6 +56,7 @@ public class MainPanelController {
     }
 
 
+
     @FXML
     public void askQuestion() {
         System.out.println("APRETAMOS EL BOTON");
@@ -64,6 +66,14 @@ public class MainPanelController {
 
         // Start the simulator
         simulator.start();
+
+        // Print the answer
+        String answer = simulator.getFinalAnswer();
+
+        System.out.println("Answer on controller: " + answer );
+
+        // Mostramos la respuesta
+        answerTextArea.setText( answer );
     }
 
 }

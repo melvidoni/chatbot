@@ -6,6 +6,12 @@ import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Agent;
 import frsf.cidisi.faia.environment.Environment;
 import frsf.cidisi.faia.simulator.SearchBasedAgentSimulator;
+import frsf.cidisi.faia.simulator.events.EventType;
+import frsf.cidisi.faia.simulator.events.SimulatorEventNotifier;
+import frsf.cidisi.faia.solver.search.NTree;
+
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * Main class that simulates the life cycle of the agent.
@@ -20,7 +26,14 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
     /**
      * Flag to keep track on case of failure.
      */
-    boolean failure;
+    private boolean failure;
+
+    /**
+     * An answer to be given by the end of a simulation
+     */
+    private String finalAnswer;
+
+
 
 
     /**
@@ -31,8 +44,9 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
     public ChatbotSimulator(Environment environment, Agent agent) {
         super(environment, agent);
         readStatement = "";
+        failure = false;
+        finalAnswer = "";
     }
-
 
 
     /**
@@ -41,6 +55,7 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
     @Override
     public void start() {
         System.out.println("\n\nON SIMULATOR START");
+        finalAnswer = "";
 
         // First, the environment changes to get a question
         ((ChatbotEnvironmentState) environment.getEnvironmentState()).setQuestionAsked(readStatement);
@@ -60,9 +75,55 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
          */
         chatbot.see(aPerception);
         MoveToWordAction selectedAction = chatbot.selectAction();
-
         System.out.println("\tSelected action: " + selectedAction);
 
+        // Obtain the path of operators
+        LinkedList<NTree> searchTreeNodesList = new LinkedList<>();
+        searchTreeNodesList.addAll( chatbot.getActionsPath() );
+
+        // Get an iterator
+        Iterator<NTree> searchTreeNodesIterator = searchTreeNodesList.iterator();
+
+        // Do at least once
+        do {
+            // If the list is empty
+            // TODO I HAVE MY DOUBTS ABOUT THIS, I THINK IT IS WRONG PLACED
+            if( searchTreeNodesList.isEmpty() ) {
+                // Mark as failure
+                failure = true;
+
+                // And set the unknown state
+                ((ChatbotAgentState) chatbot.getAgentState()).setUnknownState(true);
+                this.actionReturned(chatbot, new MoveToWordAction("..."));
+            }
+            // Otherwise, we have nodes
+            else {
+                // If there is a next node
+                if(searchTreeNodesIterator.hasNext()) {
+                    // Get that node
+                    NTree node = searchTreeNodesIterator.next();
+
+                    // And set this action
+                    selectedAction = (MoveToWordAction) node.getAction();
+                    this.actionReturned(chatbot, selectedAction);
+                }
+            }
+
+        // Do this, while the agent has not yet succeeded or failed
+        } while (!this.agentSucceeded(selectedAction) && !this.agentFailed(selectedAction));
+
+
+        // Set the final answer
+        finalAnswer = ( (ChatbotAgentState) chatbot.getAgentState()).getFoundRules().getFirst().getAnswer();
+
+        System.out.println("\nAnswer: " +  finalAnswer );
+        System.out.println();
+
+        // Close the environment
+        this.environment.close();
+
+        // Launch simulationFinished event
+        SimulatorEventNotifier.runEventHandlers(EventType.SimulationFinished, null);
     }
 
 
@@ -76,7 +137,15 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
      */
     @Override
     public void actionReturned(Agent agent, Action action) {
-        // TODO ACTION RETURNED
+        // Cast the action
+        MoveToWordAction mtwAction = (MoveToWordAction) action;
+        ChatbotAgent chatbotAgent = (ChatbotAgent) agent;
+
+        // Update the state
+        this.updateState(mtwAction);
+
+        // Show the answer
+        chatbotAgent.getSolver().showSolution();
     }
 
 
@@ -110,6 +179,15 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
      */
     public void setReadStatement(String s) {
         readStatement = s;
+    }
+
+
+    /**
+     * Method to obtain the final answer of the simulation
+     * @return the final answer of the simulation
+     */
+    public String getFinalAnswer() {
+        return finalAnswer;
     }
 
 }

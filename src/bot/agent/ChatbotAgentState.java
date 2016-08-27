@@ -115,7 +115,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
 
         // Clone all the components
         clonedState.setAnalyzedWords( (LinkedList<String>) analyzedWords.clone() );
-        clone().setNotAnalyzedWords( (LinkedList<String>) notAnalyzedWords.clone() );
+        clonedState.setNotAnalyzedWords( (LinkedList<String>) notAnalyzedWords.clone() );
         clonedState.setFoundRules( (LinkedList<Rule>) foundRules.clone() );
         clonedState.setFoundWords( (LinkedList<String>) foundWords.clone() );
         clonedState.setCurrentWord( currentWord );

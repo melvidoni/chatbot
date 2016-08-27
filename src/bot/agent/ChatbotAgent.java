@@ -12,6 +12,7 @@ import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgent;
+import frsf.cidisi.faia.solver.search.NTree;
 import frsf.cidisi.faia.solver.search.Search;
 import java.util.Vector;
 
@@ -104,5 +105,22 @@ public class ChatbotAgent extends SearchBasedAgent{
     public void see(Perception p) {
         // Simply update the state of the agent to understand this perception
         ((ChatbotAgentState) state).updateState(p);
+    }
+
+
+    /**
+     * Method to obtain the best path of actions to arrive at an
+     * answer. This are obtained from the search solved.
+     * @return Best path of actions if successful, empty path otherwise.
+     */
+    public Vector<NTree> getActionsPath() {
+        try {
+            // If this works well, return from the search solver
+            return searchSolver.getBestPath();
+        }
+        catch(Exception e) {
+            // If it goes wrong, return an empty list
+            return new Vector<>();
+        }
     }
 }

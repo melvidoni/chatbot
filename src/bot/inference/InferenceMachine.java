@@ -3,10 +3,11 @@ package bot.inference;
 
 import bot.agent.operators.rules.Rule;
 import bot.knowledge.record.Record;
-
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.logging.Filter;
+
+
+
 
 /**
  * Class that selects the rule used to answer the received question.

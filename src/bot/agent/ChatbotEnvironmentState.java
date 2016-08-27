@@ -73,4 +73,17 @@ public class ChatbotEnvironmentState extends EnvironmentState {
         Record.getInstance().addNode(questionAsked, rule.getRuleID(), rule.getAnswer(), criteria);
     }
 
+
+    /**
+     * Method to obtain the last answer on the record.
+     * @return The last answer on the record, or "..." if there is none.
+     */
+    public String showAnswer() {
+        // Get an instance of the record
+        Record record = Record.getInstance();
+
+        // Now return accordingly
+        return (record.isEmpty()) ? "..." : record.getLastAnswer();
+    }
+
 }
