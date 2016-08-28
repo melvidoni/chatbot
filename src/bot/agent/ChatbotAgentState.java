@@ -87,9 +87,6 @@ public class ChatbotAgentState extends SearchBasedAgentState {
             System.out.println("\tAnd so far it found: " + foundRules);
         }
         catch(Exception e) {
-            // TODO CORRECT THIS THING
-            e.printStackTrace();
-
             unknownState = true;
 
             System.out.println("UNKNOWN STATE WARNING");

@@ -66,11 +66,11 @@ public class ChatbotEnvironmentState extends EnvironmentState {
     /**
      * Method that adds a new node to the record, when the answer is already defined.
      * @param rule The rule used to answer.
-     * @param criteria Criteria used to obtain the rule.
+     * @param filters Criteria used to obtain the rule.
      */
-    public void addNodeToRecord(Rule rule, String criteria) {
+    public void addNodeToRecord(Rule rule, String filters) {
         // Add the current question to the node, with the info about the answer
-        Record.getInstance().addNode(questionAsked, rule.getRuleID(), rule.getAnswer(), criteria);
+        Record.getInstance().addNode(questionAsked, rule.getRuleID(), rule.getAnswer(), filters);
     }
 
 

@@ -201,7 +201,8 @@ public class MoveToWordAction extends SearchAction {
                 InferenceMachine iMachine = InferenceMachine.getInstance();
 
                 // Select an answer
-                iMachine.selectAnswer(chatbotState.getFoundRules(), chatbotState.getNotAnalyzedWords());
+                System.out.println("NOT ANALYZED WORDS ON MOVETOWORDACTION = " + chatbotState.getFoundWords());
+                iMachine.selectAnswer(chatbotState.getFoundRules(), chatbotState.getFoundWords());
 
                 // Get the elements
                 Rule selectedRule = iMachine.getSuccessfulRule();
@@ -218,8 +219,11 @@ public class MoveToWordAction extends SearchAction {
             On this case, the chatbot does not understand the question and cannot answer it
              */
             Rule cannotUnderstandRule = new Rule(null, "Lo siento, pero no te entiendo.", "RE");
+            System.out.println("On MoveToWordAction");
+
 
             // Add it to the record anyways
+            // TODO CHANGE LANGUAGE
             ((ChatbotEnvironmentState) eState).addNodeToRecord(cannotUnderstandRule, "CANNOT UNDERSTAND");
         }
 

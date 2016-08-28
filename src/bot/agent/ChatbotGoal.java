@@ -24,7 +24,7 @@ public class ChatbotGoal extends GoalTest {
         ChatbotAgentState chatbotState = (ChatbotAgentState) agentState;
 
         // If we already analyzed everything...
-        if( chatbotState.getAnalyzedWords().isEmpty() ) {
+        if( chatbotState.getNotAnalyzedWords().isEmpty() ) {
             // If the words we studied are the same than those we found
             if( chatbotState.getAnalyzedWords().equals(chatbotState.getFoundWords()) ) {
                 // Then this is a goal state

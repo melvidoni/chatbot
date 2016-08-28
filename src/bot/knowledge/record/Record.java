@@ -58,6 +58,10 @@ public class Record {
      */
     public void addNode(String question, String ruleId, String answer, String filter) {
         RecordNode newNode = new RecordNode(question, ruleId, answer, filter);
+
+        System.out.println("Adding to record: " + newNode.getAnswer());
+
+
         list.addLast(newNode);
     }
 

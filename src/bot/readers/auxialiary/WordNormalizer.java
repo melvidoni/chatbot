@@ -64,8 +64,4 @@ public class WordNormalizer{
         return SynonymsList.getInstance().replaceWithKeyWords(reducedSentence);
     }
 
-
-
-
-
 }

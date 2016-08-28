@@ -167,6 +167,10 @@ public class Rule {
             // While this index is smaller than the size
             while( nqIndex < normalizedQuestion.size() ) {
 
+                System.out.println("nqIndex = " + nqIndex);
+                System.out.println("normalizedQuestion: " + normalizedQuestion.get(nqIndex));
+                System.out.println("question asked: " + questionAsked);
+
                 // If both first words are the same
                 if( normalizedQuestion.get(nqIndex).equals(questionAsked.getFirst()) ) {
                     // Get index for both sentences

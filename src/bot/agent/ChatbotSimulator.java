@@ -2,6 +2,7 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
+import bot.knowledge.record.Record;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Agent;
 import frsf.cidisi.faia.environment.Environment;
@@ -113,8 +114,7 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
         } while (!this.agentSucceeded(selectedAction) && !this.agentFailed(selectedAction));
 
 
-        // Set the final answer
-        finalAnswer = ( (ChatbotAgentState) chatbot.getAgentState()).getFoundRules().getFirst().getAnswer();
+        finalAnswer = Record.getInstance().getLastAnswer();
 
         System.out.println("\nAnswer: " +  finalAnswer );
         System.out.println();

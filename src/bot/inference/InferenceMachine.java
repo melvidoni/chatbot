@@ -76,6 +76,7 @@ public class InferenceMachine {
         Start with the specificity filter, in order to see what it has. Send the found rules, and
         the words not yet analyzed.
          */
+        System.out.println("NOT ANALYZED WORDS ON INF MACHINE = " + notAnalyzedWords);
         LinkedList<Rule> rulesFilteredBySpecificity = this.specificityFilter(foundRules, notAnalyzedWords);
         // TODO CHANGE LANGUAGE?
         usedFilters.addLast(FiltersLanguages.SPECIFICITY.getEnglishWord());
@@ -282,6 +283,8 @@ public class InferenceMachine {
         for(Rule aRule: rulesToFilter) {
             // If this is for specificity, then get that level, otherwise get priority level
             // TODO THIS SHOULD CHANGE IF MORE FILTERS WITH LEVELS ARE ADDED
+            System.out.println("QUESTION ASKED ON BETTER RULES = " + questionAsked);
+
             int ruleValue = specificityFilter ? aRule.getSpecificityLevel(questionAsked) : aRule.getPriorityLevel(questionAsked);
 
             // If the current rule's priority is the same as the current maximum
