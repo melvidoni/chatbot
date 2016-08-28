@@ -126,8 +126,10 @@ public class OperatorRulesMap {
 
             // Now I need to add each answer to this leaf node word
             for(String anAnswer: answers) {
+
+                // TODO THE COMPARISON IF THE RULES WERE ALREADY ADDED MAY BE MESSING OTHER THINGS
                 // Try and get the ID for this rule
-                String ruleID = ifExistsGetRuleID(anAnswer);
+               String ruleID = ifExistsGetRuleID(anAnswer);
 
                 // If the rule was added, the ID is different than empty
                 if(!ruleID.equals("")) {
@@ -182,10 +184,10 @@ public class OperatorRulesMap {
         Go through all the entries on the map that stores the relations between
         the rules and the operators (last words, or leaf words).
          */
-        for(Map.Entry entry: rulesRelatedToOperatorMap.entrySet()) {
+        for(Map.Entry<String, OperatorRules> entry: rulesRelatedToOperatorMap.entrySet()) {
             // For the same leaf word on the other map...
             actionsRelatedToOperatorMap.get(entry.getKey()).
-                    setRulesList( ((OperatorRules) entry.getValue()).getRelatedRules() );
+                    setRulesList( entry.getValue().getRelatedRules() );
             // ...set the rules that are related to this entry
         }
     }

@@ -113,7 +113,7 @@ public class Rule {
             return 100;
         }
         // If questionAsked is a subset
-        if(isSubset(questionAsked)) {
+        else if(isSubset(questionAsked)) {
             // Get the rate
             Double rate = ( (double) questionAsked.size()) / normalizedQuestion.size();
 
@@ -121,8 +121,22 @@ public class Rule {
             return (int) Math.ceil(rate*100);
 
         }
-        // Otherwise, it is smaller, and we return 0
-        else return 0;
+        // TODO MAYBE REMOVE THIS
+        else {
+            // Get the amount of contained words
+            int contained = containsWords(questionAsked);
+
+            // If there are contained words...
+            if(contained > 0) {
+                // Get the rate
+                Double halfRate = ( (double) contained) / normalizedQuestion.size();
+
+                // Return the ceil of the rate*100
+                return (int) Math.ceil(halfRate*100);
+            }
+            // Otherwise, it is too different, and we return 0
+            else return 0;
+        }
     }
 
 
@@ -144,10 +158,34 @@ public class Rule {
         // If it is an ordered subset
         // TODO I'M NOT SURE IF THIS IS WORKING
         else if(isSubset(questionAsked))
-            return 50;
-            // Otherwise
+            return 65;
+        else if(containsWords(questionAsked)>0)
+            return 30;
+        // Otherwise
         else
             return 0;
+    }
+
+
+    /**
+     * Evaluates if the normalized questions contains the words of the question asked
+     * and returns the amount of words found.
+     * TODO I DON'T KNOW IF THIS IS SLOPPY OR IT SHOULD WORK LIKE THIS
+     * @param questionAsked The question to compare.
+     * @return The amount of words of questionAsked found in normalizedQuestion.
+     */
+    private int containsWords(LinkedList<String> questionAsked) {
+        // Create a counter
+        int containedWords = 0;
+
+        // For each word asked
+        for(String wordAsked : questionAsked) {
+            // If found, we add one, otherwise, we add zero
+            containedWords += normalizedQuestion.contains(wordAsked) ? 1 : 0;
+        }
+
+        // Return the value
+        return containedWords;
     }
 
 
@@ -158,7 +196,7 @@ public class Rule {
      * @param questionAsked The question to compare.
      * @return true if it is a subset, false otherwise.
      */
-    public boolean isSubset(LinkedList<String> questionAsked) {
+    private boolean isSubset(LinkedList<String> questionAsked) {
         // If the normalized question is bigger
         if(normalizedQuestion.size() >= questionAsked.size()) {
             // Get an index for the normalized question
