@@ -21,7 +21,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
     private LinkedList<Rule> foundRules;
     private LinkedList<String> foundWords;
     private String currentWord;
-    private boolean unknownState;
+    private boolean unknownState = false;
 
 
     /**

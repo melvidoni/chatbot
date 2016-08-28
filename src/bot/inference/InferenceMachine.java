@@ -94,12 +94,6 @@ public class InferenceMachine {
             // Set this as the given answer
             givenAnswer = successfulRule.getAnswer();
         }
-        // If there is only one rule
-        else if( rulesFilteredBySpecificity.size() == 1 ) {
-            // Then send this rule
-            successfulRule = rulesFilteredBySpecificity.getFirst();
-            givenAnswer = successfulRule.getAnswer();
-        }
         // But if there is more than one, we need to operate this
         else {
             /*
@@ -121,12 +115,6 @@ public class InferenceMachine {
                 successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
 
                 // Set this as the given answer
-                givenAnswer = successfulRule.getAnswer();
-            }
-            // If only one rule remains
-            if( rulesFilteredByPriority.size() == 1 ) {
-                // Store this rule
-                successfulRule = rulesFilteredByPriority.getFirst();
                 givenAnswer = successfulRule.getAnswer();
             }
             // Otherwise, there are more than one rule
@@ -252,8 +240,6 @@ public class InferenceMachine {
      * @return A list of rules filtered by specificity.
      */
     private LinkedList<Rule> specificityFilter(LinkedList<Rule> rulesToFilter, LinkedList<String> questionAsked) {
-        System.out.println("Specificity filter method");
-
         // Call the better rules method.
         return betterRules(rulesToFilter, questionAsked, true);
     }
@@ -286,9 +272,6 @@ public class InferenceMachine {
      */
     private LinkedList<Rule> betterRules(LinkedList<Rule> rulesToFilter, LinkedList<String> questionAsked,
                                             boolean specificityFilter) {
-
-        System.out.println("better rules method -> " + rulesToFilter.size());
-
         // Prepare the list of filtered rules
         LinkedList<Rule> filteredRules = new LinkedList<>();
 
@@ -300,27 +283,17 @@ public class InferenceMachine {
 
         // Now, for each rule to filter
         for(Rule aRule: rulesToFilter) {
-            System.out.println("Get a rule");
-
-
             // If this is for specificity, then get that level, otherwise get priority level
             // TODO THIS SHOULD CHANGE IF MORE FILTERS WITH LEVELS ARE ADDED
             int ruleValue = specificityFilter ? aRule.getSpecificityLevel(questionAsked) : aRule.getPriorityLevel(questionAsked);
 
-            System.out.println("get the value done");
-
-
             // If the current rule's priority is the same as the current maximum
             if(currentMaxValue == ruleValue) {
-                System.out.println("equal value");
-
                 // Add the rule at the bottom and do not change anything
                 filteredRules.addLast(aRule);
             }
             // Otherwise, if it is bigger
             else if(ruleValue > currentMaxValue) {
-                System.out.println("bigger value");
-
                 // Set this as the maximum
                 currentMaxValue = ruleValue;
 

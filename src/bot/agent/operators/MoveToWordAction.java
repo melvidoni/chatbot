@@ -63,11 +63,17 @@ public class MoveToWordAction extends SearchAction {
         ChatbotAgentState chatbotState = (ChatbotAgentState) aState;
         ChatbotGoal chatbotGoal = new ChatbotGoal();
 
+        System.out.println("Real execute");
+
         // If this is a goal or unknown...
         if( chatbotGoal.isGoalState(chatbotState) || chatbotState.isUnknownState() ) {
+            System.out.println("is goal or unknown");
+
             // Update the environment
             updateEnvironment(aState, eState);
         }
+
+        System.out.println("Environment updated?");
 
         // Return the environment's state
         return eState;
@@ -84,9 +90,6 @@ public class MoveToWordAction extends SearchAction {
      */
     @Override
     public SearchBasedAgentState execute(SearchBasedAgentState s) {
-        System.out.println("Execute falso");
-
-
         // Cast the state
         ChatbotAgentState chatbotState = (ChatbotAgentState) s;
 

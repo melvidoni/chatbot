@@ -2,7 +2,6 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.agent.search.ChatbotDepthFirstSearch;
 import bot.knowledge.graph.Graph;
 import bot.readers.GraphReader;
 import bot.readers.RulesReader;
@@ -12,6 +11,7 @@ import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgent;
+import frsf.cidisi.faia.solver.search.DepthFirstSearch;
 import frsf.cidisi.faia.solver.search.NTree;
 import frsf.cidisi.faia.solver.search.Search;
 import java.util.Vector;
@@ -24,11 +24,6 @@ import java.util.Vector;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ChatbotAgent extends SearchBasedAgent{
-    /**
-     * The graph with all the knowledge of the agent
-     */
-    private Graph glossaryGraph;
-
     private Search searchSolver;
 
 
@@ -71,7 +66,7 @@ public class ChatbotAgent extends SearchBasedAgent{
     @Override
     public MoveToWordAction selectAction() {
         // Get the search strategy
-        ChatbotDepthFirstSearch searchStrategy = new ChatbotDepthFirstSearch();
+        DepthFirstSearch searchStrategy = new DepthFirstSearch();
         searchSolver = new Search(searchStrategy);
 
         // Do not show the search tree
@@ -104,7 +99,7 @@ public class ChatbotAgent extends SearchBasedAgent{
     @Override
     public void see(Perception p) {
         // Simply update the state of the agent to understand this perception
-        ((ChatbotAgentState) state).updateState(p);
+        state.updateState(p);
     }
 
 

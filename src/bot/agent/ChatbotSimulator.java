@@ -57,6 +57,7 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
     public void start() {
         System.out.println("\n\nON SIMULATOR START");
         finalAnswer = "";
+        failure = false;
 
         // First, the environment changes to get a question
         ((ChatbotEnvironmentState) environment.getEnvironmentState()).setQuestionAsked(readStatement);
@@ -90,6 +91,8 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
             // If the list is empty
             // TODO I HAVE MY DOUBTS ABOUT THIS, I THINK IT IS WRONG PLACED
             if( searchTreeNodesList.isEmpty() ) {
+                System.out.println("TREE NODES EMPTY");
+
                 // Mark as failure
                 failure = true;
 
@@ -101,7 +104,9 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
             else {
                 // If there is a next node
                 if(searchTreeNodesIterator.hasNext()) {
-                    // Get that node
+                    System.out.println("iterator has next");
+
+                      // Get that node
                     NTree node = searchTreeNodesIterator.next();
 
                     // And set this action
@@ -109,6 +114,8 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
                     this.actionReturned(chatbot, selectedAction);
                 }
             }
+
+            System.out.println("DO WHILE BOTTOM ACTION NULL? " + selectedAction);
 
         // Do this, while the agent has not yet succeeded or failed
         } while (!this.agentSucceeded(selectedAction) && !this.agentFailed(selectedAction));
@@ -125,8 +132,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
         // Launch simulationFinished event
         SimulatorEventNotifier.runEventHandlers(EventType.SimulationFinished, null);
     }
-
-
 
 
     /**

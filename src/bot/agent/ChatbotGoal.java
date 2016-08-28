@@ -20,17 +20,25 @@ public class ChatbotGoal extends GoalTest {
      */
     @Override
     public boolean isGoalState(AgentState agentState) {
+        System.out.println("IS GOAL STATE");
+
         // Get the state casted
         ChatbotAgentState chatbotState = (ChatbotAgentState) agentState;
 
         // If we already analyzed everything...
         if( chatbotState.getNotAnalyzedWords().isEmpty() ) {
+            System.out.println("IS EMPTY");
+
             // If the words we studied are the same than those we found
             if( chatbotState.getAnalyzedWords().equals(chatbotState.getFoundWords()) ) {
                 // Then this is a goal state
                 return true;
             }
+
+            System.out.println("NOT EQUALS");
         }
+
+        System.out.println("NOT EMPTY");
 
         // Otherwise, this is not a goal yet
         return false;
