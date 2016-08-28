@@ -91,8 +91,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
             // If the list is empty
             // TODO I HAVE MY DOUBTS ABOUT THIS, I THINK IT IS WRONG PLACED
             if( searchTreeNodesList.isEmpty() ) {
-                System.out.println("TREE NODES EMPTY");
-
                 // Mark as failure
                 failure = true;
 
@@ -104,8 +102,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
             else {
                 // If there is a next node
                 if(searchTreeNodesIterator.hasNext()) {
-                    System.out.println("iterator has next");
-
                       // Get that node
                     NTree node = searchTreeNodesIterator.next();
 
@@ -114,8 +110,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
                     this.actionReturned(chatbot, selectedAction);
                 }
             }
-
-            System.out.println("DO WHILE BOTTOM ACTION NULL? " + selectedAction);
 
         // Do this, while the agent has not yet succeeded or failed
         } while (!this.agentSucceeded(selectedAction) && !this.agentFailed(selectedAction));

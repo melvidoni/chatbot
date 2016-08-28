@@ -1,9 +1,6 @@
 package bot.knowledge.record;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -32,7 +29,7 @@ public class Record {
      * Default constructor of the class
      */
     private Record() {
-        list = new LinkedList<RecordNode>();
+        list = new LinkedList<>();
     }
 
 

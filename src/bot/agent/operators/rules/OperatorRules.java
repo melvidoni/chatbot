@@ -17,7 +17,7 @@ public class OperatorRules {
     /**
      * A list of related rules
      */
-    LinkedList<Rule> relatedRules;
+    private LinkedList<Rule> relatedRules;
 
 
 
@@ -27,7 +27,7 @@ public class OperatorRules {
      */
     public OperatorRules(String operatorName) {
         operatorWord = operatorName;
-        relatedRules = new LinkedList<Rule>();
+        relatedRules = new LinkedList<>();
     }
 
 
@@ -61,6 +61,30 @@ public class OperatorRules {
      */
     public LinkedList<Rule> getRelatedRules() {
         return relatedRules;
+    }
+
+
+
+
+
+    /**
+     * Method that checks if a rule with the same answer as the given as parameter already exists
+     * on the operator. If found, it returns the ID, otherwise it returns an empty string.
+     * @param anAnswer The answer in text for to look for on the operator's list.
+     * @return If such rule was found, returns the ID, otherwise it returns an empty string.
+     */
+    public String ifExistsGetRuleID(String anAnswer) {
+        // Go through each available rule
+        for(Rule aRule: relatedRules) {
+            // If this rule has the same text
+            if(aRule.getAnswer().equals(anAnswer)) {
+                // Return its ID and cut down the method
+                return aRule.getRuleID();
+            }
+        }
+
+        // If we got here, the rule does not exists on this operator
+        return "";
     }
 
 }

@@ -126,14 +126,50 @@ public class OperatorRulesMap {
 
             // Now I need to add each answer to this leaf node word
             for(String anAnswer: answers) {
-                // Get the entry for the last word, and add a new rule
-                rulesRelatedToOperatorMap.get(lastWord).addRule(nQuestion, anAnswer, "R"+ruleNumber);
+                // Try and get the ID for this rule
+                String ruleID = ifExistsGetRuleID(anAnswer);
 
-                // Then increase the rule number
-                ruleNumber++;
+                // If the rule was added, the ID is different than empty
+                if(!ruleID.equals("")) {
+                    // The simply add a reference to that rule, with the same ID
+                    rulesRelatedToOperatorMap.get(lastWord).addRule(nQuestion, anAnswer, ruleID);
+                }
+                // If the rule was not added
+                else {
+                    // Get the entry for the last word, and add a new rule
+                    rulesRelatedToOperatorMap.get(lastWord).addRule(nQuestion, anAnswer, "R"+ruleNumber);
+
+                    // Then increase the rule number
+                    ruleNumber++;
+                }
             }
         }
     }
+
+
+    /**
+     * Method that checks if the map contains a rule (for any given operator) with an textual
+     * answer that matches the one received as parameter. If found, it returns the ID, otherwise
+     * it returns an empty string.
+     * @param anAnswer The textual answer to look for on the map.
+     * @return If found, the ID of the rule, otherwise an empty string.
+     */
+    private String ifExistsGetRuleID(String anAnswer) {
+        // Iterate on the map
+        for(Map.Entry<String, OperatorRules> mapEntry: rulesRelatedToOperatorMap.entrySet()) {
+            // Get the ID of the rule
+            String ruleID = mapEntry.getValue().ifExistsGetRuleID(anAnswer);
+
+            // If the ID is not empty, we found the rule and return it
+            if(!ruleID.equals("")) return ruleID;
+        }
+
+        // Otherwise, we got here, the rule does not yet exists
+        return "";
+    }
+
+
+
 
 
 
