@@ -72,14 +72,18 @@ public class InferenceMachine {
         givenAnswer = "";
         successfulRule = null;
 
+        System.out.println("Start on select answer");
+
         /*
         Start with the specificity filter, in order to see what it has. Send the found rules, and
         the words not yet analyzed.
          */
-        System.out.println("NOT ANALYZED WORDS ON INF MACHINE = " + notAnalyzedWords);
         LinkedList<Rule> rulesFilteredBySpecificity = this.specificityFilter(foundRules, notAnalyzedWords);
         // TODO CHANGE LANGUAGE?
         usedFilters.addLast(FiltersLanguages.SPECIFICITY.getEnglishWord());
+
+        System.out.println("\nSPECIFICIFY RULES -> " + rulesFilteredBySpecificity);
+
 
         // If the selected rules are empty
         if( rulesFilteredBySpecificity.isEmpty() ) {
@@ -103,6 +107,10 @@ public class InferenceMachine {
             to be used will be priority, since we have a lot of rules here (at least 2).
              */
             LinkedList<Rule> rulesFilteredByPriority = this.priorityFilter(rulesFilteredBySpecificity, notAnalyzedWords);
+
+            System.out.println("PRIORITY RULES -> " + rulesFilteredByPriority);
+
+
             // TODO CHANGE LANGUAGE
             usedFilters.addLast(FiltersLanguages.PRIORITY.getEnglishWord());
 
@@ -129,6 +137,8 @@ public class InferenceMachine {
                  */
                 LinkedList<Rule> rulesFilteredByNoDuplication = this.noDuplicatesFilter(rulesFilteredByPriority);
 
+                System.out.println("NO DUPLICATES FILTER -> " + rulesFilteredByNoDuplication);
+
                 // Like before, if no rule is availble
                 if( rulesFilteredByNoDuplication.isEmpty() ) {
                     /*
@@ -145,6 +155,9 @@ public class InferenceMachine {
                     // Change the answer and store it
                     givenAnswer = "Creo que ya te respondí... " + randomRule.getAnswer();
                     successfulRule = new Rule(randomRule.getNormalizedQuestion(), givenAnswer, randomRule.getRuleID()+"\'");
+
+
+                    System.out.println("RANDOM USED FILTER -> " + successfulRule);
                 }
                 // Otherwise, we have rules
                 else {
@@ -167,6 +180,9 @@ public class InferenceMachine {
                         // Add the filter
                         // TODO CHANGE LANGUAGE
                         usedFilters.addLast(FiltersLanguages.RANDOM_UNUSED.getEnglishWord());
+
+
+                        System.out.println("RANDOM UNUSED -> " + successfulRule);
                     }
                 } // No duplicates else
             } // Priority else
@@ -236,6 +252,8 @@ public class InferenceMachine {
      * @return A list of rules filtered by specificity.
      */
     private LinkedList<Rule> specificityFilter(LinkedList<Rule> rulesToFilter, LinkedList<String> questionAsked) {
+        System.out.println("Specificity filter method");
+
         // Call the better rules method.
         return betterRules(rulesToFilter, questionAsked, true);
     }
@@ -269,6 +287,7 @@ public class InferenceMachine {
     private LinkedList<Rule> betterRules(LinkedList<Rule> rulesToFilter, LinkedList<String> questionAsked,
                                             boolean specificityFilter) {
 
+        System.out.println("better rules method -> " + rulesToFilter.size());
 
         // Prepare the list of filtered rules
         LinkedList<Rule> filteredRules = new LinkedList<>();
@@ -281,19 +300,27 @@ public class InferenceMachine {
 
         // Now, for each rule to filter
         for(Rule aRule: rulesToFilter) {
+            System.out.println("Get a rule");
+
+
             // If this is for specificity, then get that level, otherwise get priority level
             // TODO THIS SHOULD CHANGE IF MORE FILTERS WITH LEVELS ARE ADDED
-            System.out.println("QUESTION ASKED ON BETTER RULES = " + questionAsked);
-
             int ruleValue = specificityFilter ? aRule.getSpecificityLevel(questionAsked) : aRule.getPriorityLevel(questionAsked);
+
+            System.out.println("get the value done");
+
 
             // If the current rule's priority is the same as the current maximum
             if(currentMaxValue == ruleValue) {
+                System.out.println("equal value");
+
                 // Add the rule at the bottom and do not change anything
                 filteredRules.addLast(aRule);
             }
             // Otherwise, if it is bigger
             else if(ruleValue > currentMaxValue) {
+                System.out.println("bigger value");
+
                 // Set this as the maximum
                 currentMaxValue = ruleValue;
 

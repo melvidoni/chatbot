@@ -59,8 +59,6 @@ public class MainPanelController {
 
     @FXML
     public void askQuestion() {
-        System.out.println("APRETAMOS EL BOTON");
-
         // The simulator reads the question
         simulator.setReadStatement(askTextField.getText());
 

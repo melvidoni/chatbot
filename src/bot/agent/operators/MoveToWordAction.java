@@ -84,6 +84,9 @@ public class MoveToWordAction extends SearchAction {
      */
     @Override
     public SearchBasedAgentState execute(SearchBasedAgentState s) {
+        System.out.println("Execute falso");
+
+
         // Cast the state
         ChatbotAgentState chatbotState = (ChatbotAgentState) s;
 
@@ -111,6 +114,9 @@ public class MoveToWordAction extends SearchAction {
         then this action cannot be applied. Otherwise, it can also be a leaf word.
          */
         if(Graph.getInstance().successorsName(wordToSearch).contains(word) ) {
+
+            System.out.println("Complex situation");
+
             // Add the word to the visited successors
             chatbotState.addFoundWord(word);
 
@@ -169,9 +175,14 @@ public class MoveToWordAction extends SearchAction {
      * @param eState The environment's state.
      */
     private void updateEnvironment(AgentState aState, EnvironmentState eState) {
+        System.out.println("Reached update environment");
+
         // Get the goal and the state
         ChatbotGoal chatbotGoal = new ChatbotGoal();
         ChatbotAgentState chatbotState = (ChatbotAgentState) aState;
+
+
+        System.out.println("After getting the state");
 
         // If this is a goal state...
         if( chatbotGoal.isGoalState(chatbotState) ) {
@@ -180,6 +191,9 @@ public class MoveToWordAction extends SearchAction {
 
             // If there are no rules...
             if( chatbotState.getFoundRules().isEmpty() ) {
+                System.out.println("Found rules empty");
+
+
                 /*
                 The agent understands the question, but cannot answer it.
                 So it creates a new special rule to answer.
@@ -192,6 +206,9 @@ public class MoveToWordAction extends SearchAction {
             }
             // Otherwise, we have rules!
             else {
+                System.out.println("we have rules");
+
+
                 /*
                 This means the chatbot understood the question, studied it, and found at least
                 one rule to be able to answer the question.
@@ -199,10 +216,13 @@ public class MoveToWordAction extends SearchAction {
 
                 // Get an inference machine
                 InferenceMachine iMachine = InferenceMachine.getInstance();
+                System.out.println("we got imachine");
+
 
                 // Select an answer
-                System.out.println("NOT ANALYZED WORDS ON MOVETOWORDACTION = " + chatbotState.getFoundWords());
                 iMachine.selectAnswer(chatbotState.getFoundRules(), chatbotState.getFoundWords());
+
+                System.out.println("iMachine selected answer?");
 
                 // Get the elements
                 Rule selectedRule = iMachine.getSuccessfulRule();
@@ -215,18 +235,20 @@ public class MoveToWordAction extends SearchAction {
         }
         // Otherwise, we are not on a goal state
         else {
+            System.out.println("else");
+
             /*
             On this case, the chatbot does not understand the question and cannot answer it
              */
             Rule cannotUnderstandRule = new Rule(null, "Lo siento, pero no te entiendo.", "RE");
-            System.out.println("On MoveToWordAction");
-
 
             // Add it to the record anyways
             // TODO CHANGE LANGUAGE
             ((ChatbotEnvironmentState) eState).addNodeToRecord(cannotUnderstandRule, "CANNOT UNDERSTAND");
         }
 
+
+        System.out.println("at the end of the method");
     }
 
 

@@ -110,10 +110,14 @@ public class Rule {
     public int getSpecificityLevel(LinkedList<String> questionAsked) {
         // If they are equals, then max priority
         if( normalizedQuestion.equals(questionAsked) ) {
+            System.out.println("normalized same as asked");
+
             return 100;
         }
         // If questionAsked is a subset
         if(isSubset(questionAsked)) {
+            System.out.println("subset value");
+
             // Get the rate
             Double rate = ( (double) questionAsked.size()) / normalizedQuestion.size();
 
@@ -159,6 +163,9 @@ public class Rule {
      * @return true if it is a subset, false otherwise.
      */
     public boolean isSubset(LinkedList<String> questionAsked) {
+        System.out.println("subset method");
+
+
         // If the normalized question is bigger
         if(normalizedQuestion.size() >= questionAsked.size()) {
             // Get an index for the normalized question
@@ -166,10 +173,6 @@ public class Rule {
 
             // While this index is smaller than the size
             while( nqIndex < normalizedQuestion.size() ) {
-
-                System.out.println("nqIndex = " + nqIndex);
-                System.out.println("normalizedQuestion: " + normalizedQuestion.get(nqIndex));
-                System.out.println("question asked: " + questionAsked);
 
                 // If both first words are the same
                 if( normalizedQuestion.get(nqIndex).equals(questionAsked.getFirst()) ) {
@@ -197,7 +200,7 @@ public class Rule {
                     if(equalsFlag) return true;
 
                     // Otherwise, keep checking!
-
+                    nqIndex++;
                 }
                 // If they are not...
                 else {
