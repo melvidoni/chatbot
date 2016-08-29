@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
  * @link gui.view.MainPanel.fxml
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
-public class MainPanelController {
+public class MainPanelController extends Controller {
     @FXML
     private Button askButton;
 
@@ -42,18 +42,7 @@ public class MainPanelController {
      * after the fxml file has been loaded.
      */
     @FXML
-    private void initialize() {
-        // TODO SHOW A PROGRESS BAR WHILE INITIALIZING
-
-        // Get the environment
-        ChatbotEnvironment environment = new ChatbotEnvironment();
-
-        // Get the chatbot
-        ChatbotAgent agent = new ChatbotAgent();
-
-        // Initialize the simulator
-        simulator = new ChatbotSimulator(environment, agent);
-    }
+    private void initialize() { }
 
 
 

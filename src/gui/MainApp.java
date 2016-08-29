@@ -1,5 +1,6 @@
 package gui;
 
+import gui.controller.ProgressPanelController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,8 +16,9 @@ import java.io.IOException;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class MainApp extends Application {
-    private Stage primaryStage;
 
+    private Stage progressStage;
+    private Stage primaryStage;
 
     /**
      * Custom method to start the chatbot application.
@@ -24,24 +26,30 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) {
-        // Config the main stage
-        this.primaryStage = stage;
-        this.primaryStage.setTitle("ISI Chatbot");
-        this.primaryStage.setResizable(false);
-        this.primaryStage.getIcons().add(new Image( ViewFilesLocation.LOGO_ICON.toString() ));
+        // First, config the progress stage
+        this.progressStage = stage;
+        this.progressStage.setTitle("Chatbot");
+        this.progressStage.setResizable(false);
+        this.progressStage.getIcons().add(new Image( ViewFilesLocation.LOGO_ICON.toString() ));
 
         try {
             // Load the layout from the fxml file
-            Parent root = FXMLLoader.load(getClass().getResource( ViewFilesLocation.MAIN_PANEL.toString() ));
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource( ViewFilesLocation.PROGRESS_PANEL.toString() ));
+            Scene scene = new Scene(loader.load());
 
-            // Launch the scene
-            stage.setScene(new Scene(root));
+            // Set the main app
+            ((ProgressPanelController) loader.getController()).setMainApp(this);
+
+            // Set the scene
+            stage.setScene(scene);
             stage.show();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
 
     /**

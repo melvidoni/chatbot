@@ -24,7 +24,7 @@ public class WordNormalizer{
      */
     public static String normalizeWord(String word){
         // First of all, remove special characters
-        String noSpecialChars = word.replaceAll("[\\-\\+\\.\\^:,¡!¿?;]", "");
+        String noSpecialChars = word.replaceAll("[\\-\\+\\.\\^:,¡!¿?;%&\\|]", "");
 
         // Then remove accents, and other special letters
         String noSpecialLetters = Normalizer.normalize(noSpecialChars.replace(" ",""), Normalizer.Form.NFD);

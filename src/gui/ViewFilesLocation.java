@@ -7,7 +7,8 @@ package gui;
  */
 public enum ViewFilesLocation {
     LOGO_ICON("/gui/view/img/appicon.png"),
-    MAIN_PANEL("/gui/view/MainPanel.fxml");
+    MAIN_PANEL("/gui/view/MainPanel.fxml"),
+    PROGRESS_PANEL("/gui/view/ProgressPanel.fxml");
 
     private String route;
 
@@ -34,6 +35,8 @@ public enum ViewFilesLocation {
             return LOGO_ICON;
         else if(MAIN_PANEL.toString().equals(n))
             return MAIN_PANEL;
+        else if(PROGRESS_PANEL.toString().equals(n))
+            return PROGRESS_PANEL;
         return null;
     }
 

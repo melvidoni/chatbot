@@ -35,14 +35,6 @@ public class ChatbotAgent extends SearchBasedAgent{
         // Call super
         super();
 
-        // Read secondary words
-        UnimportantWordsList.getInstance().loadWords();
-        SynonymsList.getInstance().loadSynonyms();
-        ExtraAnswersList.getInstance().loadExtraAnswers("spanish");
-
-        // Read the graph
-        GraphReader.loadGraph();
-
         // Now read the operators
         Vector<SearchAction> operators = new Vector<>();
         operators.addAll( RulesReader.loadActionsList() );
