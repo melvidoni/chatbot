@@ -3,7 +3,6 @@ package gui.controller;
 import gui.MainApp;
 import javafx.fxml.FXML;
 
-import java.awt.*;
 
 /**
  * Dummy class that works as a parent class for all the controllers, so the application
@@ -11,17 +10,18 @@ import java.awt.*;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public abstract class Controller {
-    protected MainApp mainApp;
+    /**
+     * Reference to the main application launcher.
+     */
+    MainApp mainApp;
 
-    @FXML private Button exitButton;
 
 
     /**
      * The default constructor of the class.
      * The constructor is called before the initialize() method.
      */
-    public Controller() { }
-
+    Controller() { }
 
 
     /**
@@ -30,7 +30,6 @@ public abstract class Controller {
      */
     @FXML
     private void initialize() { }
-
 
 
     /**
@@ -42,12 +41,11 @@ public abstract class Controller {
     }
 
 
-
     /**
      * Called when the user clicks on the exit button.
      */
     @FXML
-        private void exitSystem() {
+    private void exitSystem() {
         // TODO DO SOMETHING
     }
 

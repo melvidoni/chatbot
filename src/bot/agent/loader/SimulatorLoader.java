@@ -1,6 +1,9 @@
-package bot.agent;
+package bot.agent.loader;
 
 
+import bot.agent.ChatbotAgent;
+import bot.agent.ChatbotEnvironment;
+import bot.agent.ChatbotSimulator;
 import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.readers.GraphReader;
 import bot.knowledge.readers.UnimportantWordsList;

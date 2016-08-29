@@ -1,9 +1,6 @@
 package gui.controller;
 
 
-import bot.agent.ChatbotAgent;
-import bot.agent.ChatbotEnvironment;
-import bot.agent.ChatbotEnvironmentState;
 import bot.agent.ChatbotSimulator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -59,8 +56,18 @@ public class MainPanelController extends Controller {
 
         System.out.println("Answer on controller: " + answer );
 
-        // Mostramos la respuesta
+        // Show the answer
         answerTextArea.setText( answer );
+    }
+
+
+    /**
+     * Setter to set a new simulator on the controller. It replaces the previous one
+     * and it cannot be restored.
+     * @param newSimulator New simulator to set on the panel.
+     */
+    public void setSimulator(ChatbotSimulator newSimulator) {
+        simulator = newSimulator;
     }
 
 }

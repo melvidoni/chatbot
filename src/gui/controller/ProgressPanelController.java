@@ -1,11 +1,8 @@
 package gui.controller;
 
-import bot.agent.ChatbotSimulator;
-import bot.agent.SimulatorLoader;
+import bot.agent.loader.SimulatorLoader;
 import bot.knowledge.auxialiary.ChatbotLanguage;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -21,14 +18,9 @@ import javafx.scene.control.ProgressBar;
 public class ProgressPanelController extends Controller {
     @FXML private ProgressBar progressBar;
     @FXML private Label progressLabel;
+
     private SimpleStringProperty progressValue = new SimpleStringProperty();
-
-
-    /**
-     * The simulator being initialized by the loader.
-     */
-    private ChatbotSimulator chatbotSimulator;
-
+    private SimulatorLoader simulatorLoader;
 
 
     /**
@@ -38,18 +30,16 @@ public class ProgressPanelController extends Controller {
     @FXML
     private void initialize() {
         // Add a listener to the property
-        progressValue.addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
-                // Change the information on the panel
-                if( newValue.equals("DONE") )
-                    System.out.println("SIMULATOR LOADED");
+        progressValue.addListener((observableValue, oldValue, newValue) -> {
+            // If the simulator is loaded
+            if( newValue.equals("DONE") ) {
+               mainApp.callMainPanel(simulatorLoader.getChatbotSimulator());
             }
         });
 
-
         // Get the simulator loader
-        SimulatorLoader simulatorLoader = new SimulatorLoader(ChatbotLanguage.ENGLISH.getName());
+        // TODO CHANGE DEFAULT LANGUAGE
+        simulatorLoader = new SimulatorLoader(ChatbotLanguage.ENGLISH.getName());
 
         // Bind the properties
         progressBar.progressProperty().bind(simulatorLoader.progressProperty());
@@ -61,16 +51,6 @@ public class ProgressPanelController extends Controller {
         th.setDaemon(true);
         th.start();
     }
-
-
-    /**
-     * Getter to obtain the initialized simulator.
-     * @return A complete initialized simulator.
-     */
-    public ChatbotSimulator getChatbotSimulator() {
-        return chatbotSimulator;
-    }
-
 
 
 }
