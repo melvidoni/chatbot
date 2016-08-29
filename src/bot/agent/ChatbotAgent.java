@@ -2,7 +2,6 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.knowledge.graph.Graph;
 import bot.readers.GraphReader;
 import bot.readers.RulesReader;
 import bot.readers.UnimportantWords;
