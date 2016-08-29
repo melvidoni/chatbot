@@ -4,7 +4,7 @@ package bot.agent.operators.rules;
 import bot.agent.operators.MoveToWordAction;
 import bot.knowledge.graph.Graph;
 import bot.knowledge.graph.GraphNode;
-import bot.readers.auxialiary.WordNormalizer;
+import bot.knowledge.auxialiary.WordNormalizer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;

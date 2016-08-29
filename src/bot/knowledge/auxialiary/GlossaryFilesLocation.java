@@ -1,4 +1,4 @@
-package bot.readers.auxialiary;
+package bot.knowledge.auxialiary;
 
 
 /**
@@ -11,7 +11,8 @@ public enum GlossaryFilesLocation {
     UNIMPORTANT_WORDS("C:/Chatbot/Resources/unimportant_words.txt"),
     SYNONYMS("C:/Chatbot/Resources/synonyms.txt"),
     QUESTIONS_AND_ANSWERS("C:/Chatbot/Resources/questions_and_answers.txt"),
-    RULES_AND_IDS("");
+    EXTRA_RULES_START("C:/Chatbot/Resources/extrarules_"),
+    EXTRA_RULES_END(".txt");
 
     private String route;
 
@@ -42,8 +43,10 @@ public enum GlossaryFilesLocation {
             return SYNONYMS;
         else if(QUESTIONS_AND_ANSWERS.toString().equals(n))
             return QUESTIONS_AND_ANSWERS;
-        else if(RULES_AND_IDS.toString().equals(n))
-            return RULES_AND_IDS;
+        else if(EXTRA_RULES_START.toString().equals(n))
+            return EXTRA_RULES_START;
+        else if(EXTRA_RULES_END.toString().equals(n))
+            return EXTRA_RULES_END;
         return null;
     }
 

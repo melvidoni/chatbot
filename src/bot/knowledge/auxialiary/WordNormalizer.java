@@ -1,8 +1,8 @@
-package bot.readers.auxialiary;
+package bot.knowledge.auxialiary;
 
 
-import bot.readers.UnimportantWords;
-import bot.readers.synonyms.SynonymsList;
+import bot.knowledge.readers.UnimportantWordsList;
+import bot.knowledge.readers.synonyms.SynonymsList;
 
 import java.text.Normalizer;
 import java.util.LinkedList;
@@ -43,7 +43,7 @@ public class WordNormalizer{
      */
     public static LinkedList<String> normalizeSentence(String[] sentence) {
         // Get the list of unimportant words
-        LinkedList<String> unimportantWordsList = UnimportantWords.getInstance().getUnimportantWords();
+        LinkedList<String> unimportantWordsList = UnimportantWordsList.getInstance().getUnimportantWords();
 
         // Create the list
         LinkedList<String> reducedSentence = new LinkedList<>();

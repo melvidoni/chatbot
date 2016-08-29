@@ -1,10 +1,10 @@
-package bot.readers;
+package bot.knowledge.readers;
 
 
 import bot.knowledge.graph.Graph;
 import bot.knowledge.graph.GraphNode;
-import bot.readers.auxialiary.GlossaryFilesLocation;
-import bot.readers.auxialiary.WordNormalizer;
+import bot.knowledge.auxialiary.GlossaryFilesLocation;
+import bot.knowledge.auxialiary.WordNormalizer;
 
 import java.io.*;
 import java.util.LinkedList;

@@ -1,7 +1,7 @@
-package bot.readers.synonyms;
+package bot.knowledge.readers.synonyms;
 
-import bot.readers.auxialiary.GlossaryFilesLocation;
-import bot.readers.auxialiary.WordNormalizer;
+import bot.knowledge.auxialiary.GlossaryFilesLocation;
+import bot.knowledge.auxialiary.WordNormalizer;
 
 import java.io.*;
 import java.util.LinkedList;

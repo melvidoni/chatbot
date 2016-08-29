@@ -2,6 +2,7 @@ package bot.inference;
 
 
 import bot.agent.operators.rules.Rule;
+import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.record.Record;
 import java.util.LinkedList;
 import java.util.Random;
@@ -72,8 +73,6 @@ public class InferenceMachine {
         givenAnswer = "";
         successfulRule = null;
 
-        System.out.println("Start on select answer");
-
         /*
         Start with the specificity filter, in order to see what it has. Send the found rules, and
         the words not yet analyzed.
@@ -87,9 +86,15 @@ public class InferenceMachine {
 
         // If the selected rules are empty
         if( rulesFilteredBySpecificity.isEmpty() ) {
-            // The chatbot did understood, but cannot answer
-            // TODO CHANGE LANGUAGE IN HERE
-            successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
+            /*
+             The chatbot did understood, but cannot answer
+             */
+
+            // Get the rule RR
+            Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
+
+            // Set this as successful
+            successfulRule = new Rule(null, ruleRR.getAnswer(), ruleRR.getRuleID());
 
             // Set this as the given answer
             givenAnswer = successfulRule.getAnswer();
@@ -104,15 +109,20 @@ public class InferenceMachine {
 
             System.out.println("PRIORITY RULES -> " + rulesFilteredByPriority);
 
-
             // TODO CHANGE LANGUAGE
             usedFilters.addLast(FiltersLanguages.PRIORITY.getEnglishWord());
 
             // If no rules are available
             if( rulesFilteredByPriority.isEmpty() ) {
-                // The chatbot did not understood, but it cannot answer
-                // TODO CHANGE LANGUAGE IN HERE
-                successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
+                /*
+                 The chatbot did not understood, but it cannot answer
+                 */
+
+                // Get the rule RR
+                Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
+
+                // Set this as successful rule
+                successfulRule = new Rule(null, ruleRR.getAnswer(), ruleRR.getRuleID());
 
                 // Set this as the given answer
                 givenAnswer = successfulRule.getAnswer();
@@ -140,10 +150,9 @@ public class InferenceMachine {
                     Rule randomRule = this.randomFilter(rulesFilteredByPriority);
                     usedFilters.addLast(FiltersLanguages.RANDOM_USED.getEnglishWord());
 
-                    // Change the answer and store it
-                    givenAnswer = "Creo que ya te respondí... " + randomRule.getAnswer();
+                    // Get the RM rule, change the selected answer and store it
+                    givenAnswer = ExtraAnswersList.getInstance().getRuleRM().getAnswer() + " " + randomRule.getAnswer();
                     successfulRule = new Rule(randomRule.getNormalizedQuestion(), givenAnswer, randomRule.getRuleID()+"\'");
-
 
                     System.out.println("RANDOM USED FILTER -> " + successfulRule);
                 }
@@ -168,7 +177,6 @@ public class InferenceMachine {
                         // Add the filter
                         // TODO CHANGE LANGUAGE
                         usedFilters.addLast(FiltersLanguages.RANDOM_UNUSED.getEnglishWord());
-
 
                         System.out.println("RANDOM UNUSED -> " + successfulRule);
                     }

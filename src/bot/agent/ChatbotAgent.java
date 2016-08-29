@@ -2,10 +2,11 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.readers.GraphReader;
-import bot.readers.RulesReader;
-import bot.readers.UnimportantWords;
-import bot.readers.synonyms.SynonymsList;
+import bot.knowledge.readers.ExtraAnswersList;
+import bot.knowledge.readers.GraphReader;
+import bot.knowledge.readers.RulesReader;
+import bot.knowledge.readers.UnimportantWordsList;
+import bot.knowledge.readers.synonyms.SynonymsList;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
@@ -35,8 +36,9 @@ public class ChatbotAgent extends SearchBasedAgent{
         super();
 
         // Read secondary words
-        UnimportantWords.getInstance().loadWords();
+        UnimportantWordsList.getInstance().loadWords();
         SynonymsList.getInstance().loadSynonyms();
+        ExtraAnswersList.getInstance().loadExtraAnswers("spanish");
 
         // Read the graph
         GraphReader.loadGraph();

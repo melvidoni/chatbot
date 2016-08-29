@@ -1,7 +1,7 @@
-package bot.readers;
+package bot.knowledge.readers;
 
-import bot.readers.auxialiary.GlossaryFilesLocation;
-import bot.readers.auxialiary.WordNormalizer;
+import bot.knowledge.auxialiary.GlossaryFilesLocation;
+import bot.knowledge.auxialiary.WordNormalizer;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -12,7 +12,7 @@ import java.util.LinkedList;
  * are later removed from the statements to be processed.
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
-public class UnimportantWords {
+public class UnimportantWordsList {
     /**
      * The list of unimportant words
      */
@@ -21,13 +21,13 @@ public class UnimportantWords {
     /**
      * An instance to itself
      */
-    private static UnimportantWords instance = null;
+    private static UnimportantWordsList instance = null;
 
 
     /**
      * Private default constructor of the class.
      */
-    private UnimportantWords() {
+    private UnimportantWordsList() {
         words = new LinkedList<>();
     }
 
@@ -37,9 +37,9 @@ public class UnimportantWords {
      * class, in order to avoid creating multiple instances.
      * @return The singleton instance.
      */
-    public static UnimportantWords getInstance () {
+    public static UnimportantWordsList getInstance () {
         if(instance == null)
-            instance = new UnimportantWords();
+            instance = new UnimportantWordsList();
         return instance;
     }
 

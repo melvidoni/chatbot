@@ -1,6 +1,8 @@
 package bot.knowledge.record;
 
 
+import bot.knowledge.readers.ExtraAnswersList;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -75,8 +77,8 @@ public class Record {
         boolean used = false;
 
         // If it is RE
-        // TODO THIS IDS SHOULD BE ON AN ENUM
-        if(ruleId.equals("RE") || ruleId.equals("RR")) {
+        if(ruleId.equals(ExtraAnswersList.getInstance().getRuleRE().getRuleID())
+                || ruleId.equals(ExtraAnswersList.getInstance().getRuleRR().getRuleID())) {
             // Then return false
             return false;
         }
