@@ -1,4 +1,4 @@
-package bot.readers;
+package bot.readers.auxialiary;
 
 
 /**

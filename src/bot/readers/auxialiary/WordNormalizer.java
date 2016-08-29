@@ -1,5 +1,8 @@
-package bot.readers;
+package bot.readers.auxialiary;
 
+
+import bot.readers.UnimportantWords;
+import bot.readers.synonyms.SynonymsList;
 
 import java.text.Normalizer;
 import java.util.LinkedList;
@@ -43,23 +46,22 @@ public class WordNormalizer{
         LinkedList<String> unimportantWordsList = UnimportantWords.getInstance().getUnimportantWords();
 
         // Create the list
-        LinkedList<String> normalizedSentence = new LinkedList<>();
+        LinkedList<String> reducedSentence = new LinkedList<>();
 
         // For each word of the sentence
         for(String word: sentence) {
             // Normalize the word
             String normalizedWord = normalizeWord(word);
 
-            // If the word is important
-            if(!unimportantWordsList.contains(normalizedWord)) {
+            // If the word is important and it is not an empty space
+            if(!unimportantWordsList.contains(normalizedWord) && !normalizedWord.isEmpty()) {
                 // add it to the list
-                normalizedSentence.addLast(normalizedWord);
+                reducedSentence.addLast(normalizedWord);
             }
         }
 
-        // Now return the new list
-        return normalizedSentence;
+        // Now replace the synonyms and return it
+        return SynonymsList.getInstance().replaceWithKeyWords(reducedSentence);
     }
-
 
 }

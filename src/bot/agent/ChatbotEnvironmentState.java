@@ -1,5 +1,7 @@
 package bot.agent;
 
+import bot.agent.operators.rules.Rule;
+import bot.knowledge.record.Record;
 import frsf.cidisi.faia.state.EnvironmentState;
 
 /**
@@ -28,6 +30,7 @@ public class ChatbotEnvironmentState extends EnvironmentState {
     public void initState() {
         // Set a new empty question
         questionAsked = "";
+        Record.getInstance();
     }
 
 
@@ -57,4 +60,30 @@ public class ChatbotEnvironmentState extends EnvironmentState {
     public void setQuestionAsked(String qa) {
         questionAsked = qa;
     }
+
+
+
+    /**
+     * Method that adds a new node to the record, when the answer is already defined.
+     * @param rule The rule used to answer.
+     * @param filters Criteria used to obtain the rule.
+     */
+    public void addNodeToRecord(Rule rule, String filters) {
+        // Add the current question to the node, with the info about the answer
+        Record.getInstance().addNode(questionAsked, rule.getRuleID(), rule.getAnswer(), filters);
+    }
+
+
+    /**
+     * Method to obtain the last answer on the record.
+     * @return The last answer on the record, or "..." if there is none.
+     */
+    public String showAnswer() {
+        // Get an instance of the record
+        Record record = Record.getInstance();
+
+        // Now return accordingly
+        return (record.isEmpty()) ? "..." : record.getLastAnswer();
+    }
+
 }

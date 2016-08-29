@@ -1,7 +1,7 @@
 package bot.readers.synonyms;
 
-import bot.readers.GlossaryFilesLocation;
-import bot.readers.WordNormalizer;
+import bot.readers.auxialiary.GlossaryFilesLocation;
+import bot.readers.auxialiary.WordNormalizer;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -158,7 +158,7 @@ public class SynonymsList {
      * @param statement Statement from which the synonym must be replaced.
      * @return Statement with the synonym replaced with the key.
      */
-    private LinkedList<String> removeSynonym (String key, LinkedList<String> s, LinkedList<String> statement) {
+    private LinkedList<String> removeSynonym(String key, LinkedList<String> s, LinkedList<String> statement) {
         // Prepare the list to return
         LinkedList<String> replacedStatement = new LinkedList<>();
 

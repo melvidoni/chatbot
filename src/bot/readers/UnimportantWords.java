@@ -1,5 +1,8 @@
 package bot.readers;
 
+import bot.readers.auxialiary.GlossaryFilesLocation;
+import bot.readers.auxialiary.WordNormalizer;
+
 import java.io.*;
 import java.util.LinkedList;
 

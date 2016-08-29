@@ -3,6 +3,7 @@ package gui.controller;
 
 import bot.agent.ChatbotAgent;
 import bot.agent.ChatbotEnvironment;
+import bot.agent.ChatbotEnvironmentState;
 import bot.agent.ChatbotSimulator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,7 +34,7 @@ public class MainPanelController {
     /**
      * A reference to the simulator of the agent.
      */
-    //private Simulator simulator;
+    private ChatbotSimulator simulator;
 
 
     /**
@@ -51,14 +52,26 @@ public class MainPanelController {
         ChatbotAgent agent = new ChatbotAgent();
 
         // Initialize the simulator
-        ChatbotSimulator simulator = new ChatbotSimulator(environment, agent);
+        simulator = new ChatbotSimulator(environment, agent);
     }
+
 
 
     @FXML
     public void askQuestion() {
-        System.out.println("APRETAMOS EL BOTON");
+        // The simulator reads the question
+        simulator.setReadStatement(askTextField.getText());
 
+        // Start the simulator
+        simulator.start();
+
+        // Print the answer
+        String answer = simulator.getFinalAnswer();
+
+        System.out.println("Answer on controller: " + answer );
+
+        // Mostramos la respuesta
+        answerTextArea.setText( answer );
     }
 
 }
