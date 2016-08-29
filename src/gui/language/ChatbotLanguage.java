@@ -1,4 +1,4 @@
-package bot.knowledge.auxialiary;
+package gui.language;
 
 /**
  * Enumerated class for languages to use on the chatbot.

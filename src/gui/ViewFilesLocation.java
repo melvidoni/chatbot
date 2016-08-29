@@ -8,7 +8,8 @@ package gui;
 public enum ViewFilesLocation {
     LOGO_ICON("/gui/view/img/appicon.png"),
     MAIN_PANEL("/gui/view/MainPanel.fxml"),
-    PROGRESS_PANEL("/gui/view/ProgressPanel.fxml");
+    PROGRESS_PANEL("/gui/view/ProgressPanel.fxml"),
+    LOCALE_BUNDLE("gui.language.bundles.chatbotlocale");
 
     private String route;
 
@@ -37,6 +38,8 @@ public enum ViewFilesLocation {
             return MAIN_PANEL;
         else if(PROGRESS_PANEL.toString().equals(n))
             return PROGRESS_PANEL;
+        else if(LOCALE_BUNDLE.toString().equals(n))
+            return LOCALE_BUNDLE;
         return null;
     }
 

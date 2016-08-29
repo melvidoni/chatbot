@@ -3,10 +3,28 @@ package gui.controller;
 
 import bot.agent.ChatbotSimulator;
 import bot.knowledge.auxialiary.WordNormalizer;
+import bot.knowledge.readers.ExtraAnswersList;
+import gui.ViewFilesLocation;
+import gui.language.BundlesKeywords;
+import gui.language.ChatbotLanguage;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.effect.Effect;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.controlsfx.control.spreadsheet.Grid;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 /**
@@ -21,6 +39,7 @@ public class MainPanelController extends Controller {
     @FXML private Label suggestionsLabel;
 
     @FXML private Menu languagesMenu;
+    @FXML private ToggleGroup languageToggleGroup;
     @FXML private RadioMenuItem englishMenuItem;
     @FXML private RadioMenuItem spanishMenuItem;
     @FXML private Menu helpMenu;
@@ -37,6 +56,7 @@ public class MainPanelController extends Controller {
     private ChatbotSimulator simulator;
 
 
+
     /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
@@ -48,6 +68,9 @@ public class MainPanelController extends Controller {
 
         // Set the flag as true;
         firstKey = true;
+
+        // TODO CHANGE LANGUAGE
+        setSpanishLanguage();
     }
 
 
@@ -115,4 +138,50 @@ public class MainPanelController extends Controller {
         simulator = newSimulator;
     }
 
+
+
+
+    /**
+     * Action listener on the toggle, to change the language of the bot to English.
+     */
+    @FXML
+    public void setEnglishLanguage() {
+        // Update this panel
+        changeLanguage(new Locale(ChatbotLanguage.ENGLISH.getAcronym().toLowerCase(), ChatbotLanguage.ENGLISH.getAcronym()));
+
+        // Reload the answers
+        ExtraAnswersList.getInstance().loadExtraAnswers(ChatbotLanguage.ENGLISH.getName());
+    }
+
+
+    /**
+     * Action listener on the toggle, to change the language of the bot to Spanish.
+     */
+    @FXML
+    public void setSpanishLanguage() {
+        // Update this panel
+        changeLanguage(new Locale(ChatbotLanguage.SPANISH.getAcronym().toLowerCase(), ChatbotLanguage.SPANISH.getAcronym()));
+
+        // Reload the answers
+        ExtraAnswersList.getInstance().loadExtraAnswers(ChatbotLanguage.SPANISH.getName());
+    }
+
+
+
+    /**
+     * Method that changes the languages of the panel, according to the locale received.
+     * @param locale Locale to change the language of the interface.
+     */
+    private void changeLanguage(Locale locale) {
+        // Get the bundle
+        ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(), locale);
+
+        // Now set the values
+        suggestionsLabel.setText(bundle.getString(BundlesKeywords.SUGGESTIONS_LABEL.toString()));
+        languagesMenu.setText(bundle.getString(BundlesKeywords.LANGUAGES_MENU.toString()));
+        englishMenuItem.setText(bundle.getString(BundlesKeywords.ENGLISH_MENU_ITEM.toString()));
+        spanishMenuItem.setText(bundle.getString(BundlesKeywords.SPANISH_MENU_ITEM.toString()));
+        helpMenu.setText(bundle.getString(BundlesKeywords.HELP_MENU.toString()));
+        creditsMenu.setText(bundle.getString(BundlesKeywords.CREDITS_MENU.toString()));
+    }
 }

@@ -1,7 +1,7 @@
 package gui.controller;
 
 import bot.agent.loader.SimulatorLoader;
-import bot.knowledge.auxialiary.ChatbotLanguage;
+import gui.language.ChatbotLanguage;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -39,7 +39,7 @@ public class ProgressPanelController extends Controller {
 
         // Get the simulator loader
         // TODO CHANGE DEFAULT LANGUAGE
-        simulatorLoader = new SimulatorLoader(ChatbotLanguage.ENGLISH.getName());
+        simulatorLoader = new SimulatorLoader(ChatbotLanguage.SPANISH);
 
         // Bind the properties
         progressBar.progressProperty().bind(simulatorLoader.progressProperty());
