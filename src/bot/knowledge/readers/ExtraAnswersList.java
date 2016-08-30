@@ -3,6 +3,7 @@ package bot.knowledge.readers;
 
 import bot.agent.operators.rules.Rule;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
+import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -69,8 +70,8 @@ public class ExtraAnswersList {
                                                 + language.toLowerCase()
                                                 + GlossaryFilesLocation.EXTRA_RULES_END.toString());
 
-            // Construct BufferedReader from FileReader
-            BufferedReader br = new BufferedReader(new FileReader(extraRulesFile));
+            // Construct BufferedReader from FileReader. Forced to UTF-8.
+            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(extraRulesFile)));
 
             // Prepare to read
             String line = null;

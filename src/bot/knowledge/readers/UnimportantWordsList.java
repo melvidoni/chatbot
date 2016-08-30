@@ -2,6 +2,7 @@ package bot.knowledge.readers;
 
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.auxialiary.WordNormalizer;
+import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -53,8 +54,11 @@ public class UnimportantWordsList {
             // Create the file
             File uWordsFile = new File(GlossaryFilesLocation.UNIMPORTANT_WORDS.toString());
 
-            // Construct BufferedReader from FileReader
-            BufferedReader br = new BufferedReader(new FileReader(uWordsFile));
+            /*
+             Construct BufferedReader from FileReader. Because JavaFX needs to be forced to read
+             files encoded as UTF-8, the buffered reader is forced too.
+              */
+            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(uWordsFile)));
 
             // Prepare to read
             String line = null;

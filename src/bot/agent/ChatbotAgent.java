@@ -35,25 +35,16 @@ public class ChatbotAgent extends SearchBasedAgent{
         // Call super
         super();
 
-        System.out.println("on chatbot constructor");
-
         // Now read the operators
         Vector<SearchAction> operators = new Vector<>();
         operators.addAll( RulesReader.loadActionsList() );
-
-        System.out.println("rules loaded");
 
         // Create a new state
         ChatbotAgentState state = new ChatbotAgentState();
         this.setAgentState(state);
 
-        System.out.println("state set");
-
         // Create the problem
         this.setProblem( new Problem(new ChatbotGoal(), state, operators) );
-
-        System.out.println("problem set");
-
     }
 
 

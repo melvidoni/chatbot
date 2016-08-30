@@ -4,7 +4,7 @@
     <properties id="javafx-properties">
       <options>
         <option name="appClass" value="gui.MainApp" />
-        <option name="description" value="" />
+        <option name="description" value="Chatbot that understands questions and gives answers." />
         <option name="htmlPlaceholderId" value="" />
         <option name="icons">
           <JavaFxApplicationIcons>

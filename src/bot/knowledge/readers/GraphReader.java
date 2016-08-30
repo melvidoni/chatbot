@@ -5,6 +5,8 @@ import bot.knowledge.graph.Graph;
 import bot.knowledge.graph.GraphNode;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.auxialiary.WordNormalizer;
+import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
+
 import java.io.*;
 import java.util.LinkedList;
 
@@ -27,10 +29,10 @@ public class GraphReader {
             Graph graph = Graph.getInstance();
 
             // Create the file
-            File uWordsFile = new File(GlossaryFilesLocation.USER_QUESTIONS.toString());
+            File qFile = new File(GlossaryFilesLocation.USER_QUESTIONS.toString());
 
-            // Construct BufferedReader from FileReader
-            BufferedReader br = new BufferedReader(new FileReader(uWordsFile));
+            // Construct BufferedReader from FileReader. Forced to UTF-8.
+            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(qFile)));
 
             // While there are lines to be read
             String questionLine = null;

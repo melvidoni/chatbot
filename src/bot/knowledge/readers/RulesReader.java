@@ -5,6 +5,7 @@ import bot.agent.operators.MoveToWordAction;
 import bot.agent.operators.rules.OperatorRulesMap;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.questions.QuestionsList;
+import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
 import java.io.*;
 import java.util.LinkedList;
 
@@ -27,15 +28,10 @@ public class RulesReader {
         // Get a reference to the map
         OperatorRulesMap map = OperatorRulesMap.getInstance();
 
-        System.out.println("loading actions");
-
         // Read the questions and answers
         readQuestionsAndAnswers();
 
-        System.out.println("qa read");
-
         // Return the information
-        // TODO CHECK IF THIS RETURNS CORRECTLY
         return map.getActionsList();
     }
 
@@ -54,17 +50,16 @@ public class RulesReader {
 
         try {
             // Create the file
-            File uWordsFile = new File(GlossaryFilesLocation.QUESTIONS_AND_ANSWERS.toString());
+            File qaFile = new File(GlossaryFilesLocation.QUESTIONS_AND_ANSWERS.toString());
 
-            // Construct BufferedReader from FileReader
-            BufferedReader br = new BufferedReader(new FileReader(uWordsFile));
+            // Construct BufferedReader from FileReader. Force to UTF-8.
+            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(qaFile)));
 
             // Get the number of questions
             int numberOfQuestions = Integer.parseInt(br.readLine());
 
             // While there are questions...
             while(numberOfQuestions != 0) {
-                System.out.println("Start with set");
                 // Create the list of questions and answers
                 LinkedList<String> questions = new LinkedList<>();
                 LinkedList<String> answers = new LinkedList<>();
@@ -91,15 +86,11 @@ public class RulesReader {
                  */
                 map.createRulesFor(questions, answers);
 
-                System.out.println("Rules created");
-
                 // Update to read the next set of questions
                 numberOfQuestions = Integer.parseInt(br.readLine());
-                System.out.println("parsed next line");
 
                 // Add all the group of questions to the list
                 questionsList.addSynonymQuestions(questions);
-                System.out.println("questions added");
             }
 
             // Close the buffer
