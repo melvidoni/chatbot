@@ -7,22 +7,18 @@ import bot.knowledge.readers.ExtraAnswersList;
 import gui.ViewFilesLocation;
 import gui.language.BundlesKeywords;
 import gui.language.ChatbotLanguage;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.Effect;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import org.controlsfx.control.spreadsheet.Grid;
+import javafx.stage.Stage;
 
-import java.awt.*;
-import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -55,6 +51,11 @@ public class MainPanelController extends Controller {
      */
     private ChatbotSimulator simulator;
 
+    /**
+     * A reference to the locale of the interface
+     */
+    private Locale locale;
+
 
 
     /**
@@ -69,7 +70,9 @@ public class MainPanelController extends Controller {
         // Set the flag as true;
         firstKey = true;
 
-        // TODO CHANGE LANGUAGE
+        // Set default locale
+        // TODO CHANGE LANGUAGE HERE
+        locale = new Locale(ChatbotLanguage.SPANISH.getAcronym().toLowerCase(), ChatbotLanguage.SPANISH.getAcronym());
         setSpanishLanguage();
     }
 
@@ -128,6 +131,33 @@ public class MainPanelController extends Controller {
 
 
 
+    @FXML
+    public void showCredits() {
+        // Get the bundle with the current locale
+        ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(), locale);
+
+        // Prepare the alert
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        // Set the icon and title
+        alert.setTitle( bundle.getString(BundlesKeywords.CREDITS_WINDOW_TITLE.toString()) );
+
+        // Set the icon
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource(ViewFilesLocation.LOGO_ICON.toString()).toString()));
+
+        // Set header text
+        alert.setHeaderText( bundle.getString(BundlesKeywords.CREDITS_WINDOW_HEADER.toString()) );
+
+        // Change main icon and text
+        alert.setGraphic(new ImageView(this.getClass().getResource(ViewFilesLocation.CREDITS_ICON_BIG.toString()).toString()));
+        alert.setContentText( bundle.getString(BundlesKeywords.CREDITS_WINDOW_MSG.toString()) );
+
+        // Show and wait
+        alert.showAndWait();
+    }
+
+
 
     /**
      * Setter to set a new simulator on the controller. It replaces the previous one
@@ -146,8 +176,11 @@ public class MainPanelController extends Controller {
      */
     @FXML
     public void setEnglishLanguage() {
+        // Set the locale
+        locale = new Locale(ChatbotLanguage.ENGLISH.getAcronym().toLowerCase(), ChatbotLanguage.ENGLISH.getAcronym());
+
         // Update this panel
-        changeLanguage(new Locale(ChatbotLanguage.ENGLISH.getAcronym().toLowerCase(), ChatbotLanguage.ENGLISH.getAcronym()));
+        changeLanguage();
 
         // Reload the answers
         ExtraAnswersList.getInstance().loadExtraAnswers(ChatbotLanguage.ENGLISH.getName());
@@ -159,8 +192,11 @@ public class MainPanelController extends Controller {
      */
     @FXML
     public void setSpanishLanguage() {
+        // Set the locale
+        locale = new Locale(ChatbotLanguage.SPANISH.getAcronym().toLowerCase(), ChatbotLanguage.SPANISH.getAcronym());
+
         // Update this panel
-        changeLanguage(new Locale(ChatbotLanguage.SPANISH.getAcronym().toLowerCase(), ChatbotLanguage.SPANISH.getAcronym()));
+        changeLanguage();
 
         // Reload the answers
         ExtraAnswersList.getInstance().loadExtraAnswers(ChatbotLanguage.SPANISH.getName());
@@ -170,9 +206,8 @@ public class MainPanelController extends Controller {
 
     /**
      * Method that changes the languages of the panel, according to the locale received.
-     * @param locale Locale to change the language of the interface.
      */
-    private void changeLanguage(Locale locale) {
+    private void changeLanguage() {
         // Get the bundle
         ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(), locale);
 

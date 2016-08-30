@@ -8,7 +8,6 @@ import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.readers.GraphReader;
 import bot.knowledge.readers.UnimportantWordsList;
 import bot.knowledge.readers.synonyms.SynonymsList;
-import frsf.cidisi.faia.simulator.Simulator;
 import gui.ViewFilesLocation;
 import gui.language.BundlesKeywords;
 import gui.language.ChatbotLanguage;
@@ -16,6 +15,7 @@ import javafx.concurrent.Task;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
+
 
 /**
  * Class that loads the environment, the chatbot (along with its knowledge, the

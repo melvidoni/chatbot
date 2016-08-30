@@ -28,9 +28,9 @@
    <children>
       <MenuBar GridPane.columnSpan="2147483647">
         <menus>
-          <Menu fx:id="languagesMenu" mnemonicParsing="false" text="Languages">
+          <Menu fx:id="languagesMenu" mnemonicParsing="false">
             <items>
-                  <RadioMenuItem fx:id="englishMenuItem" mnemonicParsing="false" onAction="#setEnglishLanguage" selected="true" text="English">
+                  <RadioMenuItem fx:id="englishMenuItem" mnemonicParsing="false" onAction="#setEnglishLanguage">
                      <graphic>
                         <ImageView fitHeight="11.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
                         <ToggleGroup fx:id="languageToggleGroup" />
                      </toggleGroup>
                   </RadioMenuItem>
-                  <RadioMenuItem fx:id="spanishMenuItem" mnemonicParsing="false" onAction="#setSpanishLanguage" text="Spanish" toggleGroup="$languageToggleGroup">
+                  <RadioMenuItem fx:id="spanishMenuItem" mnemonicParsing="false" onAction="#setSpanishLanguage" selected="true" toggleGroup="$languageToggleGroup">
                      <graphic>
                         <ImageView fitHeight="11.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -53,9 +53,9 @@
                   </RadioMenuItem>
             </items>
           </Menu>
-            <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
+            <Menu fx:id="helpMenu" mnemonicParsing="false">
               <items>
-                <MenuItem fx:id="creditsMenu" mnemonicParsing="false" text="Credits">
+                <MenuItem fx:id="creditsMenu" mnemonicParsing="false" onAction="#showCredits">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -69,7 +69,7 @@
         </menus>
       </MenuBar>
       <TextField fx:id="askTextField" onKeyPressed="#askEnterPressed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label fx:id="suggestionsLabel" text="¿Te sugiero una pregunta?" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Label fx:id="suggestionsLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

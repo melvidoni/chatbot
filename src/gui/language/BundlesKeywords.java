@@ -18,7 +18,10 @@ public enum BundlesKeywords {
     LEARNING_MESSAGE("learningMessage"),
     MORE_LEARNING_MESSAGE("moreLearningMessage"),
     WAKE_UP_CHATBOT_MESSAGE("wakingUpChatbotMessage"),
-    STAR_SIMULATION_MESSAGE("startingSimulationMessage");
+    STAR_SIMULATION_MESSAGE("startingSimulationMessage"),
+    CREDITS_WINDOW_TITLE("creditsWindowTitle"),
+    CREDITS_WINDOW_HEADER("creditsWindowHeader"),
+    CREDITS_WINDOW_MSG("creditsWindowMessage");
 
 
 
@@ -68,6 +71,12 @@ public enum BundlesKeywords {
             return WAKE_UP_CHATBOT_MESSAGE;
         else if(STAR_SIMULATION_MESSAGE.toString().equals(n))
             return STAR_SIMULATION_MESSAGE;
+        else if(CREDITS_WINDOW_TITLE.toString().equals(n))
+            return CREDITS_WINDOW_TITLE;
+        else if(CREDITS_WINDOW_MSG.toString().equals(n))
+            return CREDITS_WINDOW_MSG;
+        else if(CREDITS_WINDOW_HEADER.toString().equals(n))
+            return CREDITS_WINDOW_HEADER;
         return null;
     }
 
