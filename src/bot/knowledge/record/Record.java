@@ -1,10 +1,17 @@
 package bot.knowledge.record;
 
 
+import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.readers.ExtraAnswersList;
-
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+
 
 /**
  * Class that controls the question/answer record, to log the chat with
@@ -56,11 +63,12 @@ public class Record {
      * @param filter the filters used for this node.
      */
     public void addNode(String question, String ruleId, String answer, String filter) {
+        // Create a new node
         RecordNode newNode = new RecordNode(question, ruleId, answer, filter);
 
         System.out.println("Adding to record: " + newNode.getAnswer());
 
-
+        // Add it last to the list
         list.addLast(newNode);
     }
 
@@ -123,5 +131,64 @@ public class Record {
         return list.getLast().getAnswer();
     }
 
+
+    /**
+     * Method that saves the record on a file, on the agent's main folder.
+     */
+    public void saveRecord() {
+        try {
+            // Get the directory and create it if it does not exists
+            File recordDirectory = new File(GlossaryFilesLocation.RECORD_FILE_DIRECTORY.toString());
+            recordDirectory.mkdir();
+
+            // Get the date and format it
+            SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd-HH-mm-ss");
+            String dateFormated = formatter.format(new Date());
+
+            // Now get the file for the record
+            String recordFileLocation = GlossaryFilesLocation.RECORD_FILE_DIRECTORY.toString()
+                    + GlossaryFilesLocation.RECORD_FILE_NAME_START.toString()
+                    + dateFormated + GlossaryFilesLocation.RECORD_FILE_NAME_END;
+
+            // Create the print writer
+            PrintWriter writer = new PrintWriter(recordFileLocation, "UTF-8");
+
+            // Create a flag for the first
+            boolean isFirst = true;
+
+            // For each node on the record
+            for(RecordNode rNode: list) {
+                // If this is the first node change the flag to false
+                if(isFirst)
+                    isFirst = false;
+                // If this is not the first node, print an empty line
+                else writer.println("");
+
+                // Now, for each part of the node
+                for(String line: rNode.print()) {
+                    // Write the line
+                    writer.println( line );
+                }
+            }
+
+            // When this is done, close the writer
+            writer.close();
+        }
+        catch(IOException e) {
+            // TODO HANDLE EXCEPTION
+            e.printStackTrace();
+        }
+
+    }
+
+
+    /**
+     * Method that clears the current record. All information previously
+     * stored is lost. This does not save the record.
+     */
+    public void clearRecord() {
+        // Empty the list
+        list = new LinkedList<>();
+    }
 
 }

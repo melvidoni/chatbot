@@ -2,6 +2,7 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
+import bot.knowledge.questions.QuestionsList;
 import bot.knowledge.record.Record;
 import frsf.cidisi.faia.agent.Action;
 import frsf.cidisi.faia.agent.Agent;
@@ -113,7 +114,10 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
         // Do this, while the agent has not yet succeeded or failed
         } while (!this.agentSucceeded(selectedAction) && !this.agentFailed(selectedAction));
 
+        // Because we have an answer, let's update the question list
+        QuestionsList.getInstance().setUsedQuestion(readStatement);
 
+        // Get the answer
         finalAnswer = Record.getInstance().getLastAnswer();
 
         System.out.println("\nAnswer: " +  finalAnswer );

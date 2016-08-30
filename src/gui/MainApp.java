@@ -1,6 +1,7 @@
 package gui;
 
 import bot.agent.ChatbotSimulator;
+import bot.knowledge.record.Record;
 import gui.controller.MainPanelController;
 import gui.controller.ProgressPanelController;
 import javafx.application.Application;
@@ -85,12 +86,26 @@ public class MainApp extends Application {
 
             // Set the scene
             mainStage.setScene(scene);
+
+            // Set on close request handler
+            mainStage.setOnCloseRequest(we -> MainApp.this.handleRecordClosing());
+
+            // Show the stage
             mainStage.show();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+
+    /**
+     * Method to handle the closing of the main stage
+     */
+    private void handleRecordClosing() {
+        // Get the record to save the information
+        Record.getInstance().saveRecord();
     }
 
 

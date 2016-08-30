@@ -41,12 +41,5 @@ public abstract class Controller {
     }
 
 
-    /**
-     * Called when the user clicks on the exit button.
-     */
-    @FXML
-    private void exitSystem() {
-        // TODO DO SOMETHING
-    }
 
 }

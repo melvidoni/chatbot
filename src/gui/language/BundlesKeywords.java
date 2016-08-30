@@ -8,6 +8,7 @@ package gui.language;
  */
 public enum BundlesKeywords {
     SUGGESTIONS_LABEL("suggestionsLabel"),
+    GOODBYE_LABEL("goodbyeLabel"),
     LANGUAGES_MENU("languagesMenu"),
     ENGLISH_MENU_ITEM("englishMenuItem"),
     SPANISH_MENU_ITEM("spanishMenuItem"),
@@ -34,7 +35,12 @@ public enum BundlesKeywords {
     LOG_HEADER("logHeader"),
 
     UNKNOWN_ANSWER("unkwnownAnswer"),
-    CANNOT_UNDERSTAND("cannotUnderstand");
+    CANNOT_UNDERSTAND("cannotUnderstand"),
+
+    RECORD_QUESTION("recordQuestion"),
+    RECORD_ANSWER("recordAnswer"),
+    RECORD_RULE("recordRule"),
+    RECORD_FILTER("recordFilters");
 
 
     private String keyword;
@@ -60,6 +66,8 @@ public enum BundlesKeywords {
     public static BundlesKeywords getLabel(String n){
         if(SUGGESTIONS_LABEL.toString().equals(n))
             return SUGGESTIONS_LABEL;
+        if(GOODBYE_LABEL.toString().equals(n))
+            return GOODBYE_LABEL;
 
         else if(LANGUAGES_MENU.toString().equals(n))
             return LANGUAGES_MENU;
@@ -111,6 +119,15 @@ public enum BundlesKeywords {
             return UNKNOWN_ANSWER;
         else if(CANNOT_UNDERSTAND.toString().equals(n))
             return CANNOT_UNDERSTAND;
+
+        else if(RECORD_QUESTION.toString().equals(n))
+            return RECORD_QUESTION;
+        else if(RECORD_ANSWER.toString().equals(n))
+            return RECORD_ANSWER;
+        else if(RECORD_RULE.toString().equals(n))
+            return RECORD_RULE;
+        else if(RECORD_FILTER.toString().equals(n))
+            return RECORD_FILTER;
 
         return null;
     }
