@@ -21,6 +21,8 @@ public class MainApp extends Application {
     private Stage mainStage;
     private Stage startStage;
 
+
+
     /**
      * Custom method to start the chatbot application.
      * @param stage The gui stage.
@@ -100,4 +102,5 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

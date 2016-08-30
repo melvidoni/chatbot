@@ -10,9 +10,9 @@ import frsf.cidisi.faia.simulator.SearchBasedAgentSimulator;
 import frsf.cidisi.faia.simulator.events.EventType;
 import frsf.cidisi.faia.simulator.events.SimulatorEventNotifier;
 import frsf.cidisi.faia.solver.search.NTree;
-
 import java.util.Iterator;
 import java.util.LinkedList;
+
 
 /**
  * Main class that simulates the life cycle of the agent.
@@ -33,7 +33,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
      * An answer to be given by the end of a simulation
      */
     private String finalAnswer;
-
 
 
 
@@ -152,11 +151,11 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
 
     /**
      * Inherited method to obtain the agent's name.
-     * @return The name of the agent.
+     * @return The name of the class
      */
     @Override
     public String getSimulatorName() {
-        return "ISI Chatbot Simulator";
+        return this.getClass().getName();
     }
 
 

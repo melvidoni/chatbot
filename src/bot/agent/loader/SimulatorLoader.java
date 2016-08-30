@@ -10,11 +10,11 @@ import bot.knowledge.readers.UnimportantWordsList;
 import bot.knowledge.readers.synonyms.SynonymsList;
 import gui.ViewFilesLocation;
 import gui.language.BundlesKeywords;
-import gui.language.ChatbotLanguage;
+import gui.language.CurrentLocale;
 import javafx.concurrent.Task;
-
-import java.util.Locale;
 import java.util.ResourceBundle;
+
+
 
 
 /**
@@ -30,20 +30,12 @@ public class SimulatorLoader extends Task<Object> {
      */
     private ChatbotSimulator chatbotSimulator;
 
-    /**
-     * The language of the initialization.
-     */
-    private ChatbotLanguage cLanguage;
-
-
 
     /**
      * Default empty constructor of the class
-     * @param languageName The language in which the agent will be initialized.
      */
-    public SimulatorLoader(ChatbotLanguage languageName) {
-        // Update the language
-        cLanguage = languageName;
+    public SimulatorLoader() {
+        chatbotSimulator = null;
     }
 
 
@@ -54,10 +46,10 @@ public class SimulatorLoader extends Task<Object> {
      */
     @Override
     protected Object call() throws Exception {
-        // Get the bundle
+        // Set up a locale
+        CurrentLocale currentLocale = CurrentLocale.getInstance();
         ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
-                new Locale(cLanguage.getAcronym().toLowerCase(), cLanguage.getAcronym()));
-
+                currentLocale.getLocale());
 
         /*
          STEP 0: START THE PROCESS
@@ -84,7 +76,7 @@ public class SimulatorLoader extends Task<Object> {
         SynonymsList.getInstance().loadSynonyms();
         updateProgress(30, 100);
         // Read extra answers
-        ExtraAnswersList.getInstance().loadExtraAnswers(cLanguage.getName());
+        ExtraAnswersList.getInstance().loadExtraAnswers( CurrentLocale.getInstance().getcLanguage().getName() );
         updateProgress(40, 100);
 
         /*

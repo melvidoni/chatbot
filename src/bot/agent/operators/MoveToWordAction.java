@@ -12,8 +12,11 @@ import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 import frsf.cidisi.faia.state.AgentState;
 import frsf.cidisi.faia.state.EnvironmentState;
+import gui.ViewFilesLocation;
+import gui.language.BundlesKeywords;
+import gui.language.CurrentLocale;
 import java.util.LinkedList;
-
+import java.util.ResourceBundle;
 
 
 
@@ -183,6 +186,10 @@ public class MoveToWordAction extends SearchAction {
         ChatbotGoal chatbotGoal = new ChatbotGoal();
         ChatbotAgentState chatbotState = (ChatbotAgentState) aState;
 
+        // Get the bundle
+        ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
+                                                                CurrentLocale.getInstance().getLocale());
+
         // If this is a goal state...
         if( chatbotGoal.isGoalState(chatbotState) ) {
             // Get the environment's state
@@ -201,8 +208,8 @@ public class MoveToWordAction extends SearchAction {
                 Rule unknownAnswerRule = new Rule(null, ruleRR.getAnswer(), ruleRR.getRuleID());
 
                 // Update the record so it has the node
-                // TODO CHANGE LANGUAGE HERE
-                chatbotEnvState.addNodeToRecord(unknownAnswerRule, "UNKNOWN ANSWER");
+                chatbotEnvState.addNodeToRecord(unknownAnswerRule,
+                        bundle.getString(BundlesKeywords.UNKNOWN_ANSWER.toString()));
             }
             // Otherwise, we have rules!
             else {
@@ -238,8 +245,8 @@ public class MoveToWordAction extends SearchAction {
             Rule cannotUnderstandRule = new Rule(null, ruleRE.getAnswer(), ruleRE.getRuleID());
 
             // Add it to the record anyways
-            // TODO CHANGE LANGUAGE
-            ((ChatbotEnvironmentState) eState).addNodeToRecord(cannotUnderstandRule, "CANNOT UNDERSTAND");
+            ((ChatbotEnvironmentState) eState).addNodeToRecord(cannotUnderstandRule,
+                    bundle.getString(BundlesKeywords.CANNOT_UNDERSTAND.toString()));
         }
     }
 
@@ -261,8 +268,7 @@ public class MoveToWordAction extends SearchAction {
      */
     @Override
     public String toString() {
-        // TODO CHANGE LANGUAGE HERE
-        return "Action: move to word \'" + word + "\'";
+         return this.getClass().getName() + "\'" + word + "\'";
     }
 
 

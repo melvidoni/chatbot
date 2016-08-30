@@ -7,6 +7,7 @@ import bot.knowledge.readers.ExtraAnswersList;
 import gui.ViewFilesLocation;
 import gui.language.BundlesKeywords;
 import gui.language.ChatbotLanguage;
+import gui.language.CurrentLocale;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
@@ -18,8 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 
@@ -52,10 +51,9 @@ public class MainPanelController extends Controller {
     private ChatbotSimulator simulator;
 
     /**
-     * A reference to the locale of the interface
+     * The resource bundle for the locale used
      */
-    private Locale locale;
-
+    private ResourceBundle rBundle;
 
 
     /**
@@ -70,10 +68,12 @@ public class MainPanelController extends Controller {
         // Set the flag as true;
         firstKey = true;
 
-        // Set default locale
-        // TODO CHANGE LANGUAGE HERE
-        locale = new Locale(ChatbotLanguage.SPANISH.getAcronym().toLowerCase(), ChatbotLanguage.SPANISH.getAcronym());
-        setSpanishLanguage();
+        // Get the bundle
+        rBundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
+                                    CurrentLocale.getInstance().getLocale());
+
+        // By default, start in spanish
+        changeLanguage();
     }
 
 
@@ -99,6 +99,7 @@ public class MainPanelController extends Controller {
             askTextField.setText("");
         }
     }
+
 
 
     /**
@@ -133,25 +134,22 @@ public class MainPanelController extends Controller {
 
     @FXML
     public void showCredits() {
-        // Get the bundle with the current locale
-        ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(), locale);
-
         // Prepare the alert
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         // Set the icon and title
-        alert.setTitle( bundle.getString(BundlesKeywords.CREDITS_WINDOW_TITLE.toString()) );
+        alert.setTitle( rBundle.getString(BundlesKeywords.CREDITS_WINDOW_TITLE.toString()) );
 
         // Set the icon
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(this.getClass().getResource(ViewFilesLocation.LOGO_ICON.toString()).toString()));
 
         // Set header text
-        alert.setHeaderText( bundle.getString(BundlesKeywords.CREDITS_WINDOW_HEADER.toString()) );
+        alert.setHeaderText( rBundle.getString(BundlesKeywords.CREDITS_WINDOW_HEADER.toString()) );
 
         // Change main icon and text
         alert.setGraphic(new ImageView(this.getClass().getResource(ViewFilesLocation.CREDITS_ICON_BIG.toString()).toString()));
-        alert.setContentText( bundle.getString(BundlesKeywords.CREDITS_WINDOW_MSG.toString()) );
+        alert.setContentText( rBundle.getString(BundlesKeywords.CREDITS_WINDOW_MSG.toString()) );
 
         // Show and wait
         alert.showAndWait();
@@ -177,13 +175,10 @@ public class MainPanelController extends Controller {
     @FXML
     public void setEnglishLanguage() {
         // Set the locale
-        locale = new Locale(ChatbotLanguage.ENGLISH.getAcronym().toLowerCase(), ChatbotLanguage.ENGLISH.getAcronym());
+        CurrentLocale.getInstance().changeLocale(ChatbotLanguage.ENGLISH);
 
         // Update this panel
         changeLanguage();
-
-        // Reload the answers
-        ExtraAnswersList.getInstance().loadExtraAnswers(ChatbotLanguage.ENGLISH.getName());
     }
 
 
@@ -193,13 +188,10 @@ public class MainPanelController extends Controller {
     @FXML
     public void setSpanishLanguage() {
         // Set the locale
-        locale = new Locale(ChatbotLanguage.SPANISH.getAcronym().toLowerCase(), ChatbotLanguage.SPANISH.getAcronym());
+        CurrentLocale.getInstance().changeLocale(ChatbotLanguage.SPANISH);
 
-        // Update this panel
+        // Change the language
         changeLanguage();
-
-        // Reload the answers
-        ExtraAnswersList.getInstance().loadExtraAnswers(ChatbotLanguage.SPANISH.getName());
     }
 
 
@@ -208,15 +200,19 @@ public class MainPanelController extends Controller {
      * Method that changes the languages of the panel, according to the locale received.
      */
     private void changeLanguage() {
-        // Get the bundle
-        ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(), locale);
+        // Update the bundle
+        rBundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
+                CurrentLocale.getInstance().getLocale());
 
         // Now set the values
-        suggestionsLabel.setText(bundle.getString(BundlesKeywords.SUGGESTIONS_LABEL.toString()));
-        languagesMenu.setText(bundle.getString(BundlesKeywords.LANGUAGES_MENU.toString()));
-        englishMenuItem.setText(bundle.getString(BundlesKeywords.ENGLISH_MENU_ITEM.toString()));
-        spanishMenuItem.setText(bundle.getString(BundlesKeywords.SPANISH_MENU_ITEM.toString()));
-        helpMenu.setText(bundle.getString(BundlesKeywords.HELP_MENU.toString()));
-        creditsMenu.setText(bundle.getString(BundlesKeywords.CREDITS_MENU.toString()));
+        suggestionsLabel.setText(rBundle.getString(BundlesKeywords.SUGGESTIONS_LABEL.toString()));
+        languagesMenu.setText(rBundle.getString(BundlesKeywords.LANGUAGES_MENU.toString()));
+        englishMenuItem.setText(rBundle.getString(BundlesKeywords.ENGLISH_MENU_ITEM.toString()));
+        spanishMenuItem.setText(rBundle.getString(BundlesKeywords.SPANISH_MENU_ITEM.toString()));
+        helpMenu.setText(rBundle.getString(BundlesKeywords.HELP_MENU.toString()));
+        creditsMenu.setText(rBundle.getString(BundlesKeywords.CREDITS_MENU.toString()));
+
+        // Reload the answers
+        ExtraAnswersList.getInstance().loadExtraAnswers(CurrentLocale.getInstance().getcLanguage().getName());
     }
 }
