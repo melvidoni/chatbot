@@ -3,6 +3,7 @@ package gui.controller;
 
 import bot.agent.ChatbotSimulator;
 import bot.knowledge.auxialiary.WordNormalizer;
+import bot.knowledge.questions.QuestionsList;
 import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.record.Record;
 import gui.ViewFilesLocation;
@@ -97,8 +98,9 @@ public class MainPanelController extends Controller {
         else if(firstKey){
             // Set the flag as false
             firstKey = false;
-            // And clear the text field
+            // And clear the ask and answer
             askTextField.setText("");
+            answerLabel.setText("");
         }
     }
 
@@ -220,11 +222,22 @@ public class MainPanelController extends Controller {
     }
 
 
-
+    /**
+     * Action listener for the suggested questions button. This randomly selects
+     * a question, puts it on the text field, and ask the chatbot to answer it.
+     */
     @FXML
     public void useSuggestedQuestion() {
+        // Get a suggested question
+        String randomQuestion = QuestionsList.getInstance().suggestQuestion();
 
+        // Set this as asked
+        askTextField.setText(randomQuestion);
+
+        // Automatically get an asnwer
+        getAnAswer();
     }
+
 
 
 
@@ -240,6 +253,9 @@ public class MainPanelController extends Controller {
 
         // Clear the record
         Record.getInstance().clearRecord();
+
+        // Restart suggested questions
+        QuestionsList.getInstance().clearQuestionsUsed();
 
         // Now clean the interface
         askTextField.setText("");

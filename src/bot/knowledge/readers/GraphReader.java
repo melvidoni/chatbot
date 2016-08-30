@@ -5,7 +5,6 @@ import bot.knowledge.graph.Graph;
 import bot.knowledge.graph.GraphNode;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.auxialiary.WordNormalizer;
-
 import java.io.*;
 import java.util.LinkedList;
 

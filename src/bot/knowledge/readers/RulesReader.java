@@ -4,7 +4,7 @@ package bot.knowledge.readers;
 import bot.agent.operators.MoveToWordAction;
 import bot.agent.operators.rules.OperatorRulesMap;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
-
+import bot.knowledge.questions.QuestionsList;
 import java.io.*;
 import java.util.LinkedList;
 
@@ -36,14 +36,17 @@ public class RulesReader {
     }
 
 
-
-
-
-
-
+    /**
+     * Method that reads all the questions an answers available, in order to
+     * create the maps. It also initializes the list of questions with the
+     * sets of synonym questions.
+     */
     private static void readQuestionsAndAnswers() {
         // Get a reference to the map
         OperatorRulesMap map = OperatorRulesMap.getInstance();
+
+        // Prepare an instance of the questions list
+        QuestionsList questionsList = QuestionsList.getInstance();
 
         try {
             // Create the file
@@ -76,7 +79,6 @@ public class RulesReader {
                     answers.add(br.readLine());
                 }
 
-
                 /*
                 At this point I have a block of questions that can be answered with a given
                 block of answers. I need to associate them in someway, and create the rules
@@ -86,6 +88,9 @@ public class RulesReader {
 
                 // Update to read the next set of questions
                 numberOfQuestions = Integer.parseInt(br.readLine());
+
+                // Add all the group of questions to the list
+                questionsList.addSynonymQuestions(questions);
             }
 
             // Close the buffer

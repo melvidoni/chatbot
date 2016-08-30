@@ -7,15 +7,15 @@ package bot.knowledge.auxialiary;
  *
  */
 public enum GlossaryFilesLocation {
-    USER_QUESTIONS("C:/Chatbot/Resources/user_questions.txt"),
-    UNIMPORTANT_WORDS("C:/Chatbot/Resources/unimportant_words.txt"),
-    SYNONYMS("C:/Chatbot/Resources/synonyms.txt"),
-    QUESTIONS_AND_ANSWERS("C:/Chatbot/Resources/questions_and_answers.txt"),
+    USER_QUESTIONS("C:/Chatbot/resources/user_questions.txt"),
+    UNIMPORTANT_WORDS("C:/Chatbot/resources/unimportant_words.txt"),
+    SYNONYMS("C:/Chatbot/resources/synonyms.txt"),
+    QUESTIONS_AND_ANSWERS("C:/Chatbot/resources/questions_and_answers.txt"),
 
-    EXTRA_RULES_START("C:/Chatbot/Resources/extrarules_"),
+    EXTRA_RULES_START("C:/Chatbotresources/extrarules_"),
     EXTRA_RULES_END(".txt"),
 
-    RECORD_FILE_DIRECTORY("C:/Chatbot/Records"),
+    RECORD_FILE_DIRECTORY("C:/Chatbot/records"),
     RECORD_FILE_NAME_START("/record_"),
     RECORD_FILE_NAME_END(".txt");
 
