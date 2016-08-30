@@ -12,7 +12,7 @@ public enum GlossaryFilesLocation {
     SYNONYMS("C:/Chatbot/resources/synonyms.txt"),
     QUESTIONS_AND_ANSWERS("C:/Chatbot/resources/questions_and_answers.txt"),
 
-    EXTRA_RULES_START("C:/Chatbotresources/extrarules_"),
+    EXTRA_RULES_START("C:/Chatbot/resources/extrarules_"),
     EXTRA_RULES_END(".txt"),
 
     RECORD_FILE_DIRECTORY("C:/Chatbot/records"),

@@ -27,8 +27,12 @@ public class RulesReader {
         // Get a reference to the map
         OperatorRulesMap map = OperatorRulesMap.getInstance();
 
+        System.out.println("loading actions");
+
         // Read the questions and answers
         readQuestionsAndAnswers();
+
+        System.out.println("qa read");
 
         // Return the information
         // TODO CHECK IF THIS RETURNS CORRECTLY
@@ -60,6 +64,7 @@ public class RulesReader {
 
             // While there are questions...
             while(numberOfQuestions != 0) {
+                System.out.println("Start with set");
                 // Create the list of questions and answers
                 LinkedList<String> questions = new LinkedList<>();
                 LinkedList<String> answers = new LinkedList<>();
@@ -86,11 +91,15 @@ public class RulesReader {
                  */
                 map.createRulesFor(questions, answers);
 
+                System.out.println("Rules created");
+
                 // Update to read the next set of questions
                 numberOfQuestions = Integer.parseInt(br.readLine());
+                System.out.println("parsed next line");
 
                 // Add all the group of questions to the list
                 questionsList.addSynonymQuestions(questions);
+                System.out.println("questions added");
             }
 
             // Close the buffer
