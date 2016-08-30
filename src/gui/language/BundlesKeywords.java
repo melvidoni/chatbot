@@ -34,7 +34,12 @@ public enum BundlesKeywords {
     LOG_HEADER("logHeader"),
 
     UNKNOWN_ANSWER("unkwnownAnswer"),
-    CANNOT_UNDERSTAND("cannotUnderstand");
+    CANNOT_UNDERSTAND("cannotUnderstand"),
+
+    RECORD_QUESTION("recordQuestion"),
+    RECORD_ANSWER("recordAnswer"),
+    RECORD_RULE("recordRule"),
+    RECORD_FILTER("recordFilters");
 
 
     private String keyword;
@@ -111,6 +116,15 @@ public enum BundlesKeywords {
             return UNKNOWN_ANSWER;
         else if(CANNOT_UNDERSTAND.toString().equals(n))
             return CANNOT_UNDERSTAND;
+
+        else if(RECORD_QUESTION.toString().equals(n))
+            return RECORD_QUESTION;
+        else if(RECORD_ANSWER.toString().equals(n))
+            return RECORD_ANSWER;
+        else if(RECORD_RULE.toString().equals(n))
+            return RECORD_RULE;
+        else if(RECORD_FILTER.toString().equals(n))
+            return RECORD_FILTER;
 
         return null;
     }

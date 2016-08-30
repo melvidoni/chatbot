@@ -1,5 +1,12 @@
 package bot.knowledge.record;
 
+import gui.ViewFilesLocation;
+import gui.language.BundlesKeywords;
+import gui.language.CurrentLocale;
+
+import java.util.LinkedList;
+import java.util.ResourceBundle;
+
 /**
  * Class that represents a node inside the record/log of chat of the robot.
  * Contains the question asked and the identification of the rule used in
@@ -62,18 +69,22 @@ public class RecordNode {
      * generated on a TXT file.
      * @return String with the node in printing format.
      */
-    public String print() {
-        // Create the string to be return
-        String nodeToPrint = "";
+    public LinkedList<String> print() {
+        // Get the bundle for the locale
+        ResourceBundle rBundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
+                CurrentLocale.getInstance().getLocale());
 
-        // Agrego los componentes
-        nodeToPrint = RecordLanguage.QUESTION.getEnglishWord() + ": " + question + "\r\n";
-        nodeToPrint = nodeToPrint + RecordLanguage.RULE.getEnglishWord() + ": " + ruleID + "\r\n";
-        nodeToPrint = nodeToPrint + RecordLanguage.ANSWER.getEnglishWord() + ": " + getAnswer() + "\r\n";
-        nodeToPrint = nodeToPrint + RecordLanguage.FILTERS.getEnglishWord() + ": " + filtersUsed;
+        // Create the node to print and return it
+        LinkedList<String> nodeToPrint = new LinkedList<>();
 
-        // Devuelvo el string
-        return nodeToPrint;
+        // Add the parts
+        nodeToPrint.addLast( rBundle.getString(BundlesKeywords.RECORD_QUESTION.toString()) + ": " + question );
+        nodeToPrint.addLast( rBundle.getString(BundlesKeywords.RECORD_RULE.toString()) + ": " + ruleID );
+        nodeToPrint.addLast( rBundle.getString(BundlesKeywords.RECORD_ANSWER.toString()) + ": " + answer );
+        nodeToPrint.addLast( rBundle.getString(BundlesKeywords.RECORD_FILTER.toString()) + ": " + filtersUsed );
+
+        // Return the list
+        return ( nodeToPrint );
     }
 
 
