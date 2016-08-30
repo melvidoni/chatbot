@@ -1,4 +1,4 @@
-package bot.readers.synonyms;
+package bot.knowledge.readers.synonyms;
 
 
 import java.util.LinkedList;

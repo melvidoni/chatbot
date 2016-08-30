@@ -1,12 +1,13 @@
 package gui;
 
+import bot.agent.ChatbotSimulator;
+import gui.controller.MainPanelController;
+import gui.controller.ProgressPanelController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 
@@ -15,7 +16,11 @@ import java.io.IOException;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class MainApp extends Application {
-    private Stage primaryStage;
+
+    private Stage progressStage;
+    private Stage mainStage;
+    private Stage startStage;
+
 
 
     /**
@@ -24,24 +29,70 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) {
-        // Config the main stage
-        this.primaryStage = stage;
-        this.primaryStage.setTitle("ISI Chatbot");
-        this.primaryStage.setResizable(false);
-        this.primaryStage.getIcons().add(new Image( ViewFilesLocation.LOGO_ICON.toString() ));
+        // Save the stage
+        startStage = stage;
+
+        // First, config the progress stage
+        progressStage = startStage;
+        progressStage.setTitle("Chatbot");
+        progressStage.setResizable(false);
+        progressStage.getIcons().add(new Image( ViewFilesLocation.LOGO_ICON.toString() ));
 
         try {
             // Load the layout from the fxml file
-            Parent root = FXMLLoader.load(getClass().getResource( ViewFilesLocation.MAIN_PANEL.toString() ));
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource( ViewFilesLocation.PROGRESS_PANEL.toString() ));
+            Scene scene = new Scene(loader.load());
 
-            // Launch the scene
-            stage.setScene(new Scene(root));
-            stage.show();
+            // Set the main app
+            ((ProgressPanelController) loader.getController()).setMainApp(this);
+
+            // Set the scene
+            progressStage.setScene(scene);
+            progressStage.show();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+    /**
+     * Method that removes the progress window, and replaces it with the main panel,
+     * while setting the loaded simulator onto the controller.
+     * @param simulator The loaded simulator to set on the controller.
+     */
+    public void callMainPanel(ChatbotSimulator simulator) {
+        // Config the main panel
+        mainStage = startStage;
+        mainStage.setTitle("Chatbot");
+        mainStage.setResizable(false);
+        mainStage.getIcons().add(new Image( ViewFilesLocation.LOGO_ICON.toString() ));
+
+        try {
+            // Close the progress stage
+            progressStage.close();
+
+            // Load the layout from the fxml file
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource( ViewFilesLocation.MAIN_PANEL.toString() ));
+            Scene scene = new Scene(loader.load());
+
+            // Get the controller
+            MainPanelController mpController = (MainPanelController) loader.getController();
+
+            // Load the information
+            mpController.setMainApp(this);
+            mpController.setSimulator(simulator);
+
+            // Set the scene
+            mainStage.setScene(scene);
+            mainStage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
     /**
@@ -51,4 +102,5 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

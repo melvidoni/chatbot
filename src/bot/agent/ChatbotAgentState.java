@@ -3,7 +3,7 @@ package bot.agent;
 
 import bot.agent.operators.rules.OperatorRulesMap;
 import bot.agent.operators.rules.Rule;
-import bot.readers.auxialiary.WordNormalizer;
+import bot.knowledge.auxialiary.WordNormalizer;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 

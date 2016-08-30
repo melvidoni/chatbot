@@ -2,11 +2,14 @@ package bot.inference;
 
 
 import bot.agent.operators.rules.Rule;
+import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.record.Record;
+import gui.ViewFilesLocation;
+import gui.language.BundlesKeywords;
+import gui.language.CurrentLocale;
 import java.util.LinkedList;
 import java.util.Random;
-
-
+import java.util.ResourceBundle;
 
 
 /**
@@ -72,24 +75,33 @@ public class InferenceMachine {
         givenAnswer = "";
         successfulRule = null;
 
-        System.out.println("Start on select answer");
+        // Get the locale and load a bundle
+        CurrentLocale currentLocale = CurrentLocale.getInstance();
+        ResourceBundle rBundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString());
 
         /*
         Start with the specificity filter, in order to see what it has. Send the found rules, and
         the words not yet analyzed.
          */
         LinkedList<Rule> rulesFilteredBySpecificity = this.specificityFilter(foundRules, notAnalyzedWords);
-        // TODO CHANGE LANGUAGE?
-        usedFilters.addLast(FiltersLanguages.SPECIFICITY.getEnglishWord());
+
+        // Add the filter
+        usedFilters.addLast( rBundle.getString(BundlesKeywords.SPECIFICITY_FILTER.toString()) );
 
         System.out.println("\nSPECIFICIFY RULES -> " + rulesFilteredBySpecificity);
 
 
         // If the selected rules are empty
         if( rulesFilteredBySpecificity.isEmpty() ) {
-            // The chatbot did understood, but cannot answer
-            // TODO CHANGE LANGUAGE IN HERE
-            successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
+            /*
+             The chatbot did understood, but cannot answer
+             */
+
+            // Get the rule RR
+            Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
+
+            // Set this as successful
+            successfulRule = new Rule(null, ruleRR.getAnswer(), ruleRR.getRuleID());
 
             // Set this as the given answer
             givenAnswer = successfulRule.getAnswer();
@@ -104,15 +116,20 @@ public class InferenceMachine {
 
             System.out.println("PRIORITY RULES -> " + rulesFilteredByPriority);
 
-
-            // TODO CHANGE LANGUAGE
-            usedFilters.addLast(FiltersLanguages.PRIORITY.getEnglishWord());
+            // Add the filter
+            usedFilters.addLast( rBundle.getString(BundlesKeywords.PRIORITY_FILTER.toString()) );
 
             // If no rules are available
             if( rulesFilteredByPriority.isEmpty() ) {
-                // The chatbot did not understood, but it cannot answer
-                // TODO CHANGE LANGUAGE IN HERE
-                successfulRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
+                /*
+                 The chatbot did not understood, but it cannot answer
+                 */
+
+                // Get the rule RR
+                Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
+
+                // Set this as successful rule
+                successfulRule = new Rule(null, ruleRR.getAnswer(), ruleRR.getRuleID());
 
                 // Set this as the given answer
                 givenAnswer = successfulRule.getAnswer();
@@ -133,25 +150,23 @@ public class InferenceMachine {
                     On this case, this means that all answer were used before, so the chatbot will be
                     sassy and say that it already answered, by altering one of the existent rules.
                     */
-                    // TODO CHANGE LANGUAGE
-                    usedFilters.addLast(FiltersLanguages.NO_DUPLICATES_FAILED.getEnglishWord());
+                    // Set the filter
+                    usedFilters.addLast( rBundle.getString(BundlesKeywords.NO_DUPLICATION_FAILED_FILTER.toString()) );
 
                     // Randomly select a rule among the used rules
                     Rule randomRule = this.randomFilter(rulesFilteredByPriority);
-                    usedFilters.addLast(FiltersLanguages.RANDOM_USED.getEnglishWord());
+                    usedFilters.addLast( rBundle.getString(BundlesKeywords.RANDOM_USED_FILTER.toString()) );
 
-                    // Change the answer and store it
-                    givenAnswer = "Creo que ya te respondí... " + randomRule.getAnswer();
+                    // Get the RM rule, change the selected answer and store it
+                    givenAnswer = ExtraAnswersList.getInstance().getRuleRM().getAnswer() + " " + randomRule.getAnswer();
                     successfulRule = new Rule(randomRule.getNormalizedQuestion(), givenAnswer, randomRule.getRuleID()+"\'");
-
 
                     System.out.println("RANDOM USED FILTER -> " + successfulRule);
                 }
                 // Otherwise, we have rules
                 else {
                     // And the filter was successful
-                    // TODO CHANGE LANGUAGE
-                    usedFilters.addLast(FiltersLanguages.NO_DUPLICATES_SUCCESSFUL.getEnglishWord());
+                    usedFilters.addLast( rBundle.getString(BundlesKeywords.NO_DUPLICATION_SUCCESS_FILTER.toString()) );
 
                     // If we have only one rule
                     if( rulesFilteredByNoDuplication.size() == 1 ) {
@@ -166,9 +181,7 @@ public class InferenceMachine {
                         givenAnswer = successfulRule.getAnswer();
 
                         // Add the filter
-                        // TODO CHANGE LANGUAGE
-                        usedFilters.addLast(FiltersLanguages.RANDOM_UNUSED.getEnglishWord());
-
+                        usedFilters.addLast( rBundle.getString(BundlesKeywords.RANDOM_UNUSED_FILTER.toString()) );
 
                         System.out.println("RANDOM UNUSED -> " + successfulRule);
                     }

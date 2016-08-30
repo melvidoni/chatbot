@@ -1,10 +1,9 @@
-package bot.readers;
+package bot.knowledge.readers;
 
 
 import bot.agent.operators.MoveToWordAction;
 import bot.agent.operators.rules.OperatorRulesMap;
-import bot.readers.auxialiary.GlossaryFilesLocation;
-import bot.readers.auxialiary.WordNormalizer;
+import bot.knowledge.auxialiary.GlossaryFilesLocation;
 
 import java.io.*;
 import java.util.LinkedList;

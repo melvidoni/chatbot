@@ -2,11 +2,11 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.knowledge.graph.Graph;
-import bot.readers.GraphReader;
-import bot.readers.RulesReader;
-import bot.readers.UnimportantWords;
-import bot.readers.synonyms.SynonymsList;
+import bot.knowledge.readers.ExtraAnswersList;
+import bot.knowledge.readers.GraphReader;
+import bot.knowledge.readers.RulesReader;
+import bot.knowledge.readers.UnimportantWordsList;
+import bot.knowledge.readers.synonyms.SynonymsList;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
@@ -34,13 +34,6 @@ public class ChatbotAgent extends SearchBasedAgent{
     public ChatbotAgent() {
         // Call super
         super();
-
-        // Read secondary words
-        UnimportantWords.getInstance().loadWords();
-        SynonymsList.getInstance().loadSynonyms();
-
-        // Read the graph
-        GraphReader.loadGraph();
 
         // Now read the operators
         Vector<SearchAction> operators = new Vector<>();

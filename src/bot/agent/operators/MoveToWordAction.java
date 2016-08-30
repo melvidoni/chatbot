@@ -7,12 +7,16 @@ import bot.agent.ChatbotGoal;
 import bot.agent.operators.rules.Rule;
 import bot.inference.InferenceMachine;
 import bot.knowledge.graph.Graph;
+import bot.knowledge.readers.ExtraAnswersList;
 import frsf.cidisi.faia.agent.search.SearchAction;
 import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 import frsf.cidisi.faia.state.AgentState;
 import frsf.cidisi.faia.state.EnvironmentState;
+import gui.ViewFilesLocation;
+import gui.language.BundlesKeywords;
+import gui.language.CurrentLocale;
 import java.util.LinkedList;
-
+import java.util.ResourceBundle;
 
 
 
@@ -178,14 +182,13 @@ public class MoveToWordAction extends SearchAction {
      * @param eState The environment's state.
      */
     private void updateEnvironment(AgentState aState, EnvironmentState eState) {
-        System.out.println("Reached update environment");
-
         // Get the goal and the state
         ChatbotGoal chatbotGoal = new ChatbotGoal();
         ChatbotAgentState chatbotState = (ChatbotAgentState) aState;
 
-
-        System.out.println("After getting the state");
+        // Get the bundle
+        ResourceBundle bundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
+                                                                CurrentLocale.getInstance().getLocale());
 
         // If this is a goal state...
         if( chatbotGoal.isGoalState(chatbotState) ) {
@@ -194,24 +197,22 @@ public class MoveToWordAction extends SearchAction {
 
             // If there are no rules...
             if( chatbotState.getFoundRules().isEmpty() ) {
-                System.out.println("Found rules empty");
-
-
                 /*
                 The agent understands the question, but cannot answer it.
                 So it creates a new special rule to answer.
                  */
-                // TODO CHECK HOW TO CHANGE THE LANGUAGE HERE
-                Rule unknownAnswerRule = new Rule(null, "No puedo responderte porque no lo sé", "RR");
+                // Get the RR rule
+                Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
+
+                // Set the new rule
+                Rule unknownAnswerRule = new Rule(null, ruleRR.getAnswer(), ruleRR.getRuleID());
 
                 // Update the record so it has the node
-                chatbotEnvState.addNodeToRecord(unknownAnswerRule, "UNKNOWN ANSWER");
+                chatbotEnvState.addNodeToRecord(unknownAnswerRule,
+                        bundle.getString(BundlesKeywords.UNKNOWN_ANSWER.toString()));
             }
             // Otherwise, we have rules!
             else {
-                System.out.println("we have rules");
-
-
                 /*
                 This means the chatbot understood the question, studied it, and found at least
                 one rule to be able to answer the question.
@@ -219,13 +220,9 @@ public class MoveToWordAction extends SearchAction {
 
                 // Get an inference machine
                 InferenceMachine iMachine = InferenceMachine.getInstance();
-                System.out.println("we got imachine");
-
 
                 // Select an answer
                 iMachine.selectAnswer(chatbotState.getFoundRules(), chatbotState.getFoundWords());
-
-                System.out.println("iMachine selected answer?");
 
                 // Get the elements
                 Rule selectedRule = iMachine.getSuccessfulRule();
@@ -238,20 +235,19 @@ public class MoveToWordAction extends SearchAction {
         }
         // Otherwise, we are not on a goal state
         else {
-            System.out.println("else");
-
             /*
             On this case, the chatbot does not understand the question and cannot answer it
              */
-            Rule cannotUnderstandRule = new Rule(null, "Lo siento, pero no te entiendo.", "RE");
+            // Get the rule
+            Rule ruleRE = ExtraAnswersList.getInstance().getRuleRE();
+
+            // Set the rule
+            Rule cannotUnderstandRule = new Rule(null, ruleRE.getAnswer(), ruleRE.getRuleID());
 
             // Add it to the record anyways
-            // TODO CHANGE LANGUAGE
-            ((ChatbotEnvironmentState) eState).addNodeToRecord(cannotUnderstandRule, "CANNOT UNDERSTAND");
+            ((ChatbotEnvironmentState) eState).addNodeToRecord(cannotUnderstandRule,
+                    bundle.getString(BundlesKeywords.CANNOT_UNDERSTAND.toString()));
         }
-
-
-        System.out.println("at the end of the method");
     }
 
 
@@ -272,7 +268,7 @@ public class MoveToWordAction extends SearchAction {
      */
     @Override
     public String toString() {
-        return "Action: move to word \'" + word + "\'";
+         return this.getClass().getName() + "\'" + word + "\'";
     }
 
 

@@ -13,44 +13,63 @@
 
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="450.0" minWidth="730.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MainPanelController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="225.0" prefWidth="225.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="300.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="280.0" prefWidth="280.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="300.0" prefHeight="300.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="askButton" mnemonicParsing="false" onAction="#askQuestion" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-         <GridPane.margin>
-            <Insets left="10.0" />
-         </GridPane.margin>
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/askicon.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <TextField fx:id="askTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextArea fx:id="answerTextArea" editable="false" focusTraversable="false" prefHeight="37.0" prefWidth="280.0" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <GridPane.margin>
-            <Insets right="30.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </TextArea>
-      <Label fx:id="suggestionsLabel" text="¿Te sugiero una pregunta?" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <MenuBar GridPane.columnSpan="2147483647">
+        <menus>
+          <Menu fx:id="languagesMenu" mnemonicParsing="false">
+            <items>
+                  <RadioMenuItem fx:id="englishMenuItem" mnemonicParsing="false" onAction="#setEnglishLanguage">
+                     <graphic>
+                        <ImageView fitHeight="11.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/englishicon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="languageToggleGroup" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="spanishMenuItem" mnemonicParsing="false" onAction="#setSpanishLanguage" selected="true" toggleGroup="$languageToggleGroup">
+                     <graphic>
+                        <ImageView fitHeight="11.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/spanishicon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </RadioMenuItem>
+            </items>
+          </Menu>
+            <Menu fx:id="helpMenu" mnemonicParsing="false">
+              <items>
+                <MenuItem fx:id="creditsMenu" mnemonicParsing="false" onAction="#showCredits">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/creditsicon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <TextField fx:id="askTextField" onKeyPressed="#askEnterPressed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="suggestionsLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -58,11 +77,22 @@
                </image>
             </ImageView>
          </graphic>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
       </Label>
       <ImageView fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <image>
             <Image url="@img/robotclean.png" />
          </image>
       </ImageView>
+      <Label fx:id="answerLabel" alignment="TOP_LEFT" maxHeight="300.0" maxWidth="400.0" minHeight="300.0" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: FFFFFF; -fx-border-color: C1C1C1; -fx-border-width: 1; -fx-border-style: solid; -fx-shape: &quot;M4 0 L64 0 L64 64 L04 64 L4 8 L0 4 Z&quot;; -fx-label-padding: 0 0 0 20;" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </Label>
    </children>
 </GridPane>
