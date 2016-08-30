@@ -4,6 +4,7 @@ package gui.controller;
 import bot.agent.ChatbotSimulator;
 import bot.knowledge.auxialiary.WordNormalizer;
 import bot.knowledge.readers.ExtraAnswersList;
+import bot.knowledge.record.Record;
 import gui.ViewFilesLocation;
 import gui.language.BundlesKeywords;
 import gui.language.ChatbotLanguage;
@@ -31,7 +32,8 @@ public class MainPanelController extends Controller {
     @FXML private TextField askTextField;
     @FXML private Label answerLabel;
 
-    @FXML private Label suggestionsLabel;
+    @FXML private Button suggestedQuestion;
+    @FXML private Button goodbyeButton;
 
     @FXML private Menu languagesMenu;
     @FXML private ToggleGroup languageToggleGroup;
@@ -205,7 +207,8 @@ public class MainPanelController extends Controller {
                 CurrentLocale.getInstance().getLocale());
 
         // Now set the values
-        suggestionsLabel.setText(rBundle.getString(BundlesKeywords.SUGGESTIONS_LABEL.toString()));
+        suggestedQuestion.setText(rBundle.getString(BundlesKeywords.SUGGESTIONS_LABEL.toString()));
+        goodbyeButton.setText(rBundle.getString(BundlesKeywords.GOODBYE_LABEL.toString()));
         languagesMenu.setText(rBundle.getString(BundlesKeywords.LANGUAGES_MENU.toString()));
         englishMenuItem.setText(rBundle.getString(BundlesKeywords.ENGLISH_MENU_ITEM.toString()));
         spanishMenuItem.setText(rBundle.getString(BundlesKeywords.SPANISH_MENU_ITEM.toString()));
@@ -214,5 +217,32 @@ public class MainPanelController extends Controller {
 
         // Reload the answers
         ExtraAnswersList.getInstance().loadExtraAnswers(CurrentLocale.getInstance().getcLanguage().getName());
+    }
+
+
+
+    @FXML
+    public void useSuggestedQuestion() {
+
+    }
+
+
+
+    /**
+     * Action listener for the goodbye button. It works as a session closing,
+     * by storing the record, and then resetting it. Then, it clears the ask
+     * and answer labels, so the user can start asking again.
+     */
+    @FXML
+    public void goodbyeAction() {
+        // First save the record
+        Record.getInstance().saveRecord();
+
+        // Clear the record
+        Record.getInstance().clearRecord();
+
+        // Now clean the interface
+        askTextField.setText("");
+        answerLabel.setText("");
     }
 }

@@ -8,6 +8,7 @@ package gui.language;
  */
 public enum BundlesKeywords {
     SUGGESTIONS_LABEL("suggestionsLabel"),
+    GOODBYE_LABEL("goodbyeLabel"),
     LANGUAGES_MENU("languagesMenu"),
     ENGLISH_MENU_ITEM("englishMenuItem"),
     SPANISH_MENU_ITEM("spanishMenuItem"),
@@ -65,6 +66,8 @@ public enum BundlesKeywords {
     public static BundlesKeywords getLabel(String n){
         if(SUGGESTIONS_LABEL.toString().equals(n))
             return SUGGESTIONS_LABEL;
+        if(GOODBYE_LABEL.toString().equals(n))
+            return GOODBYE_LABEL;
 
         else if(LANGUAGES_MENU.toString().equals(n))
             return LANGUAGES_MENU;

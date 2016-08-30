@@ -181,4 +181,14 @@ public class Record {
 
     }
 
+
+    /**
+     * Method that clears the current record. All information previously
+     * stored is lost. This does not save the record.
+     */
+    public void clearRecord() {
+        // Empty the list
+        list = new LinkedList<>();
+    }
+
 }
