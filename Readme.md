@@ -40,13 +40,13 @@ You can create a desktop shortcut for the file Chatbot.exe by right clicking it,
 ## Other Information
 More information regarding the project.
 
-### Built With
+#### Built With
 * Java 8 and JavaFX
 * Extends [FAIA (Framework for Artificial Intelligent Agents)] (https://books.google.com.ar/books?hl=en&lr=&id=rCaPeCVXz2IC&oi=fnd&pg=PA121&ots=oQA-v9-W1w&sig=9_W9iGk-Lleb9VwY6jsCQ1fWsIE#v=onepage&q&f=false)
 * IDE: IntelliJ IDEA
 
-### Versioning
+#### Versioning
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://gitlab.com/mvingar/chatbot/tags). 
 
-### License
+#### License
 This project is licensed under the [Academic Free Licence (AFL) 3.0] (https://opensource.org/licenses/AFL-3.0). See the [Licence.md] (https://gitlab.com/mvingar/chatbot/blob/master/License) file for details.
