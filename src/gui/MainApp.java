@@ -4,6 +4,8 @@ import bot.agent.ChatbotSimulator;
 import bot.knowledge.record.Record;
 import gui.controller.MainPanelController;
 import gui.controller.ProgressPanelController;
+import gui.language.bundles.BundlesKeywords;
+import gui.view.ExceptionAlert;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -52,7 +54,8 @@ public class MainApp extends Application {
             progressStage.show();
         }
         catch (IOException e) {
-            e.printStackTrace();
+            // Show an error message
+            ExceptionAlert.showExceptionAlert(BundlesKeywords.EXCEPTION_STACKTRACE_2);
         }
     }
 
@@ -94,7 +97,8 @@ public class MainApp extends Application {
             mainStage.show();
         }
         catch (IOException e) {
-            e.printStackTrace();
+            // Show an error message
+            ExceptionAlert.showExceptionAlert(BundlesKeywords.EXCEPTION_STACKTRACE_2);
         }
 
     }

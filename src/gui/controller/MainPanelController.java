@@ -7,9 +7,10 @@ import bot.knowledge.questions.QuestionsList;
 import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.record.Record;
 import gui.ViewFilesLocation;
-import gui.language.BundlesKeywords;
+import gui.language.bundles.BundlesKeywords;
 import gui.language.ChatbotLanguage;
 import gui.language.CurrentLocale;
+import gui.view.ExceptionAlert;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -17,6 +18,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 
@@ -124,8 +127,6 @@ public class MainPanelController extends Controller {
             // Print the answer
             String answer = simulator.getFinalAnswer();
 
-            System.out.println("Answer on controller: " + answer );
-
             // Show the answer
             answerLabel.setText( answer );
         }
@@ -218,8 +219,14 @@ public class MainPanelController extends Controller {
         helpMenu.setText(rBundle.getString(BundlesKeywords.HELP_MENU.toString()));
         creditsMenu.setText(rBundle.getString(BundlesKeywords.CREDITS_MENU.toString()));
 
-        // Reload the answers
-        ExtraAnswersList.getInstance().loadExtraAnswers(CurrentLocale.getInstance().getcLanguage().getName());
+        try {
+            // Reload the answers
+            ExtraAnswersList.getInstance().loadExtraAnswers(CurrentLocale.getInstance().getcLanguage().getName());
+        }
+        catch (IOException e) {
+            // Show the same message than before
+            ExceptionAlert.showExceptionAlert(BundlesKeywords.EXCEPTION_STACKTRACE_2);
+        }
     }
 
 

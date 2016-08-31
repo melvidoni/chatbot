@@ -3,7 +3,11 @@ package bot.knowledge.record;
 
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.readers.ExtraAnswersList;
+import gui.language.bundles.BundlesKeywords;
+import gui.view.ExceptionAlert;
+
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -65,8 +69,6 @@ public class Record {
     public void addNode(String question, String ruleId, String answer, String filter) {
         // Create a new node
         RecordNode newNode = new RecordNode(question, ruleId, answer, filter);
-
-        System.out.println("Adding to record: " + newNode.getAnswer());
 
         // Add it last to the list
         list.addLast(newNode);
@@ -172,10 +174,9 @@ public class Record {
             writer.close();
         }
         catch(IOException e) {
-            // TODO HANDLE EXCEPTION
-            e.printStackTrace();
+            // Show an exception with the record message
+            ExceptionAlert.showExceptionAlert(BundlesKeywords.EXCEPTION_STACKTRACE_3);
         }
-
     }
 
 

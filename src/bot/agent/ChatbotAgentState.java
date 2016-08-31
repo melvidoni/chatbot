@@ -66,9 +66,6 @@ public class ChatbotAgentState extends SearchBasedAgentState {
             // So far, it is not unknown
             unknownState = false;
 
-            // TODO REMOVE PRINT LINES
-            System.out.println("\tThe agent saw: " + notAnalyzedWords);
-
             // Because nothing is analyzed, the agent takes the first word
             currentWord = notAnalyzedWords.removeFirst();
 
@@ -83,8 +80,6 @@ public class ChatbotAgentState extends SearchBasedAgentState {
             // And get possible rules for this word
             foundRules.clear();
             foundRules.addAll(OperatorRulesMap.getInstance().getRulesOperators(currentWord));
-
-            System.out.println("\tAnd so far it found: " + foundRules);
         }
         catch(Exception e) {
             // Set state as unknown

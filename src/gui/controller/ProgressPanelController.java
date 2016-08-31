@@ -1,6 +1,8 @@
 package gui.controller;
 
 import bot.agent.loader.SimulatorLoader;
+import gui.language.bundles.BundlesKeywords;
+import gui.view.ExceptionAlert;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,6 +22,7 @@ public class ProgressPanelController extends Controller {
 
     private SimpleStringProperty progressValue = new SimpleStringProperty();
     private SimulatorLoader simulatorLoader;
+    private SimpleStringProperty exceptionProperty = new SimpleStringProperty();
 
 
     /**
@@ -31,8 +34,12 @@ public class ProgressPanelController extends Controller {
         // Add a listener to the property
         progressValue.addListener((observableValue, oldValue, newValue) -> {
             // If the simulator is loaded
-            if( newValue.equals("DONE") ) {
-               mainApp.callMainPanel(simulatorLoader.getChatbotSimulator());
+            switch (newValue) {
+                case "DONE": mainApp.callMainPanel(simulatorLoader.getChatbotSimulator());
+                             break;
+
+                case "ERROR": ExceptionAlert.showExceptionAlert(BundlesKeywords.EXCEPTION_STACKTRACE_1);
+                              break;
             }
         });
 

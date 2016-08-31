@@ -8,6 +8,8 @@ package gui;
 public enum ViewFilesLocation {
     LOGO_ICON("/gui/view/img/appicon.png"),
     CREDITS_ICON_BIG("/gui/view/img/creditsicon-big.png"),
+    ERROR_ICON_BIG("/gui/view/img/erroricon-big.png"),
+
     MAIN_PANEL("/gui/view/MainPanel.fxml"),
     PROGRESS_PANEL("/gui/view/ProgressPanel.fxml"),
     LOCALE_BUNDLE("gui.language.bundles.chatbotlocale");
@@ -37,6 +39,9 @@ public enum ViewFilesLocation {
             return LOGO_ICON;
         else if(CREDITS_ICON_BIG.toString().equals(n))
             return CREDITS_ICON_BIG;
+        else if(ERROR_ICON_BIG.toString().equals(n))
+            return ERROR_ICON_BIG;
+
         else if(MAIN_PANEL.toString().equals(n))
             return MAIN_PANEL;
         else if(PROGRESS_PANEL.toString().equals(n))

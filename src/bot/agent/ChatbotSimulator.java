@@ -55,14 +55,11 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
      */
     @Override
     public void start() {
-        System.out.println("\n\nON SIMULATOR START");
         finalAnswer = "";
         failure = false;
 
         // First, the environment changes to get a question
         ((ChatbotEnvironmentState) environment.getEnvironmentState()).setQuestionAsked(readStatement);
-
-        System.out.println("\tRead statement: " + readStatement);
 
         // Get the chatbot and cast it, we can have multiple of them
         ChatbotAgent chatbot = (ChatbotAgent) agents.firstElement();
@@ -77,7 +74,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
          */
         chatbot.see(aPerception);
         MoveToWordAction selectedAction = chatbot.selectAction();
-        System.out.println("\tSelected action: " + selectedAction);
 
         // Obtain the path of operators
         LinkedList<NTree> searchTreeNodesList = new LinkedList<>();
@@ -119,9 +115,6 @@ public class ChatbotSimulator extends SearchBasedAgentSimulator {
 
         // Get the answer
         finalAnswer = Record.getInstance().getLastAnswer();
-
-        System.out.println("\nAnswer: " +  finalAnswer );
-        System.out.println();
 
         // Close the environment
         this.environment.close();

@@ -5,7 +5,7 @@ import bot.agent.operators.rules.Rule;
 import bot.knowledge.readers.ExtraAnswersList;
 import bot.knowledge.record.Record;
 import gui.ViewFilesLocation;
-import gui.language.BundlesKeywords;
+import gui.language.bundles.BundlesKeywords;
 import gui.language.CurrentLocale;
 import java.util.LinkedList;
 import java.util.Random;
@@ -88,15 +88,11 @@ public class InferenceMachine {
         // Add the filter
         usedFilters.addLast( rBundle.getString(BundlesKeywords.SPECIFICITY_FILTER.toString()) );
 
-        System.out.println("\nSPECIFICIFY RULES -> " + rulesFilteredBySpecificity);
-
-
         // If the selected rules are empty
         if( rulesFilteredBySpecificity.isEmpty() ) {
             /*
              The chatbot did understood, but cannot answer
              */
-
             // Get the rule RR
             Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
 
@@ -114,8 +110,6 @@ public class InferenceMachine {
              */
             LinkedList<Rule> rulesFilteredByPriority = this.priorityFilter(rulesFilteredBySpecificity, notAnalyzedWords);
 
-            System.out.println("PRIORITY RULES -> " + rulesFilteredByPriority);
-
             // Add the filter
             usedFilters.addLast( rBundle.getString(BundlesKeywords.PRIORITY_FILTER.toString()) );
 
@@ -124,7 +118,6 @@ public class InferenceMachine {
                 /*
                  The chatbot did not understood, but it cannot answer
                  */
-
                 // Get the rule RR
                 Rule ruleRR = ExtraAnswersList.getInstance().getRuleRR();
 
@@ -142,8 +135,6 @@ public class InferenceMachine {
                  */
                 LinkedList<Rule> rulesFilteredByNoDuplication = this.noDuplicatesFilter(rulesFilteredByPriority);
 
-                System.out.println("NO DUPLICATES FILTER -> " + rulesFilteredByNoDuplication);
-
                 // Like before, if no rule is availble
                 if( rulesFilteredByNoDuplication.isEmpty() ) {
                     /*
@@ -160,8 +151,6 @@ public class InferenceMachine {
                     // Get the RM rule, change the selected answer and store it
                     givenAnswer = ExtraAnswersList.getInstance().getRuleRM().getAnswer() + " " + randomRule.getAnswer();
                     successfulRule = new Rule(randomRule.getNormalizedQuestion(), givenAnswer, randomRule.getRuleID()+"\'");
-
-                    System.out.println("RANDOM USED FILTER -> " + successfulRule);
                 }
                 // Otherwise, we have rules
                 else {
@@ -182,8 +171,6 @@ public class InferenceMachine {
 
                         // Add the filter
                         usedFilters.addLast( rBundle.getString(BundlesKeywords.RANDOM_UNUSED_FILTER.toString()) );
-
-                        System.out.println("RANDOM UNUSED -> " + successfulRule);
                     }
                 } // No duplicates else
             } // Priority else

@@ -63,50 +63,40 @@ public class ExtraAnswersList {
      * by the interface. When the agent starts, it initializes it on the default language.
      * @param language the language to be used.
      */
-    public void loadExtraAnswers(String language) {
-        try {
-            // Create the file
-            File extraRulesFile = new File(GlossaryFilesLocation.EXTRA_RULES_START.toString()
-                                                + language.toLowerCase()
-                                                + GlossaryFilesLocation.EXTRA_RULES_END.toString());
+    public void loadExtraAnswers(String language) throws FileNotFoundException, IOException {
+        // Create the file
+        File extraRulesFile = new File(GlossaryFilesLocation.EXTRA_RULES_START.toString()
+                                            + language.toLowerCase()
+                                            + GlossaryFilesLocation.EXTRA_RULES_END.toString());
 
-            // Construct BufferedReader from FileReader. Forced to UTF-8.
-            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(extraRulesFile)));
+        // Construct BufferedReader from FileReader. Forced to UTF-8.
+        BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(extraRulesFile)));
 
-            // Prepare to read
-            String line = null;
-            // While there are lines to be read
-            while( (line = br.readLine()) != null ) {
-                // First, split the line in two
-                String[] mainSplit = line.split("\\|");
+        // Prepare to read
+        String line = null;
+        // While there are lines to be read
+        while( (line = br.readLine()) != null ) {
+            // First, split the line in two
+            String[] mainSplit = line.split("\\|");
 
-                // Check with the ID
-                switch (mainSplit[0]) {
-                    case "RR": // Create the rule RR
-                               ruleRR = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
-                               break;
+            // Check with the ID
+            switch (mainSplit[0]) {
+                case "RR": // Create the rule RR
+                           ruleRR = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                           break;
 
-                    case "RE": // Create the rule RE
-                               ruleRE = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
-                               break;
+                case "RE": // Create the rule RE
+                           ruleRE = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                           break;
 
-                    case "RM": // Create the rule RM
-                               ruleRM = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
-                               break;
-                }
+                case "RM": // Create the rule RM
+                           ruleRM = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                           break;
             }
+        }
 
-            // Close the buffer
-            br.close();
-        }
-        catch (FileNotFoundException e) {
-            // TODO CHANGE THIS STACKTRACE
-            e.printStackTrace();
-        }
-        catch(IOException e) {
-            // TODO CHANGE THIS STACKTRACE
-            e.printStackTrace();
-        }
+        // Close the buffer
+        br.close();
     }
 
 

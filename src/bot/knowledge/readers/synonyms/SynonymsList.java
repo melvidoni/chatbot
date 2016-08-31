@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.LinkedList;
 
 
+
 /**
  * Class that contains a list with all the synonyms that were read from a file.
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
@@ -48,52 +49,42 @@ public class SynonymsList {
      * Method to load the words on memory. This words are stored on
      * a text file, in a given directory.
      */
-    public void loadSynonyms() {
-        try {
-            // Create the file
-            File synonymsFile = new File(GlossaryFilesLocation.SYNONYMS.toString());
+    public void loadSynonyms() throws IOException, FileNotFoundException{
+        // Create the file
+        File synonymsFile = new File(GlossaryFilesLocation.SYNONYMS.toString());
 
-            // Construct BufferedReader from FileReader
-            BufferedReader br = new BufferedReader(new FileReader(synonymsFile));
+        // Construct BufferedReader from FileReader
+        BufferedReader br = new BufferedReader(new FileReader(synonymsFile));
 
-            // Prepare to read
-            String line = null;
-            // While there are lines to be read
-            while( (line = br.readLine()) != null ) {
-                // First, split the line in two
-                String[] mainSplit = line.split("\\|");
+        // Prepare to read
+        String line = null;
+        // While there are lines to be read
+        while( (line = br.readLine()) != null ) {
+            // First, split the line in two
+            String[] mainSplit = line.split("\\|");
 
-                // Normalize the keyword
-                String normalizedKeyword = WordNormalizer.normalizeWord(mainSplit[0]);
+            // Normalize the keyword
+            String normalizedKeyword = WordNormalizer.normalizeWord(mainSplit[0]);
 
-                // Split the synonyms by comma
-                String[] synSplit = mainSplit[1].split(",");
+            // Split the synonyms by comma
+            String[] synSplit = mainSplit[1].split(",");
 
-                // Now create a list
-                LinkedList<LinkedList<String>> synonymsList = new LinkedList<>();
+            // Now create a list
+            LinkedList<LinkedList<String>> synonymsList = new LinkedList<>();
 
-                //Go through each synonym statement
-                for(String synonym: synSplit) {
-                    // Normalize the sentence an add it to the list
-                    synonymsList.addLast( WordNormalizer.normalizeSentence(synonym.split(" ")) );
-                }
-
-                // Now create a new node
-                SynonymsNode sNode = new SynonymsNode(normalizedKeyword, synonymsList);
-                list.addLast(sNode);
+            //Go through each synonym statement
+            for(String synonym: synSplit) {
+                // Normalize the sentence an add it to the list
+                synonymsList.addLast( WordNormalizer.normalizeSentence(synonym.split(" ")) );
             }
 
-            // Close the buffer
-            br.close();
+            // Now create a new node
+            SynonymsNode sNode = new SynonymsNode(normalizedKeyword, synonymsList);
+            list.addLast(sNode);
         }
-        catch (FileNotFoundException e) {
-            // TODO CHANGE THIS STACKTRACE
-            e.printStackTrace();
-        }
-        catch(IOException e) {
-            // TODO CHANGE THIS STACKTRACE
-            e.printStackTrace();
-        }
+
+        // Close the buffer
+        br.close();
     }
 
 

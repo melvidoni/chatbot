@@ -3,7 +3,6 @@ package bot.knowledge.readers;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.auxialiary.WordNormalizer;
 import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
-
 import java.io.*;
 import java.util.LinkedList;
 
@@ -49,36 +48,26 @@ public class UnimportantWordsList {
      * Method to load the words on memory. This words are stored on
      * a text file, in a given directory.
      */
-    public void loadWords() {
-        try {
-            // Create the file
-            File uWordsFile = new File(GlossaryFilesLocation.UNIMPORTANT_WORDS.toString());
+    public void loadWords() throws FileNotFoundException, IOException{
+        // Create the file
+        File uWordsFile = new File(GlossaryFilesLocation.UNIMPORTANT_WORDS.toString());
 
-            /*
-             Construct BufferedReader from FileReader. Because JavaFX needs to be forced to read
-             files encoded as UTF-8, the buffered reader is forced too.
-              */
-            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(uWordsFile)));
+        /*
+         Construct BufferedReader from FileReader. Because JavaFX needs to be forced to read
+         files encoded as UTF-8, the buffered reader is forced too.
+          */
+        BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(uWordsFile)));
 
-            // Prepare to read
-            String line = null;
-            // While there are lines to be read
-            while( (line = br.readLine()) != null ) {
-                // Save the normalized word
-                words.addLast( WordNormalizer.normalizeWord(line) );
-            }
+        // Prepare to read
+        String line = null;
+        // While there are lines to be read
+        while( (line = br.readLine()) != null ) {
+            // Save the normalized word
+            words.addLast( WordNormalizer.normalizeWord(line) );
+        }
 
-            // Close the buffer
-            br.close();
-        }
-        catch (FileNotFoundException e) {
-            // TODO CHANGE THIS STACKTRACE
-            e.printStackTrace();
-        }
-        catch(IOException e) {
-            // TODO CHANGE THIS STACKTRACE
-            e.printStackTrace();
-        }
+        // Close the buffer
+        br.close();
     }
 
 

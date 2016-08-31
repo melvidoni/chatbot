@@ -1,4 +1,4 @@
-package gui.language;
+package gui.language.bundles;
 
 
 /**
@@ -40,7 +40,13 @@ public enum BundlesKeywords {
     RECORD_QUESTION("recordQuestion"),
     RECORD_ANSWER("recordAnswer"),
     RECORD_RULE("recordRule"),
-    RECORD_FILTER("recordFilters");
+    RECORD_FILTER("recordFilters"),
+
+    EXCEPTION_TITLE("exceptionTitle"),
+    EXCEPTION_HEADER("exceptionHeader"),
+    EXCEPTION_STACKTRACE_1("exceptionStacktrace1"),
+    EXCEPTION_STACKTRACE_2("exceptionStacktrace2"),
+    EXCEPTION_STACKTRACE_3("exceptionStacktrace3");
 
 
     private String keyword;
@@ -128,6 +134,17 @@ public enum BundlesKeywords {
             return RECORD_RULE;
         else if(RECORD_FILTER.toString().equals(n))
             return RECORD_FILTER;
+
+        else if(EXCEPTION_HEADER.toString().equals(n))
+            return EXCEPTION_HEADER;
+        else if(EXCEPTION_STACKTRACE_1.toString().equals(n))
+            return EXCEPTION_STACKTRACE_1;
+        else if(EXCEPTION_STACKTRACE_2.toString().equals(n))
+            return EXCEPTION_STACKTRACE_2;
+        else if(EXCEPTION_STACKTRACE_3.toString().equals(n))
+            return EXCEPTION_STACKTRACE_3;
+        else if(EXCEPTION_TITLE.toString().equals(n))
+            return EXCEPTION_TITLE;
 
         return null;
     }

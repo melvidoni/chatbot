@@ -101,8 +101,6 @@ public class QuestionsList {
 
             // If this question is the one asked
             if(qSet.containsQuestion(readStatement)) {
-                System.out.println("Question found");
-
                 // Update the found set flag
                 foundSet = qSet;
             }

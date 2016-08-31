@@ -10,6 +10,10 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgent;
 import frsf.cidisi.faia.solver.search.DepthFirstSearch;
 import frsf.cidisi.faia.solver.search.NTree;
 import frsf.cidisi.faia.solver.search.Search;
+import gui.language.bundles.BundlesKeywords;
+import gui.view.ExceptionAlert;
+
+import java.util.LinkedList;
 import java.util.Vector;
 
 
@@ -27,13 +31,13 @@ public class ChatbotAgent extends SearchBasedAgent{
     /**
      * Default constructor of the class.
      */
-    public ChatbotAgent() {
+    public ChatbotAgent(LinkedList<MoveToWordAction> ops) {
         // Call super
         super();
 
         // Now read the operators
         Vector<SearchAction> operators = new Vector<>();
-        operators.addAll( RulesReader.loadActionsList() );
+        operators.addAll( ops );
 
         // Create a new state
         ChatbotAgentState state = new ChatbotAgentState();
@@ -67,8 +71,8 @@ public class ChatbotAgent extends SearchBasedAgent{
             selectedAction = (MoveToWordAction) this.getSolver().solve( new Object[] {this.getProblem()} );
         }
         catch (Exception e) {
-            // TODO REMOVE THIS EXCEPTION
-            e.printStackTrace();
+            // Show an exception alert
+            ExceptionAlert.showExceptionAlert(BundlesKeywords.EXCEPTION_STACKTRACE_2);
         }
 
         // And return the selected action

@@ -1,7 +1,7 @@
 package bot.knowledge.record;
 
 import gui.ViewFilesLocation;
-import gui.language.BundlesKeywords;
+import gui.language.bundles.BundlesKeywords;
 import gui.language.CurrentLocale;
 
 import java.util.LinkedList;

@@ -13,7 +13,7 @@ import frsf.cidisi.faia.agent.search.SearchBasedAgentState;
 import frsf.cidisi.faia.state.AgentState;
 import frsf.cidisi.faia.state.EnvironmentState;
 import gui.ViewFilesLocation;
-import gui.language.BundlesKeywords;
+import gui.language.bundles.BundlesKeywords;
 import gui.language.CurrentLocale;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -67,17 +67,11 @@ public class MoveToWordAction extends SearchAction {
         ChatbotAgentState chatbotState = (ChatbotAgentState) aState;
         ChatbotGoal chatbotGoal = new ChatbotGoal();
 
-        System.out.println("Real execute");
-
         // If this is a goal or unknown...
         if( chatbotGoal.isGoalState(chatbotState) || chatbotState.isUnknownState() ) {
-            System.out.println("is goal or unknown");
-
             // Update the environment
             updateEnvironment(aState, eState);
         }
-
-        System.out.println("Environment updated?");
 
         // Return the environment's state
         return eState;
@@ -98,7 +92,6 @@ public class MoveToWordAction extends SearchAction {
         ChatbotAgentState chatbotState = (ChatbotAgentState) s;
 
         // Get the word to expand
-        // TODO THIS IS WRONG? SHOULD IT BE THE CURRENT WORD?
         String wordToSearch = chatbotState.getFoundWords().getLast();
 
         // Now get the two lists of words
@@ -121,9 +114,6 @@ public class MoveToWordAction extends SearchAction {
         then this action cannot be applied. Otherwise, it can also be a leaf word.
          */
         if(Graph.getInstance().successorsName(wordToSearch).contains(word) ) {
-
-            System.out.println("Complex situation");
-
             // Add the word to the visited successors
             chatbotState.addFoundWord(word);
 
