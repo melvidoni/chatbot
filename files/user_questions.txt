@@ -2,6 +2,11 @@ Hola!
 Hola, buen día!
 ¿Cuántos años dura la carrera Ingeniería en Sistemas de Información?
 ¿Cuánto dura ISI?
+¿Cuánto lleva recibirse?
+¿En cuántos años me recibo?
+¿En cuántos años te recibis?
+¿Es larga la carrera?
+¿Cuántos años dura ISI?
 ¿Qué título obtengo de ISI?
 ¿Qué título otorga Ingeniería en Sistemas?
 ¿Qué diferencia hay con Ingeniería en Informática?
@@ -83,3 +88,22 @@ Hola, buen día!
 ¿Tengo que ser un genio para estudiar ISI?
 ¿Tengo que saber algún lenguaje de programación?
 ¿Tengo que saber programar?
+¿Cómo es el ingreso?
+¿Hay ingreso?
+¿Cómo se ingresa a ISI?
+¿Cómo se ingresa a la carrera?
+¿Hay bolsa de trabajo?
+¿Publican trabajos requeridos por empresas?
+¿Publican ofertas de trabajo?
+¿Qué hace un Ingeniero?
+¿De qué trabaja un Ingeniero?
+¿Qué hacen los Ingenieros?
+¿Qué carreras puedo estudiar en la UTN FRSF?
+¿Qué carreras hay en la FRSF?
+¿Qué carreras tiene esta facultad?
+¿Es difícil estudiar una carrera larga?
+¿Es muy difícil una carrera larga?
+¿Se puede estudiar y trabajar?
+¿Puedo estudiar y trabajar?
+¿Es posible estudiar y trabajar?
+¿Puedo trabajar mientras estudio?

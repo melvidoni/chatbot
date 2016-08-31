@@ -1,4 +1,4 @@
-ISI|ISI,Ingeniería en Sistemas de Información,Sistemas,Sistemas de Información,Ingeniería en Sistemas
+ISI|ISI,Ingeniería en Sistemas de Información,Ingeniería en Sistemas,Sistemas de Información,Sistemas
 Cuánto|Cuántos,Cuánto
 Informática|Informática,Ingeniería en Informática
 Videojuegos|Videojuegos,Video Juegos,desarrollo de videojuegos
@@ -6,7 +6,9 @@ Mucha|Mucha,Mucho
 Docente|Docente,Docentes,Profesor,Profesores,Profesora,Profes
 TP|TP,Trabajo Práctico,Trabajos Prácticos,TPs
 Exámen|Exámenes,Final,Finales
-UTN|Facultad,FRSF,UTN FRSF,Universidad Tecnológica Nacional,Tecnológica
+UTN|Facultad,FRSF,UTN FRSF,Universidad Tecnológica Nacional,Tecnológica,UTN-FRSF
 Materia|Materia,Materias,Cátedra,Cátedras
 Parciales|Pruebas parciales,parcial,parciales,pruebas
 Tesis|Tesis,Tesis Final,Proyecto Final,PFC,Proyecto Final de Carrera
+Ingreso|Ingreso,Ingresa,Ingresas
+Ingeniero|Ingeniero,Ingeniera,Ingenieros

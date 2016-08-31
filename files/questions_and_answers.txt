@@ -4,12 +4,18 @@ Hola, buen día!
 2
 Hola!
 Buenos días.
-2
+7
 ¿Cuántos años dura la carrera Ingeniería en Sistemas de Información?
 ¿Cuánto dura ISI?
-2
-Dura cinco años.
-Son cinco años de cursado.
+¿Cuánto lleva recibirse?
+¿En cuántos años me recibo?
+¿En cuántos años te recibis?
+¿Es larga la carrera?
+¿Cuántos años dura ISI?
+3
+El plan de estudio está pensado en 5 años más el Trabajo final de Carrera. Pero en general, teniendo en cuenta que muchos alumnos comienzan a trabajar, lleva entre 6 y 8 años.
+Depende del ritmo de cursado y estudio. De cuantas materias decidas hacer en simultáneo. El plan de estudio está pensado en 5 años más el Trabajo final de Carrera. Pero en general , teniendo en cuenta que muchos alumnos comienzan a trabajar, lleva entre 6 y 8 años.
+La ingeniería es una carrera de grado y como tales, su duración está entre 5 y 6 años.
 2
 ¿Qué título obtengo de ISI?
 ¿Qué título otorga Ingeniería en Sistemas?
@@ -152,4 +158,41 @@ No. Te tiene que gustar y tener la meta de estudiar y esforzarte para ello. Los 
 ¿Tengo que saber programar?
 1
 No. En las materias del área programación aprenderás algunos y desarrollarás habilidades para poder estudiar otros lenguajes por tu cuenta. También podés tomar cursos extracurriculares en la Facultad para aprender otros lenguajes y otras tecnologías que te interesen.
+4
+¿Cómo es el ingreso?
+¿Hay ingreso?
+¿Cómo se ingresa a ISI?
+¿Cómo se ingresa a la carrera?
+1
+Para ingresar a la universidad, solamente necesitas tener un título secundario y aprobar los cursos de nivelación ( matemática, física y taller universitario), para concretar la nivelación se pueden realizar cursillos ( venir a clases en la facultad) o bien prepararte por tu cuenta y rendir en las fechas previamente estipuladas. Para más información visita la oficina de ingreso!
+3
+¿Hay bolsa de trabajo?
+¿Publican trabajos requeridos por empresas?
+¿Publican ofertas de trabajo?
+1
+Existe un boletín informático “El Emilio” donde se publican las pasantías y puestos de trabajos, que diferentes organismos estatales y empresas privadas ofrecen, en este se detallan todas las ofertas laborales con sus respectivos requisitos. El mismo es enviado vía e-mail por lo menos una vez a la semana.
+3
+¿Qué hace un Ingeniero?
+¿De qué trabaja un Ingeniero?
+¿Qué hacen los Ingenieros?
+1
+Un ingeniero es un profesional que usa sus conocimientos científicos para desarrollar soluciones tecnológicas a problemas que afectan la actividad cotidiana de nuestra sociedad. Para ello debe identificar y comprender los obstáculos más importantes. Crear modelos apropiados a los problemas para analizarlos rigurosamente y probar las soluciones potenciales. Diseñar estructuras (tanto físicas como teóricas) para la resolución de necesidades sociales, industriales o económicas reales.
+3
+¿Qué carreras puedo estudiar en la UTN FRSF?
+¿Qué carreras hay en la FRSF?
+¿Qué carreras tiene esta facultad?
+1
+En la Facultad Santa Fe se pueden estudiar 5 ingenierías ( Civil, Eléctrica, Mecánica, Industrial, Sistemas de Información ( con salida Analista de Sistemas) y 2 tecnicaturas cortas ( Mecatrónica y Tecnologías de la Información).
+2
+¿Es difícil estudiar una carrera larga?
+¿Es muy difícil una carrera larga?
+1
+Estas dos cuestiones no tienen relación directa, y la dificultad es un valor que cambia para cada alumno y para cada materia. Hay gente que le encanta estudiar inglés y hay gente que lo sufre. Hay gente que disfruta estudiando programación y otra a la que le cuesta bastante esfuerzo. Pero ya se han recibido miles de ingenieros en esta facultad...
+4
+¿Se puede estudiar y trabajar?
+¿Puedo estudiar y trabajar?
+¿Es posible estudiar y trabajar?
+¿Puedo trabajar mientras estudio?
+1
+Si, pero el ritmo es diferente. Depende también de cuántas horas trabajes. Lo cierto es que si se trabaja medio día y se vienen 3 hs a la facultad para cursar, queda poco tiempo para poder estudiar y afianzar. Muchos alumnos se dedican sólo a estudiar en los dos primeros años (hasta que se adaptan y toman ritmo) y luego comienzan a trabajar y estudiar. Se pueden hacer pasantías universitarias que son jornadas de medio día.
 0
