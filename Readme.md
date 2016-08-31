@@ -4,7 +4,7 @@ It is a search based agent, and is capable of understanding and answering only t
 The bot is also able to display the interface, basic extra answers, and store the chat record in English or Spanish. The default is Spanish, but it can be changed from the main interface during runtime.
 
 
-### Getting Started
+## Getting Started
 The project was developed on IntelliJ IDEA, with Java8 and JavaFX, and extends FAIA. You can get the latest working source code from the master branch.
 
 Once installed, the working knowledge of the agent should be located on C:\Chatbot\resources, and split on several files. Each of them has a unique format.
@@ -36,6 +36,9 @@ To install the chatbot, follow the next steps:
 1. Copy the folder Chatbot. It should be located on C:\Chatbot.
 1. Run the application from Chatbot.exe
 You can create a desktop shortcut for the file Chatbot.exe by right clicking it, then select "Send to", then "Desktop (create shortcut)".
+
+## Other Information
+More information regarding the project.
 
 ### Built With
 * Java 8 and JavaFX
