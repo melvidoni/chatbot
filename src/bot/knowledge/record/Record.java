@@ -164,11 +164,8 @@ public class Record {
                 // If this is not the first node, print an empty line
                 else writer.println("");
 
-                // Now, for each part of the node
-                for(String line: rNode.print()) {
-                    // Write the line
-                    writer.println( line );
-                }
+                // Now, for each part of the node, write the line
+                rNode.print().forEach( writer::println );
             }
 
             // When this is done, close the writer

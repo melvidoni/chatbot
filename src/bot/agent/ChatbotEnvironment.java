@@ -5,7 +5,10 @@ import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.environment.Environment;
 
 /**
- * Created by Melina on 26/08/2016.
+ * Class that represents the environment in which the agent works.
+ * Extends Environment from FAIA.
+ * @see frsf.cidisi.faia.environment.Environment
+ * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ChatbotEnvironment extends Environment{
 

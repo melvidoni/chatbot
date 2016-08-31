@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="gui.controller.ProgressPanelController">
@@ -13,7 +12,6 @@
     <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
   </rowConstraints>
-   <children>
       <ProgressBar fx:id="progressBar" minWidth="450.0" prefWidth="450.0" progress="0.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets />
@@ -27,5 +25,4 @@
             <Insets bottom="5.0" />
          </padding>
       </Label>
-   </children>
 </GridPane>

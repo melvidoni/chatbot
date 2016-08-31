@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  *
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
-public class RecordNode {
+class RecordNode {
 
     /**
      * The question to be stored.
@@ -37,16 +37,6 @@ public class RecordNode {
     private String filtersUsed;
 
 
-    /**
-     * Default constructor of the class
-     */
-    public RecordNode() {
-        question = "";
-        ruleID = "";
-        answer = "";
-        filtersUsed = "";
-    }
-
 
     /**
      * Constructor that initializes the values of the node, with those received
@@ -56,7 +46,7 @@ public class RecordNode {
      * @param a The given answer, in text.
      * @param c Criteria used to select the answer.
      */
-    public RecordNode(String q, String id, String a, String c) {
+    RecordNode(String q, String id, String a, String c) {
         question = q;
         ruleID = id;
         answer = a;
@@ -69,7 +59,7 @@ public class RecordNode {
      * generated on a TXT file.
      * @return String with the node in printing format.
      */
-    public LinkedList<String> print() {
+    LinkedList<String> print() {
         // Get the bundle for the locale
         ResourceBundle rBundle = ResourceBundle.getBundle(ViewFilesLocation.LOCALE_BUNDLE.toString(),
                 CurrentLocale.getInstance().getLocale());
@@ -92,7 +82,7 @@ public class RecordNode {
      * Getter to obtain the question on this node.
      * @return Current question on the node
      */
-    public String getQuestion() {
+    String getQuestion() {
         return question;
     }
 
@@ -100,7 +90,7 @@ public class RecordNode {
      * Setter to replace the current question with a new one.
      * @param q New question to be stored in the node.
      */
-    public void setQuestion(String q) {
+    void setQuestion(String q) {
         question = q;
     }
 
@@ -108,7 +98,7 @@ public class RecordNode {
      * Getter to obtain the id currently stored on the node.
      * @return Currently stored ID on the node.
      */
-    public String getRuleID() {
+    String getRuleID() {
         return ruleID;
     }
 
@@ -117,7 +107,7 @@ public class RecordNode {
      * and change it for a new one.
      * @param rid New ID to be stored on the node.
      */
-    public void setRuleID(String rid) {
+    void setRuleID(String rid) {
         ruleID = rid;
     }
 
@@ -126,7 +116,7 @@ public class RecordNode {
      * stored answer, and that one cannot be retrieved again.
      * @param a New textual answer to be stored.
      */
-    public void setAnswer(String a) {
+    void setAnswer(String a) {
         answer = a;
     }
 
@@ -134,7 +124,7 @@ public class RecordNode {
      * Getter to obtain the current answer stored on the node.
      * @return The answer (text form) stored on the node.
      */
-    public String getAnswer() {
+    String getAnswer() {
         return answer;
     }
 
@@ -143,7 +133,7 @@ public class RecordNode {
      * that matches the value passed as a parameter.
      * @param c New filtersUsed to be stored on the node.
      */
-    public void setFiltersUsed(String c) {
+    void setFiltersUsed(String c) {
         filtersUsed = c;
     }
 
@@ -151,7 +141,7 @@ public class RecordNode {
      * Getter to obtain the current filtersUsed stored on the node.
      * @return The filtersUsed of the node.
      */
-    public String getFiltersUsed() {
+    String getFiltersUsed() {
         return filtersUsed;
     }
 

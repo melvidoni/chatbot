@@ -78,7 +78,7 @@ public class MainApp extends Application {
             Scene scene = new Scene(loader.load());
 
             // Get the controller
-            MainPanelController mpController = (MainPanelController) loader.getController();
+            MainPanelController mpController = loader.getController();
 
             // Load the information
             mpController.setMainApp(this);

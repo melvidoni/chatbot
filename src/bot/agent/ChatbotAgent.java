@@ -2,11 +2,7 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.knowledge.readers.ExtraAnswersList;
-import bot.knowledge.readers.GraphReader;
 import bot.knowledge.readers.RulesReader;
-import bot.knowledge.readers.UnimportantWordsList;
-import bot.knowledge.readers.synonyms.SynonymsList;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;

@@ -12,10 +12,6 @@ import gui.language.ChatbotLanguage;
 import gui.language.CurrentLocale;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -98,6 +94,10 @@ public class MainPanelController extends Controller {
         else if(firstKey){
             // Set the flag as false
             firstKey = false;
+
+            // Remove the red border
+            askTextField.getStyleClass().remove("error");
+
             // And clear the ask and answer
             askTextField.setText("");
             answerLabel.setText("");
@@ -130,7 +130,8 @@ public class MainPanelController extends Controller {
             answerLabel.setText( answer );
         }
         else {
-            // TODO CHANGE BORDER
+            // Set the border as red
+            askTextField.getStyleClass().add("error");
         }
     }
 
