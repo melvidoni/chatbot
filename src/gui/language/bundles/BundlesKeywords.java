@@ -49,6 +49,9 @@ public enum BundlesKeywords {
     EXCEPTION_STACKTRACE_3("exceptionStacktrace3");
 
 
+    /**
+     * Keyword used on the bundle files.
+     */
     private String keyword;
 
 

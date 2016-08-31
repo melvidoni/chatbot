@@ -49,7 +49,7 @@ public class SynonymsList {
      * Method to load the words on memory. This words are stored on
      * a text file, in a given directory.
      */
-    public void loadSynonyms() throws IOException, FileNotFoundException{
+    public void loadSynonyms() throws IOException {
         // Create the file
         File synonymsFile = new File(GlossaryFilesLocation.SYNONYMS.toString());
 

@@ -12,8 +12,13 @@ public enum ViewFilesLocation {
 
     MAIN_PANEL("/gui/view/MainPanel.fxml"),
     PROGRESS_PANEL("/gui/view/ProgressPanel.fxml"),
+
     LOCALE_BUNDLE("gui.language.bundles.chatbotlocale");
 
+    /**
+     * The path where the files are located. These are not absolute
+     * and are inside the source.
+     */
     private String route;
 
 

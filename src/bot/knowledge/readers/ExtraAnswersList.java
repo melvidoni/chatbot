@@ -4,7 +4,6 @@ package bot.knowledge.readers;
 import bot.agent.operators.rules.Rule;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
-
 import java.io.*;
 import java.util.LinkedList;
 
@@ -63,7 +62,7 @@ public class ExtraAnswersList {
      * by the interface. When the agent starts, it initializes it on the default language.
      * @param language the language to be used.
      */
-    public void loadExtraAnswers(String language) throws FileNotFoundException, IOException {
+    public void loadExtraAnswers(String language) throws IOException {
         // Create the file
         File extraRulesFile = new File(GlossaryFilesLocation.EXTRA_RULES_START.toString()
                                             + language.toLowerCase()

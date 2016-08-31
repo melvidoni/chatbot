@@ -17,12 +17,28 @@ import javafx.scene.control.ProgressBar;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ProgressPanelController extends Controller {
+    /**
+     * Linked to the progress bar of the panel.
+     */
     @FXML private ProgressBar progressBar;
+
+    /**
+     * Linked to the label that display the current operation
+     * that the simulator loader is performing.
+     */
     @FXML private Label progressLabel;
 
+    /**
+     * Property related to the progress of the loading. It is used to check
+     * if the loader finished correctly or encountered an error.
+     */
     private SimpleStringProperty progressValue = new SimpleStringProperty();
+
+    /**
+     * Reference to the simulator loader used to kickstart the agent, and whose
+     * progress is linked to this stage.
+     */
     private SimulatorLoader simulatorLoader;
-    private SimpleStringProperty exceptionProperty = new SimpleStringProperty();
 
 
     /**

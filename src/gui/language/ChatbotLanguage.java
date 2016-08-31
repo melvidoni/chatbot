@@ -9,7 +9,16 @@ public enum ChatbotLanguage {
     ENGLISH("english", "EN"),
     SPANISH("spanish", "ES");
 
+    /**
+     * Name of the language, completely in lowercase.
+     * Always written in English.
+     */
     private String name;
+
+    /**
+     * Standard acronym for the language. Always in
+     * uppercase.
+     */
     private String acronym;
 
 

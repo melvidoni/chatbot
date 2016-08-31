@@ -29,17 +29,57 @@ import java.util.ResourceBundle;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class MainPanelController extends Controller {
+    /**
+     * Linked to the textfield where the user writes the question.
+     */
     @FXML private TextField askTextField;
+
+    /**
+     * Linked to the label where the agent prints its answer.
+     */
     @FXML private Label answerLabel;
 
+    /**
+     * Linked to the button that allows the agent to suggest a
+     * question and automatically answer it.
+     */
     @FXML private Button suggestedQuestion;
+
+    /**
+     * Lined to the button that provides a "session closing" by writing
+     * the record, cleaning it, and cleaning the used questions.
+     */
     @FXML private Button goodbyeButton;
 
+    /**
+     * Linked to the menu that offers the chatbot languages.
+     */
     @FXML private Menu languagesMenu;
+
+    /**
+     * Toggle group to unify the language options.
+     */
     @FXML private ToggleGroup languageToggleGroup;
+
+    /**
+     * Linked to the language option: English.
+     */
     @FXML private RadioMenuItem englishMenuItem;
+
+    /**
+     * Linked to the language option: Spanish.
+     */
     @FXML private RadioMenuItem spanishMenuItem;
+
+    /**
+     * Linked to the menu that offers help.
+     */
     @FXML private Menu helpMenu;
+
+    /**
+     * Linked to the menu option to show an alert that display
+     * the credits and information about the agent.
+     */
     @FXML private MenuItem creditsMenu;
 
     /**

@@ -5,9 +5,7 @@ import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.readers.ExtraAnswersList;
 import gui.language.bundles.BundlesKeywords;
 import gui.view.ExceptionAlert;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;

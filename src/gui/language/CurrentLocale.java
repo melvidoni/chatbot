@@ -12,7 +12,16 @@ import java.util.Locale;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class CurrentLocale {
+    /**
+     * Current locale of the chatbot. It is updated
+     * jointly with the language.
+     */
     private Locale locale;
+
+    /**
+     * Reference to the enum containing the language.
+     * It is updated jointly with the locale.
+     */
     private ChatbotLanguage cLanguage;
 
     /**

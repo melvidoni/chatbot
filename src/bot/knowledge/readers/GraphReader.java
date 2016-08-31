@@ -23,7 +23,7 @@ public class GraphReader {
      * Method that reads the questions, split them into words, and normalizes them.
      * Then, it adds them on the graph as nodes, and checks if they already exist.
      */
-    public static void loadGraph() throws FileNotFoundException, IOException {
+    public static void loadGraph() throws IOException {
         // Get the instances
         Graph graph = Graph.getInstance();
 

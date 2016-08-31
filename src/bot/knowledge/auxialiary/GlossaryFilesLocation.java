@@ -19,6 +19,9 @@ public enum GlossaryFilesLocation {
     RECORD_FILE_NAME_START("/record_"),
     RECORD_FILE_NAME_END(".txt");
 
+    /**
+     * The path were the files are stored. Fixed for Windows.
+     */
     private String route;
 
 

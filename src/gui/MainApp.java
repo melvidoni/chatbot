@@ -19,9 +19,22 @@ import java.io.IOException;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class MainApp extends Application {
-
+    /**
+     * The stage of the progress view, that it is shown while
+     * the simulator loader loads all the components of the agent.
+     */
     private Stage progressStage;
+
+    /**
+     * The stage of the main view, used to perform basic operations
+     * with the agent.
+     */
     private Stage mainStage;
+
+    /**
+     * The starting stage, a generic reference that is initialized
+     * with the parameter that the method start() obtains.
+     */
     private Stage startStage;
 
 

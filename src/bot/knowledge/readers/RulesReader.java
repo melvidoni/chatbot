@@ -24,7 +24,7 @@ public class RulesReader {
      * adding the information of the file.
      * @return A list of unordered actions.
      */
-    public static LinkedList<MoveToWordAction> loadActionsList() throws FileNotFoundException, IOException{
+    public static LinkedList<MoveToWordAction> loadActionsList() throws IOException{
         // Get a reference to the map
         OperatorRulesMap map = OperatorRulesMap.getInstance();
 
@@ -41,7 +41,7 @@ public class RulesReader {
      * create the maps. It also initializes the list of questions with the
      * sets of synonym questions.
      */
-    private static void readQuestionsAndAnswers() throws FileNotFoundException, IOException{
+    private static void readQuestionsAndAnswers() throws IOException{
         // Get a reference to the map
         OperatorRulesMap map = OperatorRulesMap.getInstance();
 

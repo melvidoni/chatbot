@@ -15,12 +15,34 @@ import java.util.LinkedList;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ChatbotAgentState extends SearchBasedAgentState {
-
+    /**
+     * List of analyzed words from the normalized question that the agent saw.
+     */
     private LinkedList<String> analyzedWords;
+
+    /**
+     * List of not yet analyzed words from the normalized question that the agent saw.
+     */
     private LinkedList<String> notAnalyzedWords;
+
+    /**
+     * Rules to answer the question found by the agent during the search.
+     */
     private LinkedList<Rule> foundRules;
+
+    /**
+     * List of words effectively found on the graph by the agent's search.
+     */
     private LinkedList<String> foundWords;
+
+    /**
+     * The current word under study on this state.
+     */
     private String currentWord;
+
+    /**
+     * Flag for a state on which the agent doesn't know what to do.
+     */
     private boolean unknownState = false;
 
 

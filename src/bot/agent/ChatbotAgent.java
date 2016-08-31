@@ -2,7 +2,6 @@ package bot.agent;
 
 
 import bot.agent.operators.MoveToWordAction;
-import bot.knowledge.readers.RulesReader;
 import frsf.cidisi.faia.agent.Perception;
 import frsf.cidisi.faia.agent.search.Problem;
 import frsf.cidisi.faia.agent.search.SearchAction;
@@ -12,7 +11,6 @@ import frsf.cidisi.faia.solver.search.NTree;
 import frsf.cidisi.faia.solver.search.Search;
 import gui.language.bundles.BundlesKeywords;
 import gui.view.ExceptionAlert;
-
 import java.util.LinkedList;
 import java.util.Vector;
 
@@ -24,6 +22,11 @@ import java.util.Vector;
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ChatbotAgent extends SearchBasedAgent{
+    /**
+     * A reference to the search solver used by the agent. Uses
+     * the FAIA class Search.
+     * @see Search
+     */
     private Search searchSolver;
 
 
