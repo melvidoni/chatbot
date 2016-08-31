@@ -5,6 +5,7 @@ import bot.agent.operators.MoveToWordAction;
 import bot.agent.operators.rules.OperatorRulesMap;
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.questions.QuestionsList;
+import com.sun.org.apache.xerces.internal.impl.io.UTF8Reader;
 import java.io.*;
 import java.util.LinkedList;
 
@@ -31,7 +32,6 @@ public class RulesReader {
         readQuestionsAndAnswers();
 
         // Return the information
-        // TODO CHECK IF THIS RETURNS CORRECTLY
         return map.getActionsList();
     }
 
@@ -50,10 +50,10 @@ public class RulesReader {
 
         try {
             // Create the file
-            File uWordsFile = new File(GlossaryFilesLocation.QUESTIONS_AND_ANSWERS.toString());
+            File qaFile = new File(GlossaryFilesLocation.QUESTIONS_AND_ANSWERS.toString());
 
-            // Construct BufferedReader from FileReader
-            BufferedReader br = new BufferedReader(new FileReader(uWordsFile));
+            // Construct BufferedReader from FileReader. Force to UTF-8.
+            BufferedReader br = new BufferedReader(new UTF8Reader(new FileInputStream(qaFile)));
 
             // Get the number of questions
             int numberOfQuestions = Integer.parseInt(br.readLine());

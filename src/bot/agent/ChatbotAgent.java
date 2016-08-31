@@ -45,7 +45,6 @@ public class ChatbotAgent extends SearchBasedAgent{
 
         // Create the problem
         this.setProblem( new Problem(new ChatbotGoal(), state, operators) );
-
     }
 
 

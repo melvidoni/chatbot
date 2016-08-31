@@ -2,7 +2,6 @@ package bot.knowledge.readers.synonyms;
 
 import bot.knowledge.auxialiary.GlossaryFilesLocation;
 import bot.knowledge.auxialiary.WordNormalizer;
-
 import java.io.*;
 import java.util.LinkedList;
 
@@ -75,20 +74,8 @@ public class SynonymsList {
 
                 //Go through each synonym statement
                 for(String synonym: synSplit) {
-                    // Create the small list
-                    LinkedList<String> splittedWords = new LinkedList<>();
-
-                    // Now split the statement by spaces
-                    String[] statementWords = synonym.split(" ");
-
-                    // Go through each of it
-                    for(String word: statementWords) {
-                        // Add the normalized word to the list
-                        splittedWords.addLast(WordNormalizer.normalizeWord(word));
-                    }
-
-                    // Add the small list to the main one
-                    synonymsList.addLast(splittedWords);
+                    // Normalize the sentence an add it to the list
+                    synonymsList.addLast( WordNormalizer.normalizeSentence(synonym.split(" ")) );
                 }
 
                 // Now create a new node
@@ -131,9 +118,9 @@ public class SynonymsList {
         // Prepare the list to return
         LinkedList<String> replacedStatement = statement;
 
-        // Go through each node
+        // Go through each synonym nodes
         for(SynonymsNode sNode: list) {
-            // Go through each element
+            // Go through each synonym word
             for(LinkedList<String> synList: sNode.getSynonyms()) {
                 // Does this contain all the words?
                 if(replacedStatement.containsAll(synList)) {

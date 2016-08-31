@@ -1,10 +1,14 @@
-TP|TP,TRABAJO PRÁCTICO,TRABAJO
-1ER|1ER,1ERA,PRIMERA,PRIMER
-2DO|2DO,2DA,SEGUNDO,SEGUNDA
-IA|IA,INTELIGENCIA ARTIFICAL,AI,CÁTEDRA,MATERIA
-PARCIAL|PARCIAL,EXÁMEN PARCIAL,EXÁMEN
-COMPLEAÑOS|COMPLEAÑOS,CUMPLÍS AÑOS,CUMPLE,CUMPLEANOS
-MUJER|MUJER,NENA
-VARON|VARON,HOMBRE,NENE
-UTN|UTN,UNIVERSIDAD TECNOLÓGICA NACIONAL,FACULTAD
-CHAU|CHAU,CHAU NOS VEMOS LUEGO,CHAU NOS VEMOS,CHAU HASTA LUEGO,NOS VEMOS LUEGO,NOS VEMOS,HASTA LUEGO,HASTA MAÑANA,ADIÓS,BYE
+ISI|ISI,Ingeniería en Sistemas de Información,Ingeniería en Sistemas,Sistemas de Información,Sistemas
+Cuánto|Cuántos,Cuánto
+Informática|Informática,Ingeniería en Informática
+Videojuegos|Videojuegos,Video Juegos,desarrollo de videojuegos
+Mucha|Mucha,Mucho
+Docente|Docente,Docentes,Profesor,Profesores,Profesora,Profes
+TP|TP,Trabajo Práctico,Trabajos Prácticos,TPs
+Exámen|Exámenes,Final,Finales
+UTN|Facultad,FRSF,UTN FRSF,Universidad Tecnológica Nacional,Tecnológica,UTN-FRSF
+Materia|Materia,Materias,Cátedra,Cátedras
+Parciales|Pruebas parciales,parcial,parciales,pruebas
+Tesis|Tesis,Tesis Final,Proyecto Final,PFC,Proyecto Final de Carrera
+Ingreso|Ingreso,Ingresa,Ingresas
+Ingeniero|Ingeniero,Ingeniera,Ingenieros

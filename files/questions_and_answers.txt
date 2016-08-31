@@ -1,660 +1,198 @@
 2
-¡Hola! ¿Cómo andás?
-¡Hola, ¿Cómo estás?
-1
-¡Hola! Muy bien.
-2
-¿Cómo andas?
-¿Cómo estas?
-1
-Muy bien.
-1
 Hola!
-1
-HOLA!
-1
-Que estas haciendo?
+Hola, buen día!
+2
+Hola!
+Buenos días.
+7
+¿Cuántos años dura la carrera Ingeniería en Sistemas de Información?
+¿Cuánto dura ISI?
+¿Cuánto lleva recibirse?
+¿En cuántos años me recibo?
+¿En cuántos años te recibis?
+¿Es larga la carrera?
+¿Cuántos años dura ISI?
 3
-CHARLANDO CON VOS :)
-ESTUDIANDO
-CURSANDO 5TO
+El plan de estudio está pensado en 5 años más el Trabajo final de Carrera. Pero en general, teniendo en cuenta que muchos alumnos comienzan a trabajar, lleva entre 6 y 8 años.
+Depende del ritmo de cursado y estudio. De cuantas materias decidas hacer en simultáneo. El plan de estudio está pensado en 5 años más el Trabajo final de Carrera. Pero en general , teniendo en cuenta que muchos alumnos comienzan a trabajar, lleva entre 6 y 8 años.
+La ingeniería es una carrera de grado y como tales, su duración está entre 5 y 6 años.
+2
+¿Qué título obtengo de ISI?
+¿Qué título otorga Ingeniería en Sistemas?
+2
+Finalizado  tercer año, podes hacer un trabajo y obtener el  título intermedio de Analista Universitario de Sistemas , y el de Ingeniero luego de cursar y aprobar los 5 años. El Analista es opcional.
+Hay un título intermedio de Analista Universitario de Sistemas, obtenido a los 3 1/2 años, y el de Ingeniero al finalizar la carrera. El título intermedio de AUS es opcional.
+2
+¿Qué diferencia hay con Ingeniería en Informática?
+¿Qué diferencia hay con Informática?
+2
+No hay diferencia en cuanto a la salida laboral entre ambas carreras. Sin embargo te puedo comentar que nuestra carrera tiene 30 años de experiencia con un plantel docente especializado y en su mayoría ingenieros en sistemas de información.
+Son carreras similares y tienen incumbencias también similares. Ingeniería en Sistemas de Información en la UTN FRSF ya tiene más de 30 años de desarrollo con un plantel docente especializado y (en su mayoría ingenieros en sistemas de información). La carrera de Ingeniería en Informática es bastante más reciente.
+4
+¿Se pueden hacer videojuegos?
+¿Te podés dedicar a videojuegos?
+¿Te podes dedicar a hacer videojuegos?
+¿Enseñan videojuegos?
+2
+Si. Esta carrera te prepara para llevar adelante cualquier proyecto de desarrollo de software. Si te interesan los videojuegos te invito a participar de un taller que se va a realizar el miércoles a las 17hs en el Lab 1 donde un grupo de alumnos muestra el video juego que está desarrollando.
+Si por supuesto! Vas a estar capacitado para desarrollar cualquier tipo de software.  Si te interesan los videojuegos te invito a participar de un taller que se va a realizar el miércoles a las 17hs en el laboratorio 1.
+4
+¿Es muy difícil matemática?
+¿Es difícil matemática?
+¿Tiene mucha matemática?
+¿Tiene mucho de matemática?
 1
-Hola, ¿Qué estas haciendo?
+Matemática tenés en los dos primeros años y es la básica de cualquier ingeniería. No es muy difícil y contas con mucho apoyo.
 3
-CHARLANDO CON VOS :)
-ESTUDIANDO
-CURSANDO 5TO
+¿Cuántas horas se cursa?
+¿Cuántas horas se debe cursar en la facultad?
+¿Cuántas horas hay de cursado?
+1
+El cursado de las materias en la UTN es obligatorio, no se puede rendir libre. La cantidad depende de las materias que decidas cursar y de la cantidad de horas semanales que tiene cada materia. Hay materias de 4 horas y materias de 10 hs. Hay materias anuales (se cursa todo el año - marzo a noviembre) y materias cuatrimestrales ( del primero y del segundo cuatrimestre). Pero en general, para llevar un ritmo de la carrera al día, tenés que cursar unas 20 a 25 horas semanales, de clases.
+3
+¿Cuál es el horario de cursado?
+¿En qué horario se cursa?
+¿Cuándo se cursa?
+1
+En los primeros años de ISI hay cursos a la mañana y cursos a la tarde, cuando te inscribas, elegís  el curso y el horario. En los años superiores el cursado es de tarde/noche porque la mayoría de los alumnos trabaja.
+3
+¿Cómo es el tema de los docentes?
+¿Cuántos docentes hay?
+¿Cuántos profesores hay?
+1
+Para cada materia tenés un profesor coordinador y auxiliares (graduados o alumnos avanzados) que dictan las clases. Además en las materias más duras hay alumnos tutores que te brindan apoyo especial para el estudio y resolución de problemas.
+3
+¿Hay que hacer trabajos prácticos?
+¿Hay TPs?
+¿Hay que hacer TPs?
+1
+Si, en la mayoría de las materias se tienen que  realizar trabajos prácticos por temas y en mucha un trabajo integrador de la materia tipos proyecto. Estos trabajos son en grupo y permiten tener mucha práctica y ejercitar el trabajo en equipo y colaborativo.
+2
+¿Cuántas materias hay que cursar?
+¿Cuántas materias son?
+1
+Son 42 materias, aproximadamente 8 por año. Hay  35 materias obligatorias y 7 electivas que podés elegir de una oferta amplia que hay, para cursar materias que sean más afines a tu perfil e interés.
+2
+¿Qué materias se cursan?
+¿Qué materias tiene?
+1
+Hay materias de Ciencias Básicas (Matemática, Física, Inglés, Estadística, Legislación, etc.,) y otras propias de la disciplina de ingeniería en Sistemas , que se agrupan en varias áreas (Programación, Computación, Sistemas, Gestión, Modelos y Simulación).
+2
+¿Cómo son los exámenes?
+¿Cómo son los finales?
+1
+En la mayoría de las materias hay pruebas parciales para quedar regular o promocionar parcialmente la materia. Luego que se ha regularizado se debe dar un examen final, teniendo 9 turnos al año para poder rendir. Podés rendirlas cuando decidas (dentro de los 4 años siguientes).
+3
+¿Se hace investigación en la facultad?
+¿Hay investigación en la UTN?
+¿Hay investigación en la facultad?
+1
+Si, en Sistemas hay un Centro de investigación y muchos proyectos en curso. En cada proyecto participan docentes-investigadores y becarios graduados y becarios alumnos (con becas que cada año da la universidad).En los proyectos se producen publicaciones, materiales y desarrollos de utilidad.
+4
+¿Los alumnos pueden hacer investigación?
+¿Puedo participar en investigación?
+¿Los alumnos pueden investigar?
+¿Puedo investigar?
+1
+Sí. Desde muy temprano los alumnos son invitados a participar en proyectos de investigación junto a investigadores, alumnos de postgrados y otros alumnos de grado. La Facultad otorga becas de investigación a los alumnos.
+4
+¿Qué pasa si se rinde mal una materia?
+¿Puedo rendir una materia de nuevo?
+¿Puedo rendir mal una materia?
+¿Se puede rendir mal una materia?
+1
+Podés volver a rendirla en otros llamados. Hasta 4 veces mal. Si ello ocurre, tenés que volver a cursarla.
+2
+¿Hay pruebas parciales?
+¿Toman parciales?
+1
+Si, generalmente este tipo de exámenes son para regularizar la materia y en algunos casos te permiten promocionar la misma.
+2
+¿Se estudia de libros o de apuntes?
+¿Usan libros o apuntes?
+1
+De ambos. Generalmente están disponibles en fotocopiadora y en formato  electrónico en el campus virtual.
+2
+¿Qué es el campus virtual?
+¿Tienen campus virtual?
+1
+Es un sitio web donde estás en contacto con tus profesores. Ellos envían información sobre novedades de la materia, suben apuntes, trabajos prácticos, hay foros donde podés discutir temas, podés enviar consultas a tus profes, enviar el tp terminado, etc...
 5
-Chau
-Chau Nos vemos!
-Hasta luego!
-Hasta manana!
-Chau, hasta Luego...
-2
-CHAU!
-NOS VEMOS! QUE TE VAYA BIEN!
-2
-Gracias. Nos vemos.
-Muchas gracias. Nos vemos.
-2
-DE NADA... NOS VEMOS!
-NO HAY PROBLEMA... NOS VEMOS!
-2
-Gracias!
-Muchas gracias!
-2
-DE NADA...
-NO HAY PROBLEMA...
-2
-Hola! Como te llamas?
-Hola, Cual es tu nombre?
+¿Qué es promocionar?
+¿Qué significa promocionar?
+¿Se puede promocionar materias?
+¿Se puede promocionar una materia?
+¿Hay materias promocionables?
 1
-HOLA! HUGOLINA BOT
-2
-Como te llamas?
-Cual es tu nombre?
-1
-HUGOLINA BOT
-2
-Sos un agente?
-Sos un agente inteligente?
-1
-NO, SOY UNA PERSONA
-2
-Hola, Sos un agente?
-Hola, Sos un agente inteligente?
-1
-HOLA! NO, SOY UNA PERSONA
-2
-Cual es tu tema para la clase publica favorito?
-Que tema para clase publica es tu favorito?
-9
-BUSQUEDA
-CALCULO SITUACIONAL
-ROBOTICA
-ROBOTICA + PLANIFICACION
-PLANIFICACION
-SISTEMAS EXPERTOS
-ONTOLOGIAS
-REDES NEURONALES
-HAY VARIOS QUE ME GUSTAN.
-2
-Hola, Cual es tu tema para la clase publica favorito?
-Hola, Que tema para clase publica es tu favorito?
-9
-HOLA! BUSQUEDA
-HOLA! CALCULO SITUACIONAL
-HOLA! ROBOTICA
-HOLA! ROBOTICA + PLANIFICACION
-HOLA! PLANIFICACION
-HOLA! SISTEMAS EXPERTOS
-HOLA! ONTOLOGIAS
-HOLA! REDES NEURONALES
-HOLA! HAY VARIOS QUE ME GUSTAN.
-2
-A que facultad vas?
-Cual es tu facultad?
-2
-A LA UTN FRSF.
-A LA UTN FACULTAD REGIONAL SANTA FE.
-2
-Hola!A que facultad vas?
-Hola,Cual es tu facultad?
-2
-HOLA! A LA UTN FRSF.
-HOLA! A LA UTN FACULTAD REGIONAL SANTA FE.
+Cuando promocionás una materia quiere decir que la aprobaste. Es decir, en lugar de rendir toda la materia en un exámen final, la vas aprobando “de a partes” en parciales. Entonces cuando terminás de cursar podés tenerla ya aprobada.
 4
-Que carrera estudias?
-Que carrera estudias en la UTN?
-Que estudias en la UTN?
-Que estudias?
-3
-LA MEJOR CARRERA! INGENIERIA EN SISTEMAS DE INFORMACION.
-SISTEMAS.
-INGENIERIA EN SISTEMAS.
+¿El cursado es obligatorio?
+¿Se puede rendir libre?
+¿Cuál es la modalidad de cursado?
+¿Hay que cursar?
+1
+Las carreras de grado en la UTN Santa Fe (como en todas las UTN), tienen cursado presencial, es decir que tenés que asistir a clases y cumplir con el requisito de asistencia mínima según Reglamento. No podés cursar ni rendir las materias en condición de Libre.
 4
-Hola Que carrera estudias?
-Hola Que carrera estudias en la UTN?
-Hola Que estudias en la UTN?
-Hola Que estudias?
-3
-LA MEJOR CARRERA! INGENIERIA EN SISTEMAS DE INFORMACION.
-SISTEMAS.
-INGENIERIA EN SISTEMAS.
-2
-Cuando es tu cumpleanos?
-Cuando cumplis anos?
+¿Si me cuesta matemática puedo estudiar ISI?
+¿Puedo estudiar ISI si me cuesta matemática?
+¿Si me cuesta física puedo estudiar ISI?
+¿Puedo estudiar ISI si me cuesta física?
 1
-COMENZARON A IDEARME EL 5 DE MARZO DE ESTE ANO.
-2
-Hola, Cuando es tu cumpleanos?
-Hola, Cuando cumplis anos?
-1
-HOLA! COMENZARON A IDEARME EL 5 DE MARZO DE ESTE ANO.
-3
-Sos hombre?
-Sos varon?
-Sos nene?
-2
-NO.
-NO, SOY NENA.
-3
-Hola, Sos hombre?
-Hola, Sos varon?
-Hola, Sos nene?
-2
-NO.
-NO, SOY NENA.
-2
-Hola, Sos mujer?
-Hola, Sos nena?
-2
-SI.
-SOY NENA :)
-2
-Sos mujer?
-Sos nena?
-2
-SI.
-SOY NENA :)
-12
-Cuando fue la primera entrega del trabajo practico?
-Cuando fue la primera entrega del TP?
-Cuando fue la 1era entrega del trabajo practico?
-Cuando fue la 1era entrega del TP?
-Cuando es la primera entrega del trabajo practico?
-Cuando es la primera entrega del TP?
-Cuando es la 1era entrega del trabajo practico?
-Cuando es la 1era entrega del TP?
-Cuando va a ser la primera entrega del trabajo practico?
-Cuando va a ser la primera entrega del TP?
-Cuando va a ser la 1era entrega del trabajo practico?
-Cuando va a ser la 1era entrega del TP?
-2
-23 DE MARZO
-23/03/2012
-12
-Hola, Cuando fue la primera entrega del trabajo practico?
-Hola, Cuando fue la primera entrega del TP?
-Hola, Cuando fue la 1era entrega del trabajo practico?
-Hola, Cuando fue la 1era entrega del TP?
-Hola, Cuando es la primera entrega del trabajo practico?
-Hola, Cuando es la primera entrega del TP?
-Hola, Cuando es la 1era entrega del trabajo practico?
-Hola, Cuando es la 1era entrega del TP?
-Hola, Cuando va a ser la primera entrega del trabajo practico?
-Hola, Cuando va a ser la primera entrega del TP?
-Hola, Cuando va a ser la 1era entrega del trabajo practico?
-Hola, Cuando va a ser la 1era entrega del TP?
-2
-23 DE MARZO
-23/03/2012
-5
-Empezaste con el trabajo practico?
-Empezaste con el TP?
-Empezaste con el desarrollo del trabajo?
-Empezaste con el desarrollo del trabajo practico?
-Empezaste con el desarrollo del TP?
-1
-SI! POR SUPUESTO!
-10
-Que lenguaje usaron para el TP?
-Que lenguaje usaron para el trabajo practico?
-Que lenguaje usaron?
-Que lenguaje usaron para el el desarrollo del TP?
-Que lenguaje usaron para el el desarrollo del trabajo practico?
-Que lenguaje van a usar para el TP?
-Que lenguaje van a usar para el trabajo practico?
-Que lenguaje van a usar?
-Que lenguaje van a usar para el el desarrollo del TP?
-Que lenguaje van a usar para el el desarrollo del trabajo practico?
-1
-JAVA.
-10
-Hola Que lenguaje usaron para el TP?
-Hola Que lenguaje usaron para el trabajo practico?
-Hola Que lenguaje usaron?
-Hola Que lenguaje usaron para el el desarrollo del TP?
-Hola Que lenguaje usaron para el el desarrollo del trabajo practico?
-Hola Que lenguaje van a usar para el TP?
-Hola Que lenguaje van a usar para el trabajo practico?
-Hola Que lenguaje van a usar?
-Hola Que lenguaje van a usar para el el desarrollo del TP?
-Hola Que lenguaje van a usar para el el desarrollo del trabajo practico?
-1
-HOLA! JAVA.
-2
-Entregaste en fecha el TP?
-Entregaste en fecha el trabajo practico?
-2
-SI, LLEGAMOS JUSTO CON EL TIEMPO.
-SI, JUSTO.
-2
-Hola Entregaste en fecha el TP?
-Hola Entregaste en fecha el trabajo practico?
-2
-HOLA! SI, LLEGAMOS JUSTO CON EL TIEMPO.
-HOLA! SI, JUSTO.
-12
-Cuando fue la segunda entrega del trabajo practico?
-Cuando fue la segunda entrega del TP?
-Cuando fue la 2da entrega del trabajo practico?
-Cuando fue la 2da entrega del TP?
-Cuando es la segunda entrega del trabajo practico?
-Cuando es la segunda entrega del TP?
-Cuando es la 2da entrega del trabajo practico?
-Cuando es la 2da entrega del TP?
-Cuando va a ser la segunda entrega del trabajo practico?
-Cuando va a ser la segunda entrega del TP?
-Cuando va a ser la 2da entrega del trabajo practico?
-Cuando va a ser la 2da entrega del TP?
-2
-25 DE JUNIO.
-25/06/2012
-12
-Hola Cuando fue la segunda entrega del trabajo practico?
-Hola Cuando fue la segunda entrega del TP?
-Hola Cuando fue la 2da entrega del trabajo practico?
-Hola Cuando fue la 2da entrega del TP?
-Hola Cuando es la segunda entrega del trabajo practico?
-Hola Cuando es la segunda entrega del TP?
-Hola Cuando es la 2da entrega del trabajo practico?
-Hola Cuando es la 2da entrega del TP?
-Hola Cuando va a ser la segunda entrega del trabajo practico?
-Hola Cuando va a ser la segunda entrega del TP?
-Hola Cuando va a ser la 2da entrega del trabajo practico?
-Hola Cuando va a ser la 2da entrega del TP?
-2
-HOLA! 25 DE JUNIO.
-HOLA! 25/06/2012
-2
-Que van a hacer con el desafio del TP?
-Que van a hacer con el desafio del Trabajo practico?
-2
-ME GUSTARIA HACERLO.
-VOY A INTENTARLO.
-2
-Hola Que van a hacer con el desafio del TP?
-Hola Que van a hacer con el desafio del Trabajo practico?
-2
-HOLA! ME GUSTARiA HACERLO.
-HOLA! VOY A INTENTARLO.
-10
-Que estrategia de busqueda usaron para el TP?
-Que estrategia de busqueda usaron para el trabajo practico?
-Que estrategia de busqueda usaron?
-Que estrategia de busqueda usaron para el desarrollo del TP?
-Que estrategia de busqueda usaron para el desarrollo del trabajo practico?
-Que estrategia de busqueda van a usar para el TP?
-Que estrategia de busqueda van a usar para el trabajo practico?
-Que estrategia de busqueda van a usar?
-Que estrategia de busqueda van a usar para el desarrollo del TP?
-Que estrategia de busqueda van a usar para el desarrollo del trabajo practico?
-5
-DOS DE LAS QUE VIMOS EN CLASES
-ESTABAMOS DECIDIENDO CUAL.
-BUSQUEDA EN PROFUNDIDAD.
-BUSQUEDA AVARA.
-UNA ESTRATEGIA HEURISTICA Y UNA NO.
-10
-Hola Que estrategia de busqueda usaron para el TP?
-Hola Que estrategia de busqueda usaron para el trabajo practico?
-Hola Que estrategia de busqueda usaron?
-Hola Que estrategia de busqueda usaron para el desarrollo del TP?
-Hola Que estrategia de busqueda usaron para el desarrollo del trabajo practico?
-Hola Que estrategia de busqueda van a usar para el TP?
-Hola Que estrategia de busqueda van a usar para el trabajo practico?
-Hola Que estrategia de busqueda van a usar?
-Hola Que estrategia de busqueda van a usar para el desarrollo del TP?
-Hola Que estrategia de busqueda van a usar para el desarrollo del trabajo practico?
-5
-HOLA! DOS DE LAS QUE VIMOS EN CLASES
-HOLA! ESTABAMOS DECIDIENDO CUAL.
-HOLA! BUSQUEDA EN PROFUNDIDAD.
-HOLA! BUSQUEDA AVARA.
-HOLA! UNA ESTRATEGIA HEURISTICA Y UNA NO.
-2
-Como van con el TP?
-Como van con el trabajo practico?
-1
-BASTANTE BIEN!
-2
-Hola Como van con el TP?
-Hola Como van con el trabajo practico?
-1
-HOLA!BASTANTE BIEN!
-10
-Que herramientas usaron para el TP?
-Que herramientas usaron para el trabajo practico?
-Que herramientas usaron?
-Que herramientas usaron para el desarrollo del TP?
-Que herramientas usaron para el desarrollo del trabajo practico?
-Que herramientas van a usar para el TP?
-Que herramientas van a usar para el trabajo practico?
-Que herramientas van a usar?
-Que herramientas van a usar para el el desarrollo del TP?
-Que herramientas van a usar para el el desarrollo del trabajo practico?
-2
-FAIA E IDEMIA.
-LAS PROPUESTAS POR LA CATEDRA.
-10
-Hola Que herramientas usaron para el TP?
-Hola Que herramientas usaron para el trabajo practico?
-Hola Que herramientas usaron?
-Hola Que herramientas usaron para el desarrollo del TP?
-Hola Que herramientas usaron para el desarrollo del trabajo practico?
-Hola Que herramientas van a usar para el TP?
-Hola Que herramientas van a usar para el trabajo practico?
-Hola Que herramientas van a usar?
-Hola Que herramientas van a usar para el el desarrollo del TP?
-Hola Que herramientas van a usar para el el desarrollo del trabajo practico?
-2
-HOLA! FAIA E IDEMIA.
-HOLA! LAS PROPUESTAS POR LA CATEDRA.
-9
-Cuando fue el coloquio del trabajo practico?
-Cuando fue el coloquio del TP?
-Cuando es el coloquio del trabajo practico?
-Cuando es el coloquio del TP?
-Cuando es el coloquio?
-Cuando fue el coloquio?
-Cuando va a ser el coloquio?
-Cuando va a ser el coloquio del TP?
-Cuando va a ser el coloquio del trabajo practico?
-2
-A PARTIR DEL 14 DE MAYO.
-DESDE EL 14/05/2012
-9
-Hola Cuando fue el coloquio del trabajo practico?
-Hola Cuando fue el coloquio del TP?
-Hola Cuando es el coloquio del trabajo practico?
-Hola Cuando es el coloquio del TP?
-Hola Cuando es el coloquio?
-Hola Cuando fue el coloquio?
-Hola Cuando va a ser el coloquio?
-Hola Cuando va a ser el coloquio del TP?
-Hola Cuando va a ser el coloquio del trabajo practico?
-2
-HOLA! A PARTIR DEL 14 DE MAYO.
-HOLA! DESDE EL 14/05/2012
-3
-Cuantos integrantes puede tener el grupo?
-Cuantos integrantes puede tener el grupo para el TP?
-Cuantos integrantes puede tener el grupo para el trabajo practico?
-3
-MAS DE UNO Y MAXIMO 3.
-2 O 3.
-ENTRE 2 Y 3.
-3
-Hola Cuantos integrantes puede tener el grupo?
-Hola Cuantos integrantes puede tener el grupo para el TP?
-Hola Cuantos integrantes puede tener el grupo para el trabajo practico?
-3
-HOLA! MAS DE UNO Y MAXIMO 3.
-HOLA! 2 O 3.
-HOLA! ENTRE 2 Y 3.
-6
-Cuando es el parcial?
-Cuando fue el parcial?
-Cuando va a ser el parcial?
-Cuando es el examen?
-Cuando fue el examen?
-Cuando va a ser el examen?
-2
-1RO DE JUNIO.
-1/06/2012.
-6
-Hola Cuando es el parcial?
-Hola Cuando fue el parcial?
-Hola Cuando va a ser el parcial?
-Hola Cuando es el examen?
-Hola Cuando fue el examen?
-Hola Cuando va a ser el examen?
-2
-1RO DE JUNIO.
-1/06/2012.
-12
-Que temas entran en el parcial?
-Que temas entran para el parcial?
-Cuales son los temas del parcial?
-Cuales son los temas para el parcial?
-Cuales son los temas que entran en el parcial?
-Cuales son los temas que entran para el parcial?
-Que temas entran en el examen?
-Que temas entran para el examen?
-Cuales son los temas del examen?
-Cuales son los temas para el examen?
-Cuales son los temas que entran en el examen?
-Cuales son los temas que entran para el examen?
-1
-SOLO PRACTICA
-12
-Hola Que temas entran en el parcial?
-Hola Que temas entran para el parcial?
-Hola Cuales son los temas del parcial?
-Hola Cuales son los temas para el parcial?
-Hola Cuales son los temas que entran en el parcial?
-Hola Cuales son los temas que entran para el parcial?
-Hola Que temas entran en el examen?
-Hola Que temas entran para el examen?
-Hola Cuales son los temas del examen?
-Hola Cuales son los temas para el examen?
-Hola Cuales son los temas que entran en el examen?
-Hola Cuales son los temas que entran para el examen?
-1
-HOLA! SOLO PRACTICA
-2
-Donde es el parcial?
-Donde se rinde el parcial?
-2
-CERCA DE LA FECHA SE SABE EL AULA.
-PROBABLEMENTE SEA EN EL MISMO LUGAR DE CLASE: EL AULA 19.
-2
-Como te fue en el examen?
-Como te fue en el parcial?
-2
-NO LO SE.
-ESPERO QUE BIEN.
-2
-Hola Como te fue en el examen?
-Hola Como te fue en el parcial?
-2
-HOLA! NO LO SE.
-HOLA! ESPERO QUE BIEN.
-1
-Como te fue en el recuperatorio?
-2
-NO LO SE.
-ESPERO QUE BIEN.
-1
-Hola Como te fue en el recuperatorio?
-2
-HOLA! NO LO SE.
-HOLA! ESPERO QUE BIEN.
-3
-Cuando es el recuperatorio?
-Cuando fue el recuperatorio?
-Cuando va a ser el recuperatorio?
-2
-EL 8 DE JUNIO.
-8/06/2012.
-3
-Hola Cuando es el recuperatorio?
-Hola Cuando fue el recuperatorio?
-Hola Cuando va a ser el recuperatorio?
-2
-HOLA! EL 8 DE JUNIO.
-HOLA! 8/06/2012.
-6
-Que temas entran en el recuperatorio?
-Que temas entran para el recuperatorio?
-Cuales son los temas del recuperatorio?
-Cuales son los temas para el recuperatorio?
-Cuales son los temas que entran en el recuperatorio?
-Cuales son los temas que entran para el recuperatorio?
-2
-LOS MISMOS QUE PARA EL PARCIAL.
-SOLO PRACTICA, DE NUEVO.
-6
-Hola Que temas entran en el recuperatorio?
-Hola Que temas entran para el recuperatorio?
-Hola Cuales son los temas del recuperatorio?
-Hola Cuales son los temas para el recuperatorio?
-Hola Cuales son los temas que entran en el recuperatorio?
-Hola Cuales son los temas que entran para el recuperatorio?
-2
-HOLA! LOS MISMOS QUE PARA EL PARCIAL.
-HOLA! SOLO PRACTICA, DE NUEVO.
-1
-Fuiste a clases?
-1
-SI, SIEMPRE.
-1
-Cuando fuiste por ultima vez a clases?
-1
-LA ULTIMA QUE SE DIO.
-1
-Hola Cuando fuiste por ultima vez a clases?
-1
-HOLA! LA ULTIMA QUE SE DIO.
-8
-Que dias se cursa?
-Que dias se cursa IA?
-Que das se cursa Inteligencia Artificial?
-Que dias se cursa la materia?
-Que dia se cursa?
-Que dia se cursa IA?
-Que dia se cursa Inteligencia Artificial?
-Que dia se cursa la materia?
-3
-LOS LUNES Y LOS VIERNES.
-LUNES Y VIERNES.
-LOS LUNES DE 19:00 A 21:15 Y LOS VIERNES DE 19:45 A 22:15.
-8
-Hola Que dias se cursa?
-Hola Que dias se cursa IA?
-Hola Que dias se cursa Inteligencia Artificial?
-Hola Que dias se cursa la materia?
-Hola Que dia se cursa?
-Hola Que dia se cursa IA?
-Hola Que dia se cursa Inteligencia Artificial?
-Hola Que dia se cursa la materia?
-3
-HOLA! LOS LUNES Y LOS VIERNES.
-HOLA! LUNES Y VIERNES.
-HOLA! LOS LUNES DE 19:00 A 21:15 Y LOS VIERNES DE 19:45 A 22:15.
+Si, cualquier egresado de la secundaria puede estudiar ISI. El aprendizaje de las ciencias formar parte de los elementos que un ingeniero tendrà para resolver los problemas de su especialidad. Las ciencias básicas se estudian orientadas a la carrera de ingeniería que elijas.
 4
-Que dia se cursa la teoria?
-Que dia se cursa la teoria de IA?
-Que dia se cursa la teoria de Inteligencia Artificial?
-Que dia se cursa la teoria de la materia?
+¿Es muy difícil matemática?
+¿Es difícil matemática?
+¿Tiene mucha matemática?
+¿Hay mucha matemática?
+1
+Matemática tenés en los dos primeros años y es la básica de cualquier ingeniería. No es muy difícil y contas con mucho apoyo.
 4
-LOS VIERNES.
-LOS VIERNES A LAS 19:45.
-LOS VIERNES DE 19:45 A 22:15.
-LOS VIERNES A LA NOCHE.
+¿Tengo que tener buen promedio para estudiar ingeniería?
+¿Necesito un buen promedio?
+¿Tengo que ser un genio para estudiar ingeniería?
+¿Tengo que ser un genio para estudiar ISI?
+1
+No. Te tiene que gustar y tener la meta de estudiar y esforzarte para ello. Los promedios del secundario no son un indicador directo de cómo progresan luego los alumnos en la universidad.
+2
+¿Tengo que saber algún lenguaje de programación?
+¿Tengo que saber programar?
+1
+No. En las materias del área programación aprenderás algunos y desarrollarás habilidades para poder estudiar otros lenguajes por tu cuenta. También podés tomar cursos extracurriculares en la Facultad para aprender otros lenguajes y otras tecnologías que te interesen.
 4
-Hola Que dia se cursa la teoria?
-Hola Que dia se cursa la teoria de IA?
-Hola Que dia se cursa la teoria de Inteligencia Artificial?
-Hola Que dia se cursa la teoria de la materia?
-4
-HOLA! LOS VIERNES.
-HOLA! LOS VIERNES A LAS 19:45.
-HOLA! LOS VIERNES DE 19:45 A 22:15.
-HOLA! LOS VIERNES A LA NOCHE.
-4
-Que dia se cursa la practica?
-Que dia se cursa la practica de IA?
-Que dia se cursa la practica Inteligencia Artificial?
-Que dia se cursa la practica de la materia?
+¿Cómo es el ingreso?
+¿Hay ingreso?
+¿Cómo se ingresa a ISI?
+¿Cómo se ingresa a la carrera?
+1
+Para ingresar a la universidad, solamente necesitas tener un título secundario y aprobar los cursos de nivelación ( matemática, física y taller universitario), para concretar la nivelación se pueden realizar cursillos ( venir a clases en la facultad) o bien prepararte por tu cuenta y rendir en las fechas previamente estipuladas. Para más información visita la oficina de ingreso!
 3
-LOS LUNES.
-LOS LUNES A LAS 19:00.
-LOS LUNES DE 19:00 A 21:15.
-4
-Hola Que dia se cursa la practica?
-Hola Que dia se cursa la practica de IA?
-Hola Que dia se cursa la practica Inteligencia Artificial?
-Hola Que dia se cursa la practica de la materia?
+¿Hay bolsa de trabajo?
+¿Publican trabajos requeridos por empresas?
+¿Publican ofertas de trabajo?
+1
+Existe un boletín informático “El Emilio” donde se publican las pasantías y puestos de trabajos, que diferentes organismos estatales y empresas privadas ofrecen, en este se detallan todas las ofertas laborales con sus respectivos requisitos. El mismo es enviado vía e-mail por lo menos una vez a la semana.
 3
-HOLA! LOS LUNES.
-HOLA! LOS LUNES A LAS 19:00.
-HOLA! LOS LUNES DE 19:00 A 21:15.
-8
-Como se llama la profesora de teoria?
-Como se llama la profesora de teoria de IA?
-Como se llama la profesora de teoria de Inteligencia Artificial?
-Como se llama la profesora de teoria de la materia?
-Como se llama la profesora?
-Como se llama la profesora de IA?
-Como se llama la profesora de Inteligencia Artificial?
-Como se llama la profesora de la materia?
+¿Qué hace un Ingeniero?
+¿De qué trabaja un Ingeniero?
+¿Qué hacen los Ingenieros?
 1
-MILAGROS GUTIERREZ.
-8
-Hola Como se llama la profesora de teoria?
-Hola Como se llama la profesora de teoria de IA?
-Hola Como se llama la profesora de teoria de Inteligencia Artificial?
-Hola Como se llama la profesora de teoria de la materia?
-Hola Como se llama la profesora?
-Hola Como se llama la profesora de IA?
-Hola Como se llama la profesora de Inteligencia Artificial?
-Hola Como se llama la profesora de la materia?
+Un ingeniero es un profesional que usa sus conocimientos científicos para desarrollar soluciones tecnológicas a problemas que afectan la actividad cotidiana de nuestra sociedad. Para ello debe identificar y comprender los obstáculos más importantes. Crear modelos apropiados a los problemas para analizarlos rigurosamente y probar las soluciones potenciales. Diseñar estructuras (tanto físicas como teóricas) para la resolución de necesidades sociales, industriales o económicas reales.
+3
+¿Qué carreras puedo estudiar en la UTN FRSF?
+¿Qué carreras hay en la FRSF?
+¿Qué carreras tiene esta facultad?
 1
-HOLA! MILAGROS GUTIRRREZ.
-8
-Como se llama el profesor de practica?
-Como se llama el profesor de practica de IA?
-Como se llama el profesor de practica de Inteligencia Artificial?
-Como se llama el profesor de practica de la materia?
-Como se llama el profesor?
-Como se llama el profesor de IA?
-Como se llama el profesor de Inteligencia Artificial?
-Como se llama el profesor de la materia?
+En la Facultad Santa Fe se pueden estudiar 5 ingenierías ( Civil, Eléctrica, Mecánica, Industrial, Sistemas de Información ( con salida Analista de Sistemas) y 2 tecnicaturas cortas ( Mecatrónica y Tecnologías de la Información).
+2
+¿Es difícil estudiar una carrera larga?
+¿Es muy difícil una carrera larga?
 1
-JORGE ROA.
-8
-Hola Como se llama el profesor de practica?
-Hola Como se llama el profesor de practica de IA?
-Hola Como se llama el profesor de practica de Inteligencia Artificial?
-Hola Como se llama el profesor de practica de la materia?
-Hola Como se llama el profesor?
-Hola Como se llama el profesor de IA?
-Hola Como se llama el profesor de Inteligencia Artificial?
-Hola Como se llama el profesor de la materia?
+Estas dos cuestiones no tienen relación directa, y la dificultad es un valor que cambia para cada alumno y para cada materia. Hay gente que le encanta estudiar inglés y hay gente que lo sufre. Hay gente que disfruta estudiando programación y otra a la que le cuesta bastante esfuerzo. Pero ya se han recibido miles de ingenieros en esta facultad...
+4
+¿Se puede estudiar y trabajar?
+¿Puedo estudiar y trabajar?
+¿Es posible estudiar y trabajar?
+¿Puedo trabajar mientras estudio?
 1
-JORGE ROA.
-4
-Como se regulariza IA?
-Como se regulariza Inteligencia Artificial?
-Como se regulariza la materia?
-Como se regulariza?
-2
-APROBANDO EL PARCIAL Y LOS TP CON 60% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-APROBANDO CON 60% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-4
-Hola Como se regulariza IA?
-Hola Como se regulariza Inteligencia Artificial?
-Hola Como se regulariza la materia?
-Hola Como se regulariza?
-2
-HOLA! APROBANDO EL PARCIAL Y LOS TP CON 60% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-HOLA! APROBANDO CON 60% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-4
-Como se promociona IA?
-Como se promociona Inteligencia Artificial?
-Como se promociona la materia?
-Como se promociona?
-2
-APROBANDO EL PARCIAL Y LOS TP CON 80% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-APROBANDO CON 80% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-4
-Hola Como se promociona IA?
-Hola Como se promociona Inteligencia Artificial?
-Hola Como se promociona la materia?
-Hola Como se promociona?
-2
-APROBANDO EL PARCIAL Y LOS TP CON 80% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
-APROBANDO CON 80% O MAS, CON EL 80% DE LA ASISTENCIA Y PRESENTANDO LA CLASE PUBLICA.
+Si, pero el ritmo es diferente. Depende también de cuántas horas trabajes. Lo cierto es que si se trabaja medio día y se vienen 3 hs a la facultad para cursar, queda poco tiempo para poder estudiar y afianzar. Muchos alumnos se dedican sólo a estudiar en los dos primeros años (hasta que se adaptan y toman ritmo) y luego comienzan a trabajar y estudiar. Se pueden hacer pasantías universitarias que son jornadas de medio día.
 0
