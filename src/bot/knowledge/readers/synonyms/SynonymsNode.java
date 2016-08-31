@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * any type of processing of the words. It uses them as received.
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
-public class SynonymsNode {
+class SynonymsNode {
     /**
      * Key word that replaces all the other words
      */
@@ -26,7 +26,7 @@ public class SynonymsNode {
      * @param key Key word that represents this node
      * @param s List of synonyms to be added.
      */
-    public SynonymsNode(String key, LinkedList<LinkedList<String>> s) {
+    SynonymsNode(String key, LinkedList<LinkedList<String>> s) {
         // Save the keyword
         keyword = key;
 
@@ -39,7 +39,7 @@ public class SynonymsNode {
      * Getter to obtain the keyword of this node.
      * @return The keyword of this node.
      */
-    public String getKeyword() {
+    String getKeyword() {
         return keyword;
     }
 
@@ -49,7 +49,7 @@ public class SynonymsNode {
      * for the keyword of the instance.
      * @return List of synonyms.
      */
-    public LinkedList<LinkedList<String>> getSynonyms() {
+    LinkedList<LinkedList<String>> getSynonyms() {
         return synonyms;
     }
 

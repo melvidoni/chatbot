@@ -10,7 +10,7 @@ import frsf.cidisi.faia.environment.Environment;
  * what happens on the environment. Extends Perception from FAIA.
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
-public class ChatbotPerception extends Perception {
+class ChatbotPerception extends Perception {
 
     /**
      * Question entered to the agent
@@ -22,7 +22,7 @@ public class ChatbotPerception extends Perception {
     /**
      * Empty default constructor
      */
-    public ChatbotPerception() {
+    ChatbotPerception() {
         // Call the parent's constructor
         super();
         questionSentence = "";
@@ -35,7 +35,7 @@ public class ChatbotPerception extends Perception {
      * @param agent The agent to work with.
      * @param environment The environment in which the agent is localted.
      */
-    public ChatbotPerception(Agent agent, Environment environment) {
+    ChatbotPerception(Agent agent, Environment environment) {
         // Call the parent's constructor
         super(agent, environment);
         questionSentence = "";
@@ -61,7 +61,7 @@ public class ChatbotPerception extends Perception {
      * Getter to obtain the current question on the perception.
      * @return The current question.
      */
-    public String getQuestionSentence() {
+    String getQuestionSentence() {
         return questionSentence;
     }
 
@@ -71,7 +71,7 @@ public class ChatbotPerception extends Perception {
      * Setter to set a new question as a perception.
      * @param qs The new question to be set.
      */
-    public void setQuestionSentence(String qs) {
+    void setQuestionSentence(String qs) {
         questionSentence = qs;
     }
 }

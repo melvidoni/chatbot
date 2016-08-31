@@ -5,7 +5,10 @@ import bot.knowledge.record.Record;
 import frsf.cidisi.faia.state.EnvironmentState;
 
 /**
- * Created by Melina on 26/08/2016.
+ * Class that represents the state of the environment in which
+ * the intelligent agent works. It extends EnvironmentState from FAIA.
+ * @see frsf.cidisi.faia.state.EnvironmentState
+ * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class ChatbotEnvironmentState extends EnvironmentState {
     /**

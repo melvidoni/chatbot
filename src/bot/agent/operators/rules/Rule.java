@@ -53,17 +53,12 @@ public class Rule {
     /**
      * Overrides the default comparison to give the Rule a custom
      * comparison process.
-     * @param obj The object to be compared with.
+     * @param r The object to be compared with.
      * @return true if the compared objects are equal, false otherwise.
      */
-    @Override
-    public boolean equals(Object obj) {
-        // If this is a rule
-        if(obj instanceof Rule)
-            // Then compare the ids
-            return ruleID.equals(((Rule) obj).getRuleID());
-            // Otherwise it is false
-        else return false;
+    public boolean equals(Rule r) {
+        // If this is a rule return the id, otherwise false
+        return ruleID.equals((r.getRuleID()));
     }
 
 

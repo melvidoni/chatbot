@@ -45,8 +45,8 @@ public class Graph {
      * Default private constructor of the class.
      */
     private Graph() {
-        nodes = new LinkedList<GraphNode>();
-        map = new TreeMap<String, GraphNode>();
+        nodes = new LinkedList<>();
+        map = new TreeMap<>();
     }
 
 
@@ -67,7 +67,7 @@ public class Graph {
      */
     public LinkedList<String> successorsName(String nodeName) {
         // Prepare a list
-        LinkedList<String> sNames = new LinkedList<String>();
+        LinkedList<String> sNames = new LinkedList<>();
 
         // Get the node to be studied
         GraphNode node = map.get(nodeName);

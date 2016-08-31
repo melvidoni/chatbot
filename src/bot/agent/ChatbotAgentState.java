@@ -104,6 +104,7 @@ public class ChatbotAgentState extends SearchBasedAgentState {
      * without modifying it. This is used for the search.
      * @return A clone of the chatbot's state.
      */
+    @SuppressWarnings({"CloneDoesntCallSuperClone", "unchecked"})
     @Override
     public ChatbotAgentState clone() {
         // Get a new variable

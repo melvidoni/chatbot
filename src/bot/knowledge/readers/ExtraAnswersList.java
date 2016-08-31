@@ -80,20 +80,19 @@ public class ExtraAnswersList {
                 // First, split the line in two
                 String[] mainSplit = line.split("\\|");
 
-                // First is the id, second the answer
-                if(mainSplit[0].equals("RR")) {
-                    // Create the rule RR
-                    ruleRR = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
-                }
-                // If not, then it is RE
-                else if(mainSplit[0].equals("RE")) {
-                    // Create the rule RE
-                    ruleRE = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
-                }
-                // If not, it is RM
-                else if(mainSplit[0].equals("RM")) {
-                    // Create the rule RM
-                    ruleRM = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                // Check with the ID
+                switch (mainSplit[0]) {
+                    case "RR": // Create the rule RR
+                               ruleRR = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                               break;
+
+                    case "RE": // Create the rule RE
+                               ruleRE = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                               break;
+
+                    case "RM": // Create the rule RM
+                               ruleRM = new Rule(new LinkedList<>(), mainSplit[1], mainSplit[0]);
+                               break;
                 }
             }
 

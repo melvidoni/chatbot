@@ -29,7 +29,10 @@ public abstract class Controller {
      * after the fxml file has been loaded.
      */
     @FXML
-    private void initialize() { }
+    private void initialize() {
+        // Start the mainApp as null.
+        mainApp = null;
+    }
 
 
     /**
@@ -39,7 +42,6 @@ public abstract class Controller {
     public void setMainApp(MainApp ma) {
         mainApp = ma;
     }
-
 
 
 }

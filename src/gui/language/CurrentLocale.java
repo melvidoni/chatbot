@@ -3,8 +3,13 @@ package gui.language;
 
 import java.util.Locale;
 
+
 /**
- * Created by Melina on 30/08/2016.
+ * Class that stores the information about the current locale of the
+ * agent. It stores a Locale and a custom enum for the language. It is
+ * initialized on Spanish.
+ * @see ChatbotLanguage
+ * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
 public class CurrentLocale {
     private Locale locale;

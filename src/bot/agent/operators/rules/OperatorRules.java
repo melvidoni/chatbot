@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * and its rules.
  * @author Melina Vidoni, INGAR CONICET-UTN, 2016.
  */
-public class OperatorRules {
+class OperatorRules {
     /**
      * The operator word
      */
@@ -25,7 +25,7 @@ public class OperatorRules {
      * Default constructor of the class
      * @param operatorName Destination word of the operator.
      */
-    public OperatorRules(String operatorName) {
+    OperatorRules(String operatorName) {
         operatorWord = operatorName;
         relatedRules = new LinkedList<>();
     }
@@ -38,7 +38,7 @@ public class OperatorRules {
      * @param answer The answer that must be given by the bot.
      * @param id The identification of the rule.
      */
-    public void addRule(LinkedList<String> question, String answer, String id) {
+    void addRule(LinkedList<String> question, String answer, String id) {
         // Create a new rule and add it
         relatedRules.addLast(new Rule(question, answer, id));
     }
@@ -49,7 +49,7 @@ public class OperatorRules {
      * Getter to obtain the word that identifies the operator.
      * @return Destination word of the operator
      */
-    public String getOperatorWord() {
+    String getOperatorWord() {
         return operatorWord;
     }
 
@@ -59,7 +59,7 @@ public class OperatorRules {
      * Getter to obtain the rules related to the operator.
      * @return List of rules related to the operator
      */
-    public LinkedList<Rule> getRelatedRules() {
+    LinkedList<Rule> getRelatedRules() {
         return relatedRules;
     }
 
@@ -73,7 +73,7 @@ public class OperatorRules {
      * @param anAnswer The answer in text for to look for on the operator's list.
      * @return If such rule was found, returns the ID, otherwise it returns an empty string.
      */
-    public String ifExistsGetRuleID(String anAnswer) {
+    String ifExistsGetRuleID(String anAnswer) {
         // Go through each available rule
         for(Rule aRule: relatedRules) {
             // If this rule has the same text

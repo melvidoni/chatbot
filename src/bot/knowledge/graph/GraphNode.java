@@ -29,7 +29,7 @@ public class GraphNode {
         name = n.toUpperCase();
 
         // Prepare the list
-        successors = new LinkedList<GraphNode>();
+        successors = new LinkedList<>();
     }
 
 
