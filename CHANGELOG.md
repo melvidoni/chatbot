@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/), and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+# [2.0.1] - 2016-09-01
+### Added
+- New questions in Spanish
+- Set up a name for the chatbot.
+
+
 ## [2.0.0] - 2016-08-31
 ### Added
 - Chatbot answers according to the defined knowledge.
