@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/155204989.svg)](https://zenodo.org/badge/latestdoi/155204989)
+
 # Chatbot
 This is an intelligent agent that works as a chatbot: a soft-bot (software-based robot) that can chat with the user.
 It is a search based agent, and is capable of understanding and answering only the questions that are stored on its knowledge. Since that knowledge is written on simple plain text files, it can be easily changed.
