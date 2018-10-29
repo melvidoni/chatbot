@@ -29,11 +29,11 @@ Buenos días.
 0
 ```
 
-#### Prerequisities
+# Installing
 The agent is only available for Windows, and the PC must have the [Java JDK 8u102](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed before the agent can be executed.
 
-#### Installing
 To install the chatbot, follow the next steps:
+
 1. [Download the latest release](https://github.com/melvidoni/chatbot/releases/tag/2.0.1).
 1. Uncompress the *.rar file with "Extract here".
 1. Go to your system's drive (`C:/`)
