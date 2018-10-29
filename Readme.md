@@ -29,7 +29,7 @@ Buenos días.
 0
 ```
 
-# Installing
+## Installing
 The agent is only available for Windows, and the PC must have the [Java JDK 8u102](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed before the agent can be executed.
 
 To install the chatbot, follow the next steps:
